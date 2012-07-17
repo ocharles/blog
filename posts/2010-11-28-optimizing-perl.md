@@ -165,12 +165,14 @@ bottleneck. This function decodes a string from an old encoding format, into a
 Perl string. The initial implementation of the function, copied straight out of
 the legacy code base was:
 
-    sub _decode_value {
-        my ($scheme, $data) = $_[1] =~ /\A\x1B(\w+);(.*)\z/s
-        	or return $_[1];
-        return uri_unescape($data) if $scheme eq "URI";
-        die "Unknown encoding scheme '$scheme'";
-    }
+```perl
+sub _decode_value {
+    my ($scheme, $data) = $_[1] =~ /\A\x1B(\w+);(.*)\z/s
+        or return $_[1];
+    return uri_unescape($data) if $scheme eq "URI";
+    die "Unknown encoding scheme '$scheme'";
+}
+```
 
 Our initial approach was to memoize this. However, the hit rate is fairly low,
 so this still didn’t truly help the problem. But looking at this code it felt as
@@ -182,10 +184,12 @@ present, and a further condition for the scheme itself? But there is only a
 single possible scheme! With this understand, we can use this much more
 efficient code:
 
-    sub decode_value {
-        my $value = shift;
-        return uri_unescape(substr($value, 5));
-    }
+```perl
+sub decode_value {
+    my $value = shift;
+    return uri_unescape(substr($value, 5));
+}
+```
 
 This code doesn’t scale well, if the scheme changes, but we know this cannot
 happen – as the data we are operating on has already been created (and as the

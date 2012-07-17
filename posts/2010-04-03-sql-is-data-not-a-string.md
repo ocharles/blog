@@ -30,32 +30,38 @@ the API. That, is if I do `Artist->get_by_id`, I shouldn’t see this relationsh
 at all. It turns out with roles and a bit of method modification, we can
 introduce this transparently. Here’s how I’ve started using Fey query objects:
 
-    package Entity;
-    has 'table' => ( is => 'ro', required => 1, init_arg => undef );
-    has 'select' => ( lazy_build => 1, is => 'ro' );
-    method _build_select {
-        return Fey::SQL->new_select->select($self->table)->from($self->table);
-    }
+```perl
+package Entity;
+has 'table' => ( is => 'ro', required => 1, init_arg => undef );
+has 'select' => ( lazy_build => 1, is => 'ro' );
+method _build_select {
+    return Fey::SQL->new_select->select($self->table)->from($self->table);
+}
+```
 
 Entity is an abstract base class – it can’t be instantiated because it requires
 the table accessor. So, our core entity just extends it:
 
-    package CoreEntity;
-    extends 'Entity';
-    has '+table' => ( default => sub { $schema->table('core_entity') } );
+```perl
+package CoreEntity;
+extends 'Entity';
+has '+table' => ( default => sub { $schema->table('core_entity') } );
+```
 
 Just like this, we will bring in the name foreign key, but we actually want to
 bring in the actual name – the relationship should be transparent. We could
 modify core entity to do this, but that’s not particularly elegant. A better
 approach is to have a Name role:
 
-    package Name;
-    use Moose::Role;
-    around _build_select => sub {
-        my $orig = shift;
-        my ($self) = @_;
-        $self->$orig->from($self->table, $schema->table('name'));
-    };
+```perl
+package Name;
+use Moose::Role;
+around _build_select => sub {
+    my $orig = shift;
+    my ($self) = @_;
+    $self->$orig->from($self->table, $schema->table('name'));
+};
+```
 
 Now, our core entity role only needs to consume the name role, and any selects
 done (using select) will automatically bring in that relationship. Even better,

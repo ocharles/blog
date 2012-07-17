@@ -3,6 +3,7 @@ import Control.Arrow
 import Control.Monad
 import Data.Monoid
 import Hakyll
+import Text.Pandoc
 
 main = hakyll $ do
   match "templates/*.html" $ compile templateCompiler
@@ -12,7 +13,7 @@ main = hakyll $ do
 
   match "posts/***.md" $ do
     route $ setExtension "html"
-    compile $ pageCompiler
+    compile $ (pageCompilerWith defaultParserState withToc)
       >>> arr (renderDateField "date" "%Y-%m-%d" "Date Unknown")
       >>> applyTemplateCompiler "templates/post.html"
       >>> applyTemplateCompiler "templates/default.html"
@@ -39,3 +40,9 @@ feedConfiguration = FeedConfiguration
     , feedAuthorName = "Oliver Charles"
     , feedRoot = "http://ocharles.org.uk/blog"
     }
+
+withToc = defaultWriterOptions
+        { writerTableOfContents = True
+        , writerTemplate = "<div id=\"TOC\"><h2>Table of contents</h2></div>\n$toc$\n$body$"
+        , writerStandalone = True
+        }
