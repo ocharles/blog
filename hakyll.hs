@@ -43,6 +43,6 @@ feedConfiguration = FeedConfiguration
 
 withToc = defaultWriterOptions
         { writerTableOfContents = True
-        , writerTemplate = "<div id=\"TOC\"><h2>Table of contents</h2></div>\n$toc$\n$body$"
+        , writerTemplate = "<div id=\"TOC\"><h2>Table of contents</h2>\n$toc$</div>$body$"
         , writerStandalone = True
         }

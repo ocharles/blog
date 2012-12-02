@@ -169,7 +169,7 @@ currently trying to figure out how to get there, and doing some rethinking of
 our MusicBrainz architecture at the same time.
 
 I did plan to have some concrete plans to share with you, but I sadly do not
-have these yet. We are currently focusing on how to re-architecture MusicBrainz
+have these yet. We are currently focusing on how to re-architect MusicBrainz
 in site of NES. I will share these details as I get them!
 
 In spite of all the technology planning we have to do, there's still NES work
