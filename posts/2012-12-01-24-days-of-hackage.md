@@ -17,7 +17,7 @@ many more. I've got a lot out of those calendars in the past, and I haven't seen
 any for Haskell yet. I hope I can inspire some people with these posts to try
 their own advent calendars, they are a fantastic resource for knowledge sharing.
 
-As a quick disclaimer, I don't think I'm really an expect on much of the stuff
+As a quick disclaimer, I don't think I'm really an expert on much of the stuff
 I'm going to be writing about, but if I can introduce at least one person to one
 new idea, then I'll happily call this project has been a success. So, with that
 out of the way, lets get on with the show - and what better project to begin

@@ -35,7 +35,7 @@ profiles.
 ## Why Not Hackage?
 
 An obvious question is why not just add this to Hackage directly? I would love
-to do this, but I mostly wanted to do this as a prototype to guage if the
+to do this, but I mostly wanted to do this as a prototype to gauge if the
 project is even useful. I'm definitely up for working with Hackage maintainers
 on integrating this proper, and will certainly give this data over if that does
 happen.

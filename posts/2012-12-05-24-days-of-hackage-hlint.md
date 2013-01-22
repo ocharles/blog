@@ -77,11 +77,11 @@ fmap (map toUpper) getLine
 HLint rightfully suggests:
 
 ```
-      ocharles.org.uk/foo.hs:3:8: Warning: Use <$>
+      Warning: Use <$>
 Found:
-  fmap head getLine
+  fmap (map toUpper) getLine
 Why not:
-  head <$> getLine
+  map toUpper <$> getLine
 
 ```
 
