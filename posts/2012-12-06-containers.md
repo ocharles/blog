@@ -33,7 +33,7 @@ As a quick example, lets assume we have a function that does some IO to give us
 a mapping from a `Person` to a `Set` of their favourite `Colour`s.
 
 ```haskell
-      peopleFavColours :: IO (Map Person (Set Colour))
+peopleFavColours :: IO (Map Person (Set Colour))
 peopleFavColours = ...
 ```
 
@@ -43,7 +43,7 @@ into a new set. Hmm, this "smashing" together sounds exactly like something a
 `fold`, perhaps with a `Monoid` instance...
 
 ```haskell
-      allFavColours :: IO (Set Colour)
+allFavColours :: IO (Set Colour)
 allFavColours = fold <$> peopleFavColours
 ```
 
@@ -58,7 +58,7 @@ like `mapM_`. Again, the trusty `Foldable` type class can help us out, with
 `mapM_ :: (Foldable t, Monad m) => (a -> m b) -> t a -> m ()`:
 
 ```haskell
-      showColours :: IO ()
+showColours :: IO ()
 showColours = allFavColours >>= mapM_ print
 ```
 

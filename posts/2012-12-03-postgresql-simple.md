@@ -29,7 +29,7 @@ any other great mythical figure, he's chosen to write it in Haskell. Here are
 the data types he has to work with:
 
 ```haskell
-      data Present = Present { presentName :: Text }
+data Present = Present { presentName :: Text }
 
 data Location = Location { locLat :: Double
                          , locLong :: Double
@@ -45,7 +45,7 @@ out of the database though, and in order to map an SQL row to a Haskell
 data-type, we can use the `FromRow` class:
 
 ```haskell
-      instance FromRow Present where
+instance FromRow Present where
   fromRow = Present <$> field
 
 instance FromRow Child where
@@ -64,7 +64,7 @@ field is not null (such as `presentName`).
 Armed with our new `FromRow` instances, we can pluck things out of the database:
 
 ```haskell
-      allChildren :: Connection -> IO [Child]
+allChildren :: Connection -> IO [Child]
 allChildren c = query_ c "SELECT name, loc_lat, loc_long FROM child"
 
 allPresents :: Connection -> IO [Present]
@@ -92,7 +92,7 @@ that polls the database, but using notifications, we can be much elegant, and
 performant!
 
 ```haskell
-      santaNotifier :: Connection -> IO ()
+santaNotifier :: Connection -> IO ()
 santaNotifier c = listen >> loop
   where
     listen = query c "LISTEN presents"

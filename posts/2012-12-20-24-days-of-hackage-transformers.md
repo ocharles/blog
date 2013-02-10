@@ -14,7 +14,7 @@ which lets you add a fixed environment to a computation. For example, lets say
 we have the following functions:
 
 ```haskell
-      listAllUsers :: Connection -> IO [User]
+listAllUsers :: Connection -> IO [User]
 listAllUsers c = query c "SELECT * FROM users" ()
 
 findUser :: Connection -> UserName -> IO (Maybe User)
@@ -30,7 +30,7 @@ especially those with global variables, this would be easy! Well, with
 `ReaderT`, it's just as easy in Haskell. Here's a variant using `ReaderT`:
 
 ```haskell
-      listAllUsers :: ReaderT Connection IO [User]
+listAllUsers :: ReaderT Connection IO [User]
 listAllUsers = query' "SELECT * FROM users" ()
 
 findUser :: UserName -> ReaderT Connection IO (Maybe User)
@@ -48,7 +48,7 @@ I've introduced my own little operation in the `ReaderT Connection IO` - the
 the database connection:
 
 ```haskell
-      do
+do
   c <- openConnection
   runReaderT c $ do
     users <- listAllUsers
@@ -66,7 +66,7 @@ lets us emit some values in a monoid as we run a computation. Logging is the
 somewhat obvious example of this:
 
 ```haskell
-      listAllUsersLogged :: WriterT [String] (ReaderT Connection IO) [User]
+listAllUsersLogged :: WriterT [String] (ReaderT Connection IO) [User]
 listAllUsersLogged = do
   tell ["Listing all users..."]
   users <- lift listAllUsers
@@ -96,7 +96,7 @@ original document. I modelled this with a `MergeScope`, and a `Merge`
 applicative functor:
 
 ```haskell
-      data MergeScope a = MergeScope { left :: a
+data MergeScope a = MergeScope { left :: a
                                , original :: a
                                , right :: a
                                }

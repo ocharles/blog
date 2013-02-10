@@ -77,7 +77,7 @@ fmap (map toUpper) getLine
 HLint rightfully suggests:
 
 ```
-      Warning: Use <$>
+Warning: Use <$>
 Found:
   fmap (map toUpper) getLine
 Why not:

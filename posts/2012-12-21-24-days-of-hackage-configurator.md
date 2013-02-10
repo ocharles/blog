@@ -14,7 +14,7 @@ makes dealing with configuration files a breeze. Before we look at some
 Haskell code, lets first take a look at how the configuration files look:
 
 ```
-      database
+database
 {
   username = "ocharles"
   database = "days_of_hackage"
@@ -32,7 +32,7 @@ Now that we've seen how the files are formatted, lets take a look at the Haskell
 code required to consume them:
 
 ```haskell
-      config <- load [ Required "app.cfg" ]
+config <- load [ Required "app.cfg" ]
 user <- lookup config "database.username"
 ```
 
@@ -52,7 +52,7 @@ require a little bit more thought when writing your application, but the hot
 reloading part comes free with `configurator`:
 
 ```haskell
-      cfg <- autoReload autoConfig [ Required "app.cfg" ]
+cfg <- autoReload autoConfig [ Required "app.cfg" ]
 ```
 
 Now `configurator` will watch (in a separate thread) for changes to `app.cfg`
@@ -65,7 +65,7 @@ options. One thing I love about the PostgreSQL database server is how it informs
 me about changes to configurations, so lets see how we could do this:
 
 ```haskell
-      subscribe config (prefix "database") onDbChange
+subscribe config (prefix "database") onDbChange
   where
     onDbChange key newVal =
       putStrLn (key ++ " has been changed to: " ++ show newVal)

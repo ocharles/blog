@@ -18,7 +18,7 @@ Reusing the example of [helping Santa](/posts/2012-12-03-postgresql-simple.html)
 from the `postgresql-simple` article, lets add some monitoring:
 
 ```haskell
-      main :: IO ()
+main :: IO ()
 main = forkServer "localhost" 8000 >> santaNotifier
 ```
 
@@ -37,7 +37,7 @@ to track application specific metrics, and have them graphed in real time!
 Perhaps we want to have a counter for every time we notify Santa:
 
 ```haskell
-      main :: IO ()
+main :: IO ()
 main = do
   ekg <- forkServer "localhost" 8000
   getCounter "notifications" ekg >>= santaNotifier

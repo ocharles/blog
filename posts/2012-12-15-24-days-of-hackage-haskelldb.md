@@ -23,7 +23,7 @@ Helping Santa project from earlier posts, we begin by defining our database
 interface. First of all, we need to define the columns:
 
 ```haskell
-      data PresentName = PresentName
+data PresentName = PresentName
 
 instance FieldTag PresentName where
   fieldName = const "name"
@@ -65,7 +65,7 @@ from the database column name. Now that we are armed with these column
 definitions, we can define our tables:
 
 ```haskell
-      child :: Table (RecCons ChildName (Expr String)
+child :: Table (RecCons ChildName (Expr String)
                (RecCons ChildLocationLat (Expr Double)
                (RecCons ChildLocationLong (Expr Double)
                 RecNil)))
@@ -94,7 +94,7 @@ Now that we've represented the schema in code, let's have a look at leveraging
 this to write some queries.
 
 ```haskell
-      allPresents :: Query (Rel (RecCons PresentName (Expr String)
+allPresents :: Query (Rel (RecCons PresentName (Expr String)
                            RecNil))
 allPresents = do
   allPresents <- table present
@@ -123,7 +123,7 @@ in a more optimal form. You can have a look at the generated SQL by using
 `ppSql`:
 
 ```haskell
-      > ppSql (presentsFor "Little Bobby Tables")
+> ppSql (presentsFor "Little Bobby Tables")
 SELECT name2 as name
 FROM (SELECT name as name2,
              name as name2

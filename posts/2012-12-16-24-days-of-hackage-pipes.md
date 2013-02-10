@@ -38,7 +38,7 @@ echo all of this back. The first thing we need is a something that *produces*
 the name:
 
 ```haskell
-      name :: Proxy p => () -> Producer p String IO ()
+name :: Proxy p => () -> Producer p String IO ()
 name () = runIdentityP $ do
   lift $ putStr "Ho ho ho! What is your name? "
   lift getLine >>= respond
@@ -48,7 +48,7 @@ Our `Producer` prints out a prompt, and then responds with whatever the user
 entered. Simple! We can test this in GHCi:
 
 ```
-      > runProxy $ name
+> runProxy $ name
 Ho ho ho! What is your name? Oliver
 ```
 
@@ -57,7 +57,7 @@ Nothing was returned though, because we didn't connect a `Consumer`. A trivial
 `Consumer` to a `Producer` with the `>->` composition operator:
 
 ```
-      > runProxy $ name >-> printD
+> runProxy $ name >-> printD
 Ho ho ho! What is your name? Oliver
 "Oliver"
 ```
@@ -66,7 +66,7 @@ Excellent, `printD` consumed the `String` produced by `name` and then printed it
 back out. Now, how about a `Producer` for that stream of presents?
 
 ```haskell
-      data Present = Present String
+data Present = Present String
   deriving (Show)
 
 presents :: Proxy p => () -> Producer p Present IO ()
@@ -79,7 +79,7 @@ presents () = runIdentityP $
 Before we look at what's going on here, what happens if we try and run this?
 
 ```
-      Main> runProxy $ presents >-> printD
+Main> runProxy $ presents >-> printD
 And what presents would you like?
 GameBoy
 Present "GameBoy"
@@ -107,7 +107,7 @@ Now that we have all of this, lets compose everything together to build our
 final application:
 
 ```haskell
-      main :: IO ()
+main :: IO ()
 main = do
   First (Just name) <- execWriterT $ runProxy $
     raiseK name >-> headD_
@@ -137,7 +137,7 @@ server. This shows how pipes can be used with some slightly more interesting
 (less contrived!) IO:
 
 ```haskell
-      server = withSocketsDo $ do
+server = withSocketsDo $ do
     s <- listenOn (PortNumber 5553)
     (h, _, _) <- accept s
     hSetBuffering h LineBuffering
@@ -149,7 +149,7 @@ The server simply opens a socket and listens port 5553, and then consumes lines
 as they are sent in. The client is equally elegant:
 
 ```haskell
-      client = withSocketsDo $ do
+client = withSocketsDo $ do
     h <- connectTo "localhost" (PortNumber 5553)
     hSetBuffering h LineBuffering
     runProxy $ getLineS >-> takeWhileD (/= "quit") >-> hPutStrLnD h

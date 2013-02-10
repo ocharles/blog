@@ -17,7 +17,7 @@ provides "unbounded" channels, which give you a tiny little message queue that
 runs in memory.
 
 ```haskell
-      echo :: Chan String -> IO ()
+echo :: Chan String -> IO ()
 echo c = forever $ readChan c >>= putStrLn
 
 main :: IO ()
@@ -42,7 +42,7 @@ transformations. For example, we can use a variety of monoids to find the sum
 and product of a list of integers:
 
 ```haskell
-      stats :: [Int] -> (Sum Int, Product Int)
+stats :: [Int] -> (Sum Int, Product Int)
 stats = mconcat . map (\x -> (Sum x, Product x))
 ```
 
@@ -60,7 +60,7 @@ appear in my code, and the combinatros in `Data.Traversable` are extremely
 handy. I commonly have `Maybe` values that I want to apply an IO action to:
 
 ```haskell
-      lookupEnv "HOME" >>= traverse putStrLn
+lookupEnv "HOME" >>= traverse putStrLn
 ```
 
 Of course, `traverse` is a lot more powerful than this - you only need to look

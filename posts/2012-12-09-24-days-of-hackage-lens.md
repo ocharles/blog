@@ -17,7 +17,7 @@ little unclear, and it's easiest to see what `lens` gives you from an
 example:
 
 ```haskell
-      data Point = Point
+data Point = Point
   { _x, _y :: Double } deriving (Show)
 
 data Monster = Monster
@@ -36,7 +36,7 @@ location, and we presumably want them to move around. To move the `ogre` without
 `lens`, it might look like:
 
 ```haskell
-      λ> ogre { _monsterLocation = (_monsterLocation ogre) {
+λ> ogre { _monsterLocation = (_monsterLocation ogre) {
             _x = _x (_monsterLocation ogre) + 1
         } }
 Monster {_monsterLocation = Point {_x = 1.0, _y = 0.0}}
@@ -46,7 +46,7 @@ URGH! All of that, just to move 1 to the right?! Lets see how this looks with
 `lens`:
 
 ```haskell
-      λ> monsterLocation.x +~ 1 $ ogre
+λ> monsterLocation.x +~ 1 $ ogre
 Monster {_monsterLocation = Point {_x = 1.0, _y = 0.0}}
 ```
 
@@ -65,7 +65,7 @@ answer at all, depending on the data that is viewed through them.
 Natural numbers are a good example of this:
 
 ```haskell
-      nat :: SimplePrism Integer Natural
+nat :: SimplePrism Integer Natural
 nat = prism toInteger $ \ i ->
    if i < 0
    then Left i
@@ -76,7 +76,7 @@ Now we can ask if an `Int` is a `Natural`, by trying to view an `Int` through
 the `nat` prism:
 
 ```haskell
-      λ> 5 ^? nat
+λ> 5 ^? nat
 Just 5
 
 λ> (-5) ^? nat
@@ -91,7 +91,7 @@ number. It sounds tricky, and that we'd likely need conditionals to pull it off,
 but not so with `lens`!
 
 ```haskell
-      λ> both.nat *~ 2 $ (-3,4)
+λ> both.nat *~ 2 $ (-3,4)
 (-3,8)
 
 λ> both.nat *~ 2 $ (8,4)

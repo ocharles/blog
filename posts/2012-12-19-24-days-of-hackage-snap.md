@@ -17,7 +17,7 @@ some results. A simple web handler is simply a function in anything that is an
 instance of `MonadSnap`:
 
 ```haskell
-      hello :: Snap ()
+hello :: Snap ()
 hello = writeText "Hello, world!"
 ```
 
@@ -25,7 +25,7 @@ Hello world doesn't get any simpler than that! Of course, this is only our
 handler, the next step is to actually add a *route* to this handler:
 
 ```haskell
-      app :: Snap ()
+app :: Snap ()
 app = route [("/hello", hello)]
 ```
 
@@ -35,7 +35,7 @@ browser. Finally, we need to run our application - we'll use Snap's server for
 this:
 
 ```haskell
-      main :: IO ()
+main :: IO ()
 main = quickHttpServe app
 ```
 
@@ -63,7 +63,7 @@ combined together to build larger applications. Snaplets were introduced in Snap
 more. Let's see how snaplets work:
 
 ```haskell
-      data App = App { _db :: Snaplet Postgres }
+data App = App { _db :: Snaplet Postgres }
 
 makeLenses ''App
 

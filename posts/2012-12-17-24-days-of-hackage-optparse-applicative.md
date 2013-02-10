@@ -23,7 +23,7 @@ good use `Monoid`s to add meta-data to arguments. Let's look at what this
 practically means, with a little example:
 
 ```haskell
-      data MyApp = MyApp { appGreet :: String }
+data MyApp = MyApp { appGreet :: String }
 
 runWithOptions :: MyApp -> IO ()
 runWithOptions opts =
@@ -51,7 +51,7 @@ referred to as NAME when it generates usage information. Now we have a binary
 that does the following:
 
 ```
-      > ./optparse
+> ./optparse
 Usage: optparse NAME
 
 > ./optparse Haskell
@@ -63,7 +63,7 @@ information, that came for free! We've seen how positional arguments work, what
 about options? Let's add a switch to add more excitement to the application:
 
 ```haskell
-      data MyApp = MyApp { appGreet :: String
+data MyApp = MyApp { appGreet :: String
                    , appSuperExcited :: Bool
                    }
 
@@ -95,7 +95,7 @@ things are the individual bits of meta-data and the bigger thing is the final
 meta-data for the option. Again, running our application:
 
 ```
-      > ./optparse
+> ./optparse
 Usage: optparse NAME [-e|--excited]
 
 Available options:

@@ -27,7 +27,7 @@ many people swear by it.
 Let's dig in with an example!
 
 ```haskell
-      absAverage :: [Double] -> Double
+absAverage :: [Double] -> Double
 absAverage ds = sum ds / fromIntegral (length ds)
 ```
 
@@ -36,7 +36,7 @@ all values in a list. So, lets write a property to make sure this is correct:
 
 
 ```haskell
-      quickCheck1 :: IO ()
+quickCheck1 :: IO ()
 quickCheck1 = quickCheck $ \x -> absAverage x >= 0
 
 > quickCheck1
@@ -52,7 +52,7 @@ doesn't make sense for empty lists. We can weaken the property a bit to only
 consider non-empty lists:
 
 ```haskell
-      quickCheck2 :: IO ()
+quickCheck2 :: IO ()
 quickCheck2 = quickCheck $ \x -> length x > 1 ==> absAverage x >= 0
 
 > quickCheck2
@@ -64,7 +64,7 @@ Huh, a failure again... Oh! I forgot to actually take the `abs` value of each
 element of `ds` in my original function, lets get that fixed...
 
 ```haskell
-      absAverage :: [Double] -> Double
+absAverage :: [Double] -> Double
 absAverage ds = sum (map abs ds) / fromIntegral (length ds)
 
 > quickCheck2

@@ -16,7 +16,7 @@ documents inside Haskell code. Going straight into an example, here's how
 documents generally look:
 
 ```haskell
-      greet :: UserName -> Html
+greet :: UserName -> Html
 greet userName = H.docTypeHtml $ do
   H.head $
     H.title "Hello!"
@@ -39,7 +39,7 @@ already know immediately carry forward to `blaze-html` too! For example, suppose
 we want to insert `<hr />` between paragraphs:
 
 ```haskell
-      addHr [] = mempty
+addHr [] = mempty
 addHr [p] = p
 addHr (p:ps) = p >> H.hr >> addHr ps
 ```
@@ -47,7 +47,7 @@ addHr (p:ps) = p >> H.hr >> addHr ps
 Now we can easily use our combinator to build up more complicated documents:
 
 ```haskell
-      doc = H.docTypeHtml $
+doc = H.docTypeHtml $
   H.body $
     addHr [ H.p "Hello, world!"
           , H.p "How are you?"

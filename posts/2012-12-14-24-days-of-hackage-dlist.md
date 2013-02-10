@@ -13,7 +13,7 @@ at the magic that makes this unbelievable feat possible, let's take a quick look
 at how the API works.
 
 ```haskell
-      > toList $ append (fromList [1..5]) (fromList [1..10])
+> toList $ append (fromList [1..5]) (fromList [1..10])
 [1,2,3,4,5,1,2,3,4,5,6,7,8,9,10]
 ```
 
@@ -31,7 +31,7 @@ function composition to build up our final list, and function composition is
 O(1). Let's see this is a bit of code:
 
 ```haskell
-      > :t ([1, 2] ++)
+> :t ([1, 2] ++)
 ([1, 2] ++) :: Num a => [a] -> [a]
 > :t ([1, 2] ++)  . ([3, 4] ++)
 ([1, 2] ++)  . ([3, 4] ++) :: Num a => [a] -> [a]

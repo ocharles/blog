@@ -25,7 +25,7 @@ our own ISRC parser. First of all, we need to parse the country code. That's
 just two uppercase characters, so lets write that parser:
 
 ```haskell
-      countryCode = count 2 upper
+countryCode = count 2 upper
 ```
 
 Simple! This parser requires two uppercase characters, so we've combined the
@@ -34,7 +34,7 @@ succeeds, it will return the two uppercase characters that it parsed. Moving on,
 the next section of data we need to parse is "a three character alphanumeric registrant code":
 
 ```haskell
-      regCode = count 3 upperNum
+regCode = count 3 upperNum
   where upperNum = upper <|> digit
 ```
 
@@ -47,20 +47,20 @@ try another.
 Next, we take the last two digits of the year of registration:
 
 ```haskell
-      regYear = count 2 digit
+regYear = count 2 digit
 ```
 
 And finally, we take the five digit number identifying the recording:
 
 ```haskell
-      recordingId = count 5 digit
+recordingId = count 5 digit
 ```
 
 All that we need to do now is thread all these parsers together, and we're done!
 One option could be to do the following:
 
 ```haskell
-      data ISRC = ISRC { isrcCountryCode :: String
+data ISRC = ISRC { isrcCountryCode :: String
                  , isrcRegCode :: String
                  , isrcRegYear :: Int
                  , isrcRecording :: Int
@@ -90,7 +90,7 @@ normalization, so I can get by just sequencing these parsers and then stitching
 things back together:
 
 ```haskell
-      isrcParser₂ = mconcat <$>
+isrcParser₂ = mconcat <$>
   sequence [ countryCode, regCode, regYear, recordingId ]
     <* eof
 

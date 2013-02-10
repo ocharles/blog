@@ -33,7 +33,7 @@ problem.
 I think it's time for an example!
 
 ```haskell
-      data Cheese = Cheese { cheeseMaturity :: Maturity
+data Cheese = Cheese { cheeseMaturity :: Maturity
                      , cheeseWeight :: Double
                      -- etc
                      }

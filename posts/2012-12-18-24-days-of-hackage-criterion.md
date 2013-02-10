@@ -19,7 +19,7 @@ code. In today's example, I'll use a fairly boring factorical implementation -
 though the code is not really the focus of todays topic.
 
 ```haskell
-      fact :: Integ -> Integer
+fact :: Integ -> Integer
 fact 1 = 1
 fact n = n * fact (pred n)
 ```
@@ -28,7 +28,7 @@ Good ol' vanilla Haskell. Now, to instrument this, we simply write a little bit
 of code in `IO ()`:
 
 ```haskell
-      main :: IO ()
+main :: IO ()
 main = defaultMainWith
   defaultConfig { cfgSamples = ljust 1000 }
   (return ())

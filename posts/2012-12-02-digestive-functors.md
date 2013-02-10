@@ -29,7 +29,7 @@ arguments to a function, where the arguments themselves come from some sort of
 side effect - in this case the form evaluation. Let's have a look at an example:
 
 ```haskell
-      data Category = Category { catName :: Text }
+data Category = Category { catName :: Text }
 
 data BlogPost = BlogPost { postTitle :: Text
                          , postBody :: Text
@@ -51,7 +51,7 @@ validation! We don't want to accept `BlogPosts` which have no title or body, for
 example, so lets start by fixing that:
 
 ```haskell
-      postForm :: Monad m => Form Html m BlogPost
+postForm :: Monad m => Form Html m BlogPost
 postForm = BlogPost
              <$> "title" .: nonEmptyText
              <*> "body" .: nonEmptyText
@@ -75,7 +75,7 @@ use this in our `postForm` to lookup categories, and only allow `BlogPosts` to
 be created in a valid category:
 
 ```haskell
-      postForm :: Form Text BlogWebsite BlogPost
+postForm :: Form Text BlogWebsite BlogPost
 postForm = BlogPost
              <$> "title" .: nonEmptyText
              <*> "body" .: nonEmptyText
@@ -104,7 +104,7 @@ to lookup form fields in. Lets use
 for the rendering, first:
 
 ```haskell
-      renderForm :: View Html -> Html
+renderForm :: View Html -> Html
 renderForm v = do
   form v "POST" $ do
     H.p $ do
@@ -129,7 +129,7 @@ Finally, lets put it all together with a Snap action, so we can actually serve
 stuff:
 
 ```haskell
-      blogPostHandler :: Handler BlogWebsite BlogWebsite ()
+blogPostHandler :: Handler BlogWebsite BlogWebsite ()
 blogPostHandler = do
   (view, result) <- runForm "blog-post" blogPost
   case result of
