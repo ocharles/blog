@@ -145,5 +145,5 @@ query separately, and compose it later.
 One downside of `haskelldb` is that documentation can be a little bit terse, and
 the API is quite large, so it can be hard to get going sometimes. I highly
 recommend Chris Done's
-[series of blog posts on haskelldb](http://chrisdone.com/tags/haskelldb.html) if
+[series of blog posts on haskelldb](http://chrisdone.com/tags/haskelldb) if
 you're interested in learning more.
