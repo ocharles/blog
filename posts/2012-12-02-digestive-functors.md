@@ -160,7 +160,7 @@ at the time of writing:
   allows you to easily use `digestive-functors` with the
   [Happstack](http://happstack.com) framework.
 - [digestive-functors-heist](http://hackage.haskell.org/package/digestive-functors-heist)
-  lets you use the [Hesit](http://snapframework.com/docs/tutorials/heist)
+  lets you use the [Heist](http://snapframework.com/docs/tutorials/heist)
   templating language (from the Snap framework team).
 - [digestive-functors-hsp](http://hackage.haskell.org/package/digestive-functors-hsp)
   lets you use [HSP](http://www.happstack.com/docs/happstack-hsp-7.1.0/doc/html/happstack-hsp/index.html)
