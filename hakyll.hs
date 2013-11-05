@@ -29,7 +29,7 @@ main = hakyll $ do
   create ["index.html"] $ do
     route idRoute
     compile $ do
-      posts <- recentFirst <$> loadAll "posts/*"
+      posts <- loadAll "posts/*" >>= recentFirst
       postItem <- loadBody "templates/postitem.html"
       postStr <- applyTemplateList postItem defaultContext posts
       makeItem ""
@@ -42,7 +42,7 @@ main = hakyll $ do
   create ["posts.rss"] $ do
     route idRoute
     compile $ do
-      posts <- take 10 . recentFirst <$> loadAllSnapshots "posts/*" "content"
+      posts <- take 10 <$> (loadAllSnapshots "posts/*" "content" >>= recentFirst)
       renderRss feedConfiguration
         (bodyField "description" <> defaultContext)
         posts
