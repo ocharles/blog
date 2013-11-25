@@ -66,7 +66,7 @@ wrong - this doesn't really explain *why* things have gone wrong - only that the
 property is not always satisfied, because our QuickCheck property only returns a
 boolean.
 
-Nevertheless, in the spirit of getting the job done, and we carry on.
+Nevertheless, in the spirit of getting the job done, we carry on.
 
 The next data type I had to approach had a rather awkward encoding:
 
