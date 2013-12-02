@@ -18,7 +18,7 @@ algebra. Familiarity with vectors, matrices, and so on will help. Towards the
 end of the post we'll do some practical stuff with this - so some readers may
 wish to [skip to the end](#Using_linear).
 
-[`linear`](http://hackage.haskell.org/packages/linear) is a set of "types and
+[`linear`](http://hackage.haskell.org/package/linear) is a set of "types and
 combinators for linear algebra on free vector spaces." Well, it wouldn't be
 Edward's library if it didn't have "co-" or "free" in the description would it?
 Lets take a look at some of the modules we've got available to us:
