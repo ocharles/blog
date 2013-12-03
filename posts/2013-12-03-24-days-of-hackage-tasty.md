@@ -106,6 +106,8 @@ testing tools. Specifically, right now the tasty suite (menu?) consists of:
   tests
 * [`tasty-ant-xml`](http://hackage.haskell.org/package/tasty-ant-xml) — to run
   tests on Jenkins
+* [`tasty-th`](http://hackage.haskell.org/package/tasty-th) — to automatically
+  build the test hierachy from names that are in scope.
 
 Code for today's example can be found in
 [my blog's Github repository](https://github.com/ocharles/blog/tree/master/code).
