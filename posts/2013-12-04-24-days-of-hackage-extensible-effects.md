@@ -31,7 +31,7 @@ time to abandon ship and go back to writing Java? Absolutely not! Monad
 transformers are actually only one of the available tools we have available, and
 since the above paper was published we have another new tool -
 [`extensible-effects`](http://hackage.haskell.org/package/extensible-effects). `extensible-effects`
-is a direct implemantion of the concepts discovered in the pape. Today, we'll
+is a direct implemantion of the concepts explored in the paper. Today, we'll
 have a look at how we can use this library to build effectful computations.
 
 The problem that we're looking to solve is being able to add in logging support
@@ -204,8 +204,8 @@ in the Haskell cafe that
 
 > I must stress that thinking of extensible-effects effects as just another
 > implementation of MTL is not productive. Not all effects can be decomposed
-> into State, Reader, etc. layers. Manly, effects should not be decomposed into
-> layers.
+> into State, Reader, etc. layers. Manly [sic], effects should not be decomposed
+> into layers.
 
 It's entirely possible my post has missed the point, so I look forward to being
 told just how wrong I am! The code for today's post is on
