@@ -26,17 +26,30 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
+  match "pages/***.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+      >>= saveSnapshot "content"
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
+
   create ["index.html"] $ do
     route idRoute
     compile $ do
       posts <- loadAll "posts/*" >>= recentFirst
       postItem <- loadBody "templates/postitem.html"
       postStr <- applyTemplateList postItem defaultContext posts
+
+      pages <- loadAll "pages/*" >>= recentFirst
+      pagesStr <- applyTemplateList postItem defaultContext pages
+
       makeItem ""
         >>= loadAndApplyTemplate "templates/posts.html"
-              (constField "posts" postStr <> defaultContext)
+              (constField "pages" pagesStr <>
+               constField "posts" postStr <>
+               defaultContext)
         >>= loadAndApplyTemplate "templates/default.html"
-              (constField "title" "Posts" <> defaultContext)
+              (constField "title" "ocharles.org.uk" <> defaultContext)
         >>= relativizeUrls
 
   create ["posts.rss"] $ do
