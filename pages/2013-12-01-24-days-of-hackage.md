@@ -52,4 +52,8 @@ table td code { white-space: normal !important; }
     <td>?</td>
     <td>?</td>
   </tr>
+  <tr>
+    <td>?</td>
+    <td>?</td>
+  </tr>
 </table>
