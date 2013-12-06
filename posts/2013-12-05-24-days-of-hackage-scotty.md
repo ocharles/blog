@@ -181,3 +181,9 @@ alien when you put them next to a Python project, for example. Thus I think
 `scotty` is probably going to become one of my go-to suggestions to give to
 people when they graduate from LYAH and want to try building something a little
 more practical.
+
+If you like the look of `scotty`, [Aditya Bhargava](http://adit.io) has written
+a
+[much more in-depth tutorial](http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html) -
+go check it out! The code for today's blog post can be found
+[here](https://github.com/ocharles/blog/blob/master/code/2013-12-05-scotty.hs).
