@@ -31,7 +31,7 @@ table td code { white-space: normal !important; }
     <td>[`extensible-effects`](/posts/2013-12-04-24-days-of-hackage-extensible-effects.html)</td>
     <td>[`scotty`](/posts/2013-12-05-24-days-of-hackage-scotty.html)</td>
     <td>[`persistent esqueleto`](/posts/2013-12-06-24-days-of-hackage-persistent-esqueleto.html)</td>
-    <td>?</td>
+    <td>[`threepenny-gui`](/posts/2013-12-07-24-days-of-hackage-threepenny-gui.html)</td>
     <td>?</td>
   </tr>
   <tr>
