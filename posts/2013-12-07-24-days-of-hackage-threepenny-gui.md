@@ -6,7 +6,7 @@ While a lot of the work I tend to do in Haskell is building libraries, there
 have been plenty of times where I would have loved to provide a GUI. Usually, I
 shy away from this task, and settle for a command line interface - working with
 GUI libraries is usually a nightmare, both in code and deployment! In July
-ealrier this year, [Heinrich Apfelmus](http://apfelmus.nfshost.com/)
+earlier this year, [Heinrich Apfelmus](http://apfelmus.nfshost.com/)
 [announced the release](http://apfelmus.nfshost.com/blog/2013/07/21-threepenny-gui-0-1.html)
 of his new GUI library
 [`threepenny-gui`](http://hackage.haskell.org/package/threepenny-gui), which can
@@ -17,7 +17,7 @@ acceptable - web pages!
 
 `threepenny-gui` is thus a collection of common UI elements, a way of composing
 them into web pages, and the ability to watch these interface elements for
-interactions. `threepenny-gui` also uses web sockets to provide a tight feedbcak
+interactions. `threepenny-gui` also uses web sockets to provide a tight feedback
 loop between the client and the server. Today, we'll explore the
 `threepenny-gui` library by building a to-do list.
 
@@ -172,7 +172,7 @@ me) it would feel more natural to just pass an `Element` instead. Nonetheless,
 that's a minor concern that shouldn't stop you experimenting with this fantastic
 project.
 
-I also started my first draft of this post raving on about FRP, but observent
+I also started my first draft of this post raving on about FRP, but observant
 readers will notice we didn't really use any of the FRP functionality that
 `threepenny-gui` offers. Sadly, I didn't get time to touch this part of the
 library, and I think it has the potential to do more interesting things. For
