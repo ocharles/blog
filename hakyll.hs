@@ -26,6 +26,14 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
+  match "guest-posts/***.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+      >>= saveSnapshot "content"
+      >>= loadAndApplyTemplate "templates/guest-post.html" defaultContext
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
+
   match "pages/***.md" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
@@ -36,7 +44,11 @@ main = hakyll $ do
   create ["index.html"] $ do
     route idRoute
     compile $ do
-      posts <- loadAll "posts/*" >>= recentFirst
+      posts <- do
+        myPosts <- loadAll "posts/*"
+        guestPosts <- loadAll "guest-posts/*"
+        recentFirst (myPosts <> guestPosts)
+
       postItem <- loadBody "templates/postitem.html"
       postStr <- applyTemplateList postItem defaultContext posts
 

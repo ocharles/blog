@@ -35,7 +35,7 @@ table td code { white-space: normal !important; }
     <td>[`data-memocombinators`](/posts/2013-12-08-24-days-of-hackage-data-memocombinators.html)</td>
   </tr>
   <tr>
-    <td>?</td>
+    <td>[`sbv`](/guest-posts/2013-12-09-24-days-of-hackage-sbv.html)</td>
     <td>?</td>
     <td>?</td>
     <td>?</td>
