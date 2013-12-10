@@ -149,7 +149,7 @@ identity:
 
 ```haskell
 stepGame :: Float -> (Board, Play) -> IO (Board, Play)
-stepGame _ = id
+stepGame _ = return
 ```
 
 ## Artificial "Intelligence"
