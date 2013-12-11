@@ -265,5 +265,18 @@ to learn more about Heist:
   [dynamic reloading](http://devblog.soostone.com/posts/2013-06-17-snap-template-reloading.html)
   in Snap.
 
+User's should also note that a fairly
+[recent addition](http://snapframework.com/blog/2012/12/9/heist-0.10-released)
+to Heist is the new "compiled templates" functionality. These give a *3000x
+performance* increase over interpreted templates (which is what we've been using
+so far). It's well worth checking out if you want to do more serious work with
+heist - check out the
+[official documentation](http://snapframework.com/docs/tutorials/compiled-splices)
+on this topic for more information.
+
+Also, I want to say a big thank you to Doug for helping me go through today's
+post with a fine comb and get these examples to be much closer to idiomatic
+`heist` - thanks!
+
 The code for today's post is available
 [on Github](http://github.com/ocharles/blog) as always, so have a play!
