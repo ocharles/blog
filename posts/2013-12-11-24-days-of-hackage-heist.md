@@ -16,14 +16,14 @@ the Haskell source code, and then we render these templates using a specific
 context, which defines how to "fill in the blanks", so to speak. `heist` breaks
 away from the crowd in the finer details of how it achieves this.
 
-`heist` templates themselves are simply XML forests; they don't have a single
-XML root element (they can have many), but other than that they are valid
-XML. On top of XML templates `heist` has three main abstractions: `<bind>`,
+`heist` templates themselves are simply HTML documents; they don't have a single
+root element (they can have many), but other than that they are valid
+HTML5. On top of HTML templates `heist` has three main abstractions: `<bind>`,
 `<apply>` and splices.
 
 `<bind>` is very straight forward to understand - it just acts like a `let`
 binding in Haskell. However, instead of introducing a new identifier as we would
-expect in Haskell, `<bind>` introduces a new XML *element*. For example, we can
+expect in Haskell, `<bind>` introduces a new HTML *element*. For example, we can
 bind some text to an element:
 
 ```xml
@@ -33,7 +33,7 @@ Merry Christmas, <kiddo/>!
 <!-- Merry Christmas, Billy! -->
 ```
 
-Or we could bind a more complex XML tree:
+Or we could bind a more complex HTML tree:
 
 ```xml
 <bind tag="kiddo"><em>Billy</em></bind>
@@ -53,7 +53,7 @@ That's a <a href="/list/${kiddo}">big wish list</a>, <kiddo />!
 
 Already, we're seeing the ability to create abstractions in our templates, and
 we have the added bonus that we didn't have to learn a new syntax - we got to
-reuse our knowledge of XML, and only had to learn a few new semantics.
+reuse our knowledge of HTML, and only had to learn a few new semantics.
 
 The next part of `heist` is the `<apply>` tag, which can be used to insert the
 contents of one template into another template. Furthermore, this wrapper
@@ -126,8 +126,8 @@ actual rendering. `evalHeistT` takes a `HeistT` action, and we use the helper
 function `callTemplate` to obtain such an action. `callTemplate` looks up a
 template by name in the list of templates that were loaded when we called
 `initHeist`, and also takes a list of splices. We haven't covered splices yet,
-so we use `mempty`. `evalHeistT` also requires an XML element to render into -
-we use SOMETHING HERE to carry this information.
+so we use `mempty`. `evalHeistT` also requires an HTML element to render into -
+we use a blank TextNode to carry this information.
 
 If we run this with `templates/billy.tpl` existing as defined above you'll see:
 
