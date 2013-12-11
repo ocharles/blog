@@ -103,31 +103,25 @@ code. Before we get to there, lets have a look at how we call a template from
 Haskell:
 
 ```haskell
-main :: IO ()
-main = eitherT (putStrLn . unlines) return $ do
+billy :: IO ()
+billy = eitherT (putStrLn . unlines) return $ do
   heist <- initHeist mempty
     { hcTemplateLocations = [ loadTemplates "templates" ]
     , hcInterpretedSplices = defaultInterpretedSplices
     } 
 
-  dom <- evalHeistT
-           (callTemplate "eg1" mempty)
-           (TextNode "")
-           heist
+  Just (output, _) <- renderTemplate heist "billy" 
 
-  liftIO . BS.putStrLn . toByteString . renderXmlFragment UTF8 $ dom
+  liftIO . BS.putStrLn . toByteString $ output
 ```
 
 First of all we define Heist's configuration, by starting with the default
 configuration (available by `mempty`) and augmenting this configuration to load
 some templates from the disk. Next, we initialize `heist` with this
-configuration using `initHeist`. Finally, we use `evalHeistT` to perform the
-actual rendering. `evalHeistT` takes a `HeistT` action, and we use the helper
-function `callTemplate` to obtain such an action. `callTemplate` looks up a
-template by name in the list of templates that were loaded when we called
-`initHeist`, and also takes a list of splices. We haven't covered splices yet,
-so we use `mempty`. `evalHeistT` also requires an HTML element to render into -
-we use a blank TextNode to carry this information.
+configuration using `initHeist`. Finally, we use `renderTemplate` to perform the
+actual rendering. `renderTemplate` looks up a template by name in the list of
+templates that were loaded when we called `initHeist`, and also takes our `heist`
+configuration. 
 
 If we run this with `templates/billy.tpl` existing as defined above you'll see:
 
@@ -155,29 +149,27 @@ we'll look at binding Haskell values as text. Assume we have a `getNames :: IO
 [Text]` action. Now we can produce a letter to every name:
 
 ```haskell
-main :: IO ()
-main = eitherT (putStrLn . unlines) return $ do
+names :: IO ()
+names = eitherT (putStrLn . unlines) return $ do
   heist <- initHeist mempty
     { hcTemplateLocations = [ loadTemplates "templates" ]
     , hcInterpretedSplices = defaultInterpretedSplices
     }
 
-  names <- getNames
+  names <- liftIO getNames
 
   forM_ names $ \name -> do
-    dom <- evalHeistT
-             (callTemplate "merry-christmas" $ do
-                "kiddo" ## textSplice name)
-             (TextNode "")
-             heist
+    Just (output, _) <- renderTemplate
+      (bindSplice "kiddo" (textSplice name) heist)
+      "merry-christmas"
 
-    liftIO . BS.putStrLn . toByteString . renderHtmlFragment UTF8 $ dom
+    liftIO . BS.putStrLn . toByteString $ output
 ```
 
 Here we called the `getNames` action, and then enumerated all of the names it
 returned and printed a letter to each name. We bound text to splices by using
 `textSplice` to create a splice that contains the lucky child's name, and then
-gave this splice a name using the `##` operator.
+gave this splice a name.
 
 However, you're not limited to binding pure values to splices, you can also bind
 monadic actions, or even implement more complex control flow.
@@ -198,7 +190,17 @@ namesSplice =
 
 We use `liftIO getNames` again to get the list of names, but then we use
 `mapSplices` to run sub-bindings *for each* element in the list. In this case,
-for each element `getNames` returns, we bind the `<name>` element appropriately.
+for each element `getNames` returns, we bind the `<name>` element
+appropriately. We have to wire this into the rendering of our template, which is
+just another call to `bindSplice` as we've seen before:
+
+```haskell
+  Just (output, _) <- renderTemplate
+    (bindSplice "names" namesSplice heist)
+    "summary"
+
+  liftIO . BS.putStrLn . toByteString $ output
+```
 
 If we run this against the following template:
 
@@ -236,30 +238,17 @@ represent potential thoughts of Santa and must be interpreted as fiction. Santa
 is a entity of Christmas & Christmas Ltd (c) 2013.
 ```
 
-Next, we have to wire this into the rendering of our template. This is done by
-providing a `Splices (Splice IO)` argument to `callTemplate`, which is a little
-DSL for defining bindings:
-
-```haskell
-  dom <- evalHeistT
-           (callTemplate "summary" $ do
-              "names" ## namesSplice)
-           (TextNode "")
-           heist
-```
-
 ## Conclusion
 
 `heist` is a really powerful templating system that is a great fit for teams
-with have separate developers, where it can't be assumed to know
-Haskell. `heist` also doesn't compromise on functionality - we've barely
-scratched the surface of what's possible with splices, including recursion and
-more involved flow control. What I really like about `heist` though, is the
-templating language doesn't try and pretend to be a programming
-language. Instead, it's up to you to define what is essential to go into a
-template, and have your templates reflect the structure of that data. I think
-this goes a long way to avoiding the mess that other templating languages can
-result in.
+with have separate developers, who can't be assumed to know Haskell. `heist`
+also doesn't compromise on functionality - we've barely scratched the surface of
+what's possible with splices, including recursion and more involved flow
+control. What I really like about `heist` though, is the templating language
+doesn't try and pretend to be a programming language. Instead, it's up to you to
+define what is essential to go into a template, and have your templates reflect
+the structure of that data. I think this goes a long way to avoiding the mess
+that other templating languages can result in.
 
 [Doug Beardsley](http://softwaresimply.blogspot.co.uk/) has let me know about
 some blog posts that will help point people in the right direction, if you want

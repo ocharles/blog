@@ -16,12 +16,9 @@ billy = eitherT (putStrLn . unlines) return $ do
     , hcInterpretedSplices = defaultInterpretedSplices
     } 
 
-  dom <- evalHeistT
-           (callTemplate "billy" mempty)
-           (TextNode "")
-           heist
+  Just (output, _) <- renderTemplate heist "billy" 
 
-  liftIO . BS.putStrLn . toByteString . renderHtmlFragment UTF8 $ dom
+  liftIO . BS.putStrLn . toByteString $ output
 
 
 names :: IO ()
@@ -34,13 +31,11 @@ names = eitherT (putStrLn . unlines) return $ do
   names <- liftIO getNames
 
   forM_ names $ \name -> do
-    dom <- evalHeistT
-             (callTemplate "merry-christmas" $ do
-                "kiddo" ## textSplice name)
-             (TextNode "")
-             heist
+    Just (output, _) <- renderTemplate
+      (bindSplice "kiddo" (textSplice name) heist)
+      "merry-christmas"
 
-    liftIO . BS.putStrLn . toByteString . renderHtmlFragment UTF8 $ dom
+    liftIO . BS.putStrLn . toByteString $ output
 
 
 getNames = return [ "Tom", "Dick", "Harry" ]
@@ -53,13 +48,11 @@ summary = eitherT (putStrLn . unlines) return $ do
     , hcInterpretedSplices = defaultInterpretedSplices
     }
 
-  dom <- evalHeistT
-           (callTemplate "summary" $ do
-              "names" ## namesSplice)
-           (TextNode "")
-           heist
+  Just (output, _) <- renderTemplate
+    (bindSplice "names" namesSplice heist)
+    "summary"
 
-  liftIO . BS.putStrLn . toByteString . renderHtmlFragment UTF8 $ dom
+  liftIO . BS.putStrLn . toByteString $ output
 
 
 namesSplice =
