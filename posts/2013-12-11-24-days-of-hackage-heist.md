@@ -251,7 +251,7 @@ DSL for defining bindings:
 ## Conclusion
 
 `heist` is a really powerful templating system that is a great fit for teams
-with have sepraate developers, where it can't be assumed to know
+with have separate developers, where it can't be assumed to know
 Haskell. `heist` also doesn't compromise on functionality - we've barely
 scratched the surface of what's possible with splices, including recursion and
 more involved flow control. What I really like about `heist` though, is the
