@@ -41,6 +41,13 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
+  match "private/***.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+      >>= saveSnapshot "content"
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
+
   create ["index.html"] $ do
     route idRoute
     compile $ do
