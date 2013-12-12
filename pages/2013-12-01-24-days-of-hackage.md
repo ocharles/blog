@@ -36,9 +36,9 @@ table td code { white-space: normal !important; }
   </tr>
   <tr>
     <td>[`sbv`](/guest-posts/2013-12-09-24-days-of-hackage-sbv.html)</td>
-    <td>[`gloss`](/guest-posts/2013-12-10-24-days-of-hackage-gloss.html)</td>
-    <td>[`heist`](/guest-posts/2013-12-11-24-days-of-hackage-heist.html)</td>
-    <td>?</td>
+    <td>[`gloss`](/posts/2013-12-10-24-days-of-hackage-gloss.html)</td>
+    <td>[`heist`](/posts/2013-12-11-24-days-of-hackage-heist.html)</td>
+    <td>[`pandoc`](/guest-posts/2013-12-12-24-days-of-hackage-pandoc.html)</td>
     <td>?</td>
     <td>?</td>
     <td>?</td>
