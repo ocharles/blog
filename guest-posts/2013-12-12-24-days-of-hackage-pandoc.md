@@ -2,7 +2,7 @@
 title: 24 Days of Hackage: pandoc
 ---
 
-Today I have the pleasure of sitting back and allowing Ron Watkins to run the
+Today I have the pleasure of sitting back and allowing Ron (aka latermuse) to run the
 show. Ron approached me almost immediately after I announced 24 Days of Hackage
 this year, and has produced a great post about document conversions in
 Haskell. So, without further ado, Ron - it's over to you!
