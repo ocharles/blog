@@ -31,7 +31,7 @@ Through [John McFarlane's](http://johnmacfarlane.net/) genius division of
 labor, Pandoc has separated the conversion of documents into readers and
 writers. These readers and writers can be interchanged depending on the source
 and target of your document conversion formats. This allows for a simple library
-api which allows for a utalitarian "plug and play" interface for conversion.
+api which allows for a utilitarian "plug and play" interface for conversion.
 
 Pandoc can be used both as an executable or a library. The library can be
 imported into Haskell code, letting you apply further customizations. To do so,
