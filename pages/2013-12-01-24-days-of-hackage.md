@@ -41,8 +41,7 @@ table td code { white-space: normal !important; }
     <td>[`pandoc`](/guest-posts/2013-12-12-24-days-of-hackage-pandoc.html)</td>
     <td>[`async`](/posts/2013-12-13-24-days-of-hackage-async.html)</td>
     <td>[`acid-state`](/posts/2013-12-14-24-days-of-hackage-acid-state.html)</td>
-    <td>?</td>
-    <td>?</td>
+    <td>[`time`](/posts/2013-12-15-24-days-of-hackage-time.html)</td>
   </tr>
   <tr>
     <td>?</td>
