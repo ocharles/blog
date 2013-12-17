@@ -140,5 +140,25 @@ Into these much more cheery ones!
 <img src="/img/2013-12-16-festive-ocharles.png" style="width: 400px;" />
 </div>
 
+As always, there's a lot we didn't cover in today's post. User `SirRockALot1` mentions the following:
+
+> You didn't touch on what is probably to me the most interesting feature about
+> `repa`, its [stencil support](http://en.wikipedia.org/wiki/Stencil_codes). I was
+> originally introduced to `repa` because I wanted to implement the
+> standard/naive Game of Life grid algorithm with it, and I saw this beautiful
+> implementation using repa stencils:
+> http://www.tapdancinggoats.com/haskell-life-repa.htm
+
+Not only do we have the `repa` library, there's also a collection of other
+libraries that work with `repa` in Hackage, including:
+
+* [`repa-io`](http://hackage.haskell.org/package/repa-io) to load arrays from
+  disk
+* [`repa-algorithms`](http://hackage.haskell.org/package/repa-algorithms)
+  provides some common algorithms on `repa` arrays
+* [`repa-devil`](http://hackage.haskell.org/package/repa-devil) integrates
+  `repa` with the [DevIL](http://openil.sourceforge.net/) image library to load
+  images.
+
 You can find today's code on [Github](http://github.com/ocharles/blog) - go have
 a play!
