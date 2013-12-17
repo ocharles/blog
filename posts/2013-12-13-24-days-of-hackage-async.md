@@ -85,7 +85,7 @@ asynchronous computation. This works well for some tasks, but if we use
 don't necessarily take down the parent, also giving us the option to add
 logging, etc.
 
-Finally, `async` can also be useful to distribute a lange amount of work over
+Finally, `async` can also be useful to distribute a large amount of work over
 multiple concurrent processes. Using `mapConcurrently` we can map over any
 `Traversable` concurrently, and using `race` we can race multiple computations
 until one of them completes. This is really useful in very dynamic environments
