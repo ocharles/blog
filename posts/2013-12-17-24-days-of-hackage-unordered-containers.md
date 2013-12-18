@@ -93,7 +93,7 @@ Which produces the output:
 
 ```
 ocharles wants...
-Artistan Coffee
+Artisan Coffee
 Dependent Types in Haskell
 Lambda Fridge Magnets
 ```
