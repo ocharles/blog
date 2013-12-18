@@ -75,7 +75,7 @@ olliesWishList =
   in [(ollie, [ Request "Artisan Coffee" Please
               , Request "Dependent Types in Haskell" PleasePleasePlease
               , Request "Lambda Fridge Magnets" PrettyPlease
-              ]]
+              ])]
 ```
 
 And query it just as you would query a map in `containers`:
