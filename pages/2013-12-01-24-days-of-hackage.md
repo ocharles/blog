@@ -46,7 +46,7 @@ table td code { white-space: normal !important; }
   <tr>
     <td>[`repa`](/posts/2013-12-16-24-days-of-hackage-repa.html)</td>
     <td>[`unordered-containers`](/posts/2013-12-17-24-days-of-hackage-unordered-containers.html)</td>
-    <td>?</td>
+    <td>[`doctest`](/posts/2013-12-18-24-days-of-hackage-doctest.html)</td>
     <td>?</td>
     <td>?</td>
     <td>?</td>
