@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tell Santa What You Want</title>
+    <style>
+      .me { font-style: italic; background: #eee; }
+      ul li { display: block; width: 100%; list-style-type: none; margin: 3px; border: 1px solid #ccc; };
+    </style>
+  </head>
+  <body>
+    <p>Tell Santa what you want for Christmas:</p>
+    <ul id="repl">
+    </ul>
+    <input id="prompt" disabled="disabled" />
+
+    <script>
+      var prompt = document.getElementById('prompt');
+      var connectionToSanta = new WebSocket("ws://localhost:8080/");
+      var messages = document.getElementById('repl');
+
+      function log(message, cls) {
+          var messageNode = document.createElement("li");
+          messageNode.innerHTML = message;
+          messageNode.className = cls;
+          repl.appendChild(messageNode);
+      }
+
+      connectionToSanta.onopen = function(e) {
+          prompt.disabled = false;
+          prompt.onkeydown = function (e) {
+              if (e.keyCode == 13) {
+                  connectionToSanta.send(prompt.value);
+                  log(prompt.value, "me");
+                  prompt.value = "";
+              }
+          }
+      };
+      connectionToSanta.onmessage = function (m) {
+          log(m.data, "");
+      }
+    </script>
+  </body>
+</html>
