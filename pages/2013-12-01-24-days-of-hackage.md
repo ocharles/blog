@@ -48,7 +48,7 @@ table td code { white-space: normal !important; }
     <td>[`unordered-containers`](/posts/2013-12-17-24-days-of-hackage-unordered-containers.html)</td>
     <td>[`doctest`](/posts/2013-12-18-24-days-of-hackage-doctest.html)</td>
     <td>[`websockets`](/posts/2013-12-19-24-days-of-hackage-websockets.html)</td>
-    <td>?</td>
+    <td>[`web-routes-boomerang`](/posts/2013-12-19-24-days-of-hackage-web-routes-boomerang.html)</td>
     <td>?</td>
     <td>?</td>
   </tr>
