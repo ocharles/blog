@@ -85,7 +85,7 @@ setLengther = contramap Set.toList lengther
 
 In Haskell, we like to be able to reason about our code, so most type classes 
 come with corresponding *laws*. The laws that the instance is required to
-satisfy are dual to the `Functor' laws.  First, let's recall what the `Functor`
+satisfy are dual to the `Functor` laws.  First, let's recall what the `Functor`
 laws are:
 
 * `fmap id = id`
@@ -154,11 +154,11 @@ Who's output is now a bit louder:
 
 ```
 > testShoutyPrinter
-HELLO
-WORLD
-HASKELL
-IS
-GREAT
+HELLO!
+WORLD!
+HASKELL!
+IS!
+GREAT!
 ```
 
 A more complicated example would be a "mailbox" that listens for messages and
