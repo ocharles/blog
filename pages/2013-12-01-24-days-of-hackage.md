@@ -50,7 +50,7 @@ table td code { white-space: normal !important; }
     <td>[`websockets`](/posts/2013-12-19-24-days-of-hackage-websockets.html)</td>
     <td>[`web-routes-boomerang`](/posts/2013-12-20-24-days-of-hackage-web-routes-boomerang.html)</td>
     <td>[`contravariant`](/guest-posts/2013-12-21-24-days-of-hackage-contravariant.html)</td>
-    <td>?</td>
+    <td>[`profunctors`](/guest-posts/2013-12-22-24-days-of-hackage-profunctors.html)</td>
   </tr>
   <tr>
     <td>?</td>
