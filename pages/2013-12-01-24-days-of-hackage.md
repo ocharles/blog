@@ -53,7 +53,7 @@ table td code { white-space: normal !important; }
     <td>[`profunctors`](/guest-posts/2013-12-22-24-days-of-hackage-profunctors.html)</td>
   </tr>
   <tr>
-    <td>?</td>
+    <td>[`fay`](/guest-posts/2013-12-23-24-days-of-hackage-fay.html)</td>
     <td>?</td>
   </tr>
 </table>
