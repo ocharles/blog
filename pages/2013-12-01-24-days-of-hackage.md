@@ -54,6 +54,6 @@ table td code { white-space: normal !important; }
   </tr>
   <tr>
     <td>[`fay`](/guest-posts/2013-12-23-24-days-of-hackage-fay.html)</td>
-    <td>?</td>
+    <td>[`Chart`](/guest-posts/2013-12-24-24-days-of-hackage-charts.html)</td>
   </tr>
 </table>
