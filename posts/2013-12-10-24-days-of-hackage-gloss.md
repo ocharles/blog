@@ -34,7 +34,7 @@ function here is `playIO`:
 
 `playIO` takes a few initial configuration options - the type of display to
 create, the target framerate, the background colour and the initial state of the
-world (whatever that may be). Our state of the world can a marker of whose turn
+world (whatever that may be). Our state of the world can be a marker of whose turn
 it is, and the current board configuration. The board configuration itself is
 just a list of list of plays, where the initial state is a board that has no
 plays.
