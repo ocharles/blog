@@ -128,8 +128,8 @@ Posts:
 10 Reasons Why P = NP - /post/91
 ```
 
-If we received a request for `/post/91`, we can split this apart into the
-request for `[ "post", "91" ]`, which shows details about post #42:
+If we received a request for `/post/42`, we can split this apart into the
+request for `[ "post", "42" ]`, which shows details about post #42:
 
 ```
 > either error id $ runSite "" site [ "post", "42" ]
