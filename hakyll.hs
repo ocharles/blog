@@ -74,7 +74,7 @@ main = hakyll $ do
   create ["posts.rss"] $ do
     route idRoute
     compile $ do
-      posts <- take 10 <$> (loadAllSnapshots "posts/*" "content" >>= recentFirst)
+      posts <- take 10 <$> (loadAllSnapshots "posts/*" "content" >>= recentFirst >>= mapM relativizeUrls)
       renderRss feedConfiguration
         (bodyField "description" <> defaultContext)
         posts
