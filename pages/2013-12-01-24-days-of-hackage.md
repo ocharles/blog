@@ -46,14 +46,15 @@ table td code { white-space: normal !important; }
   <tr>
     <td>[`repa`](/posts/2013-12-16-24-days-of-hackage-repa.html)</td>
     <td>[`unordered-containers`](/posts/2013-12-17-24-days-of-hackage-unordered-containers.html)</td>
-    <td>[`doctest`](/posts/2013-12-18-24-days-of-hackage-doctest.html)</td>
+    <td>[`doctest`](/posts/2013-12-18-doctest.html)</td>
     <td>[`websockets`](/posts/2013-12-19-websockets.html)</td>
     <td>[`web-routes-boomerang`](/posts/2013-12-20-24-days-of-hackage-web-routes-boomerang.html)</td>
     <td>[`contravariant`](/guest-posts/2013-12-21-24-days-of-hackage-contravariant.html)</td>
     <td>[`profunctors`](/guest-posts/2013-12-22-24-days-of-hackage-profunctors.html)</td>
   </tr>
   <tr>
-    <td>[`fay`](/guest-posts/2013-12-23-24-days-of-hackage-fay.html)</td>
-    <td>[`Chart`](/guest-posts/2013-12-24-24-days-of-hackage-charts.html)</td>
+    <td>[`fay`](/posts/2013-12-23-24-days-of-hackage-fay.html)</td>
+    <td>[`Chart`](/posts/2013-12-24-24-days-of-hackage-charts.html)</td>
+    <td colspan="5" style="border: none; background: transparent"></td>
   </tr>
 </table>
