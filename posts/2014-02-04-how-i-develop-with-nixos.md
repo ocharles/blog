@@ -159,7 +159,7 @@ itself. For example, we can drop into a shell that is configured to build
 > ghci
 ghci: command not found
 
-> nix-shell -A haskellPackages.attorparsec
+> nix-shell -A haskellPackages.attoparsec
 
 > ghci
 
