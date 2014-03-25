@@ -116,7 +116,7 @@ This doesn't let us use the query result though, so we'll also return an
 ```
 
 This is preferred over returning the `MVar` itself, as we'll see later that we
-can guarantee that the `MVar` is never read for before it is written from (which
+can guarantee that the `MVar` is never read from before it is written to (which
 would hang the whole program indefinitely).
 
 Now that we have some basic building blocks, we need a way to structure this in
