@@ -245,7 +245,7 @@ getUserAgesById keys = do
 example :: IO (Maybe Int)
 example = runQuerying $
   withQuery getUserAgesById $ \usersAgeById ->
-    liftA2 (+) <$> (usersAgeById @?! 1) <*> (usersAgeById @?! 2)
+    liftA2 (+) <$> (usersAgeById @? 1) <*> (usersAgeById @? 2)
 ```
 
 And if we run `example`, we see:
