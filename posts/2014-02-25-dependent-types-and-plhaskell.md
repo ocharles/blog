@@ -73,7 +73,7 @@ type instance InterpretType 'PgString = String
 
 The type family takes types of kind `PgType` to types of kind `*` - the kind of
 types of Haskell values. It's important to remember that this is all at the type
-level - we transform the *type* `PgInt` to the *type* `String`. Working at the
+level - we transform the *type* `PgInt` to the *type* `Int`. Working at the
 type level is not enough to solve the overarching problem, because runtime
 information is at the value level. In order to link types and values, we can use
 *singleton types*.
