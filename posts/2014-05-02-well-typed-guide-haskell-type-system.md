@@ -7,7 +7,7 @@ Last Friday, I attended [Well Typed](http://well-typed.com)'s training course on
 specifically, those available in GHC. I had a terrific time, and as I feel Well
 Typed's courses go somewhat un-noticed, it deserves a write up. Despite having a
 fairly wide knowledge of type level magic, I always felt my knowledge was a
-little... adhoc. I can confidently say that I no longer feel that is the case.
+little... ad hoc. I can confidently say that I no longer feel that is the case.
 
 First though, what was this course about? As you no doubt know, Haskell is well
 known for being a very type safe language. However, if we limit ourselves to
@@ -34,7 +34,7 @@ range of problems (Andres nicely explained that GADTs are a good way to model
 relations between types).
 
 However, we can go further with this data type. One problem we noticed was that
-this type wasn't restricitive enough - GHC will quite happily accept types like
+this type wasn't restrictive enough - GHC will quite happily accept types like
 of `Vec Bool Char`, which is completely meaningless! Even though we can't
 construct any terms of this type, it would be good if we were prevented from
 making such mistakes as soon as possible. Using the recent data type promotion
@@ -43,7 +43,7 @@ a good solution for our application so far.
 
 We then extended the application to support multiple types of questions and
 answers (true/false vs. quantity questions), and reached the limit of `Vec`. We
-generalised a step further to a type of hetrogeneous list called `Env`:
+generalised a step further to a type of heterogeneous list called `Env`:
 
 ```haskell
 data Env :: [k] -> (k -> *) -> * where
