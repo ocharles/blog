@@ -88,9 +88,10 @@ Now, the code performing a query needs to somehow "communicate" with this query,
 registering both the key that is being queried for, and allowing information to
 flow back in order to use the query results. We can model this by using some
 imperative programming constructs (you don't hear that often!). We'll use an
-`IORef` to keep track of a mapping keys to query with, to `MVar`s which store
-the result of the query (noting that the query might fail). Thus `Query` now
-becomes:
+`IORef` to keep track of a mapping of keys to query results. The keys will be
+used to query results from the database, and those results will be represented
+as a `Maybe` value (allowing query failures to be indicated) stored in an
+`MVar`. Thus `Query` now becomes:
 
 ```haskell
 data Query k v = Query (IORef (Map k [MVar (Maybe v)]))
