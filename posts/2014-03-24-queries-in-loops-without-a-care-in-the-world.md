@@ -209,7 +209,7 @@ withQuery runner k = Querying $ Compose $ do
   keysRef <- newIORef Map.empty
 
   -- Run the first phase of the Querying action
-  getResponse <- getCompose $ unQuerying (k (Query keysRef))
+  getResponse <- getCompose $ runQuerying (k (Query keysRef))
 
   -- Check which keys were requested and perform a query
   keys <- readIORef keysRef
