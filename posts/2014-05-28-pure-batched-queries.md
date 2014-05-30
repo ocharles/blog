@@ -329,6 +329,8 @@ example =
 
 ```
 > example >>= print
+<interactive>:1:2:
+ [TODO]
 ```
 
 Cool!
@@ -346,8 +348,10 @@ example =
             <*> ask userAgeById userId
 ```
 
-```
-
+```haskell
+> example >>= print
+<interactive>:1:2:
+ [TODO]
 ```
 
 So, what's gone wrong? The problem is that when we call `withQuery` we are given
@@ -410,6 +414,12 @@ Again, notice that the query `kvs` is not necessarily the same as `Querying`'s
 `Somewhere` to the context of this function.
 
 With this last change, we're done - our example now compiles:
+
+```haskell
+> example >>= print
+<interactive>:1:2:
+ [TODO]
+```
 
 ## Concluding Thoughts
 
