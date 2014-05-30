@@ -86,7 +86,7 @@ want to be able to build a function like `MkCoffee`, keeping the generic
 representation behind the scenes. To do this, we'll need to *interpret* the
 generic representation into a function.
 
-## Interpretting Generic Representations
+## Interpreting Generic Representations
 
 The standard way to work with a generic representation is to walk the tree using
 instances of a type class. We'll do the same, and walk the generic
@@ -118,7 +118,7 @@ instance Mk (K1 i c) ((->) c) where
 ```
 
 A `Coffee` is more than just a single field though, and we need a way to combine
-individual fields together. This is done by the use of the `:*:` constuctor,
+individual fields together. This is done by the use of the `:*:` constructor,
 which we can think of as having "fields on the left" and "fields on the
 right". To construct `:*:` we need to compose a builder on the left with
 the builder on the right, so we use `Compose` to join the left and right
@@ -140,7 +140,7 @@ instance (Mk f f') => Mk (M1 i c f) f' where
 ```
 
 Believe it or not, we're now a good step closer to getting what we want. Let's
-have a look and see what get if we try and `mk` some `Coffee`:
+have a look and see what we get if we try and `mk` some `Coffee`:
 
 ```haskell
 fmap (to :: Rep Coffee a -> Coffee) mk
@@ -172,7 +172,7 @@ instance (Apply g a b, Apply f b c) => Apply (Compose f g) a c where
   apply (Compose x) = apply (fmap apply x)
 ```
 
-This time we have a type class of three types (!), where the first twot types
+This time we have a type class of three types (!), where the first two types
 determine the third. However, it's not so bad - `f` is the functor we need to
 expand, `a` is the type of data under the functor and `b` is the final type
 after expansion. If you look at the specific instances, it should be clear how
