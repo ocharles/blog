@@ -86,7 +86,7 @@ want to be able to build a function like `MkCoffee`, keeping the generic
 representation behind the scenes. To do this, we'll need to *interpret* the
 generic representation into a function.
 
-## Interpretting Generic Representations
+## Interpreting Generic Representations
 
 The standard way to work with a generic representation is to walk the tree using
 instances of a type class. We'll do the same, and walk the generic
