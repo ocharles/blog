@@ -252,7 +252,7 @@ defaults for each parameter). To solve this, we just need to provide an
 argument:
 
 ```
-> nix-shell -A ocharlesCommon 'import ../ocharles-common {}'
+> nix-shell --arg ocharlesCommon 'import ../ocharles-common {}'
 ```
 
 This will build `ocharles-common` and then drop us into a shell ready to carry
