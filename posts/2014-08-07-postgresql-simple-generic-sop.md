@@ -1,5 +1,5 @@
 -----
-title: Working with postgresql-simple with generic-sop
+title: Working with postgresql-simple with generics-sop
 -----
 
 The least interesting part of my job as a programmer is the act of pressing keys
@@ -20,7 +20,7 @@ fields in a constructor (such as the individual fields in a record).
 
 Last month, [Edsko](http://www.edsko.net/) and [Löh](http://www.andres-loeh.de/)
 announced a new library for generic programming:
-[`generic-sop`](http://hackage.haskell.org/package/generic-sop). I've been
+[`generics-sop`](http://hackage.haskell.org/package/generics-sop). I've been
 playing with this library in the last couple of days, and I absolutely love the
 approach. In today's short post, I want to demonstrate how easy it is to use
 this library. I don't plan to go into a lot of detail, but I encourage
@@ -63,7 +63,7 @@ instance ToRow Book where
 As you can see - that's a lot of boilerplate. In fact, it's nearly twice as much
 code as the data type itself! The definitions of these instances are trivial, so
 it's frustrating that I have to manually type the implementation bodies by
-hand. It's here that we turn to `generic-sop`.
+hand. It's here that we turn to `generics-sop`.
 
 First, we're going to need a bit of boiler-plate in order to manipulate `Book`s
 generically:
@@ -80,9 +80,9 @@ turn use this generic representation to derive the `Generics.SOP.Generic`
 instance. With this out of the way, we're ready to work with `Book`s in a
 generic manner.
 
-### `generic-sop`
+### `generics-sop`
 
-The `generic-sop` library works by manipulating heterogeneous lists of data. If
+The `generics-sop` library works by manipulating heterogeneous lists of data. If
 we look at our `Book` data type, we can see that the following two are morally
 describing the same data:
 
@@ -112,7 +112,7 @@ Once we begin working in this domain, a lot of the techniques we're already
 familiar with continue fairly naturally. We can map over these lists, exploit
 their applicative functor-like structure, fold them, and so on.
 
-`generic-sop` continues in the trend, using kind polymorphism and a few other
+`generics-sop` continues in the trend, using kind polymorphism and a few other
 techniques to maximise generality. We can see what exactly is going on with
 `generics-sop` if we ask GHCI for the `:kind!` of `Book`'s generic `Code`:
 
@@ -157,7 +157,7 @@ single row parser returning multiple values, which is more like `RowParser
 sequencue :: Monad m => [m a] -> m [a]
 ```
 
-There is an equivalent in `generic-sop` for working with heterogeneous lists -
+There is an equivalent in `generics-sop` for working with heterogeneous lists -
 `hsequence`. Thus if we `hsequence` our fields, we build a single `RowParser`
 that returns a product of values:
 
@@ -221,7 +221,7 @@ field, collecting the resulting `Action`s into a list. That is, we'd like to do:
 map toField xs
 ```
 
-That's not quite possible in `generic-sop`, but we can get very close. Using
+That's not quite possible in `generics-sop`, but we can get very close. Using
 `hcliftA`, we can lift a method of a type class over a heterogeneous list:
 
 ```haskell
@@ -252,7 +252,7 @@ gtoRow a =
 Admittedly this definition is a little more complicated than one might hope, but
 it's still extremely concise and declarative - there's only a little bit of
 noise added. However, again we should note there was no need to write type class
-instances, perform explicit recursion or deal with meta-data - `generic-sop`
+instances, perform explicit recursion or deal with meta-data - `generics-sop`
 stayed out of way and gave us just what we needed.
 
 ### Conclusion
@@ -285,7 +285,7 @@ instance FromRow Author where fromRow = gfromRow
 instance ToRow Author where toRow = gtoRow
 ```
 
-`generic-sop` is a powerful library for dealing with data generically. By using
+`generics-sop` is a powerful library for dealing with data generically. By using
 heterogeneous lists, the techniques we've learnt at the value level naturally
 extend and we can begin to think of working with generic data in a declarative
 manner. For me, this appeal to familiar techniques makes it easy to dive
@@ -293,6 +293,6 @@ straight in to writing generic functions - I've already spent time learning to
 think in maps and folds, it's nice to see the ideas transfer to yet another
 problem domain.
 
-`generic-sop` goes a lot further than we've seen in this post. For more
+`generics-sop` goes a lot further than we've seen in this post. For more
 real-world examples, see the links at the top of the
-[`generic-sop`](http://hackage.haskell.org/package/generic-sop) Hackage page.
+[`generics-sop`](http://hackage.haskell.org/package/generics-sop) Hackage page.
