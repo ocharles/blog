@@ -96,11 +96,11 @@ to have all their elements of the same type. However, using modern GHC
 extensions, we can get very close to modelling this:
 
 ```haskell
-data NP :: [*] -> * where
-  Nil :: NP '[]
-  (:*) :: x -> NP xs -> NP (x ': xs)
+data HList :: [*] -> * where
+  Nil :: HList '[]
+  (:*) :: x -> HList xs -> HList (x ': xs)
 
-book :: NP '[Text, Text, ISBN, Int]
+book :: HList '[Text, Text, ISBN, Int]
 book = "Conceptual Mathematics"
     :* "Lawvere, Schanuel"
     :* "978-0-521-71916-2"
