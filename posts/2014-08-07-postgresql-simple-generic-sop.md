@@ -154,7 +154,7 @@ single row parser returning multiple values, which is more like `RowParser
 [..]`. In the `Prelude` we have a function to sequence a list of monadic actions:
 
 ```haskell
-sequencue :: Monad m => [m a] -> m [a]
+sequence :: Monad m => [m a] -> m [a]
 ```
 
 There is an equivalent in `generics-sop` for working with heterogeneous lists -
