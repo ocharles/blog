@@ -225,12 +225,12 @@ That's not quite possible in `generics-sop`, but we can get very close. Using
 `hcliftA`, we can lift a method of a type class over a heterogeneous list:
 
 ```haskell
-gtoRow :: (Generic a, Code a ~ '[xs], All ToField xs) => a -> [Action]
+gtoRow :: (Generic a, Code a ~ '[xs], All ToField xs, SingI xs) => a -> [Action]
 gtoRow a =
   case from a of
-    SOP (Z xs) -> _ (hcliftA p (K . toField . unI) xs)
+    SOP (Z xs) -> _ (hcliftA toFieldP (K . toField . unI) xs)
 
-  where toField = Proxy :: Proxy ToField
+  where toFieldP = Proxy :: Proxy ToField
 ```
 
 We unwrap from the identity functor `I`, call `toField` on the value, and then
@@ -241,12 +241,12 @@ homogeneous list, we can switch back to a more basic representation by
 collapsing the structure with `hcollapse`:
 
 ```haskell
-gtoRow :: (Generic a, Code a ~ '[xs], All ToField xs) => a -> [Action]
+gtoRow :: (Generic a, Code a ~ '[xs], All ToField xs, SingI xs) => a -> [Action]
 gtoRow a =
   case from a of
-    SOP (Z xs) -> hcollapse (hcliftA p (K . toField . unI) xs)
+    SOP (Z xs) -> hcollapse (hcliftA toFieldP (K . toField . unI) xs)
 
-  where toField = Proxy :: Proxy ToField
+  where toFieldP = Proxy :: Proxy ToField
 ```
 
 Admittedly this definition is a little more complicated than one might hope, but
