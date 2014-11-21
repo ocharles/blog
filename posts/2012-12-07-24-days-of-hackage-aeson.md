@@ -71,8 +71,8 @@ learn anything new! All parsing is done in the `Parser` `Monad`, which is also
 an `Applicative` functor, which we take advantage to construct `Cheese`!
 
 `Parser` provides even more than that though - there is also an `Alternative`
-instance so you can try parsing multiple representations - which comes on really
-handle when dealing with multiple versions of a web service!
+instance so you can try parsing multiple representations - which comes in really
+handy when dealing with multiple versions of a web service!
 
 `Aeson` can also be used to work directly with the AST too , you don't have to
 write `To`/`FromJSON` instances if you don't want. The AST is simple, in fact
