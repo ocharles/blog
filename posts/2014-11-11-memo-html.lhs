@@ -38,7 +38,7 @@ In order to work with the `MemoTrie` library, we need to define instance of `Has
 >   untrie (HTML'Trie _ g) (Element a c) = untrie g (a, c)
 >
 > instance HasTrie HTML where
->   data HTML :->: x = HTMLTrie (HTML' :->: x)
+>   newtype HTML :->: x = HTMLTrie (HTML' :->: x)
 >   trie f = HTMLTrie (trie (f . HTML (trie render')))
 >   untrie (HTMLTrie f) (HTML _ x) = untrie f x
 
@@ -68,7 +68,7 @@ There are a few `trace` calls here so we can see what goes on as we try and eval
 
 `render` builds the rendering function from the trie at hand, which gets us back to `render'`. However, this function is also memoized, so only initial calls will enter the function. We export `render` but keep `render'` private.
 
- 
+
 Examples
 --------
 
@@ -133,7 +133,7 @@ This time we do see some tracing, but only on the elements that have actually ch
 <h1>Hello!</h1><p>Bonjour tout le monde</p>
 <p>That's an approximation of 'Hello, world!' in French</p></div>"
 ```
- 
+
 (Line breaks added for clarity)
 
 Concluding Thoughts
