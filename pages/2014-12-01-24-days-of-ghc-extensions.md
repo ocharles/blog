@@ -22,7 +22,7 @@ table td code { white-space: normal !important; }
 
 <table> <tr>
   <td>[Welcome](/posts/2014-12-01-24-days-of-ghc-extensions.html)</td>
-  <td>?</td>
+  <td>[View Patterns](/posts/2014-12-02-view-patterns.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td>
