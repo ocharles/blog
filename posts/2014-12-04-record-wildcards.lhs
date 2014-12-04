@@ -3,7 +3,7 @@ title: 24 Days of GHC Extensions: Record Wildcards
 ---
  
 Occasionally, you come across a little trick or method for doing something that
-seems somewhat inconsequential - but rapidly becomes an indespensible item in
+seems somewhat inconsequential - but rapidly becomes an indispensable item in
 your programming toolbox. For me, the
 [`RecordWildcards`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/syntax-extns.html#record-wildcards)
 extension is a prime example of this scenario.
@@ -56,7 +56,7 @@ just out of variables, rather than function applications.
 If you were expecting a lot of ground breaking new features from
 `RecordWildCards` you might be disappointed - that's about all it does! However,
 did you know that you can also use `RecordWildCards` when creating data? For
-example, we could also write a JSON deserializer as:
+example, we could also write a JSON deserialiser as:
 
 > instance FromJSON Worker where
 >   parseJSON = withObject "Worker" $ \o -> do
@@ -87,7 +87,7 @@ data ServerAPI m = ServerAPI
   }
 ```
 
-The intention here is that users provide a `ServerAPI` value when they initialize
+The intention here is that users provide a `ServerAPI` value when they initialise
 `engine-io`, and I then have an abstraction of a web framework to play
 with. People can instantiate `ServerAPI` for
 [Snap](http://hackage.haskell.org/package/engine-io-snap-1.0.2/docs/Network-EngineIO-Snap.html#v:snapAPI)
