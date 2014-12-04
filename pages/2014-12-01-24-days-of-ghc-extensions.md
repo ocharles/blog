@@ -24,7 +24,7 @@ table td code { white-space: normal !important; }
   <td>[Welcome](/posts/2014-12-01-24-days-of-ghc-extensions.html)</td>
   <td>[View Patterns](/posts/2014-12-02-view-patterns.html)</td>
   <td>[Pattern Synonyms](/posts/2014-12-03-pattern-synonyms.html)</td>
-  <td>?</td>
+  <td>[Record WildCards](/posts/2014-12-04-record-wildcards.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td></tr><tr>

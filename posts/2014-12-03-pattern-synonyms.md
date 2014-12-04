@@ -141,3 +141,10 @@ best of my knowlege) pattern synonyms cannot do.
 Have a play with them - see what you find! Code accompanying this blog post can
 be found
 [on Github](https://github.com/ocharles/blog/blob/master/code/2014-12-03-pattern-synonyms.hs).
+
+----
+
+*This post is part of
+[24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
+for more posts like this, check out the
+[calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.

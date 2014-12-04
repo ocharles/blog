@@ -22,7 +22,7 @@ lensDownloadsOld packages =
     Just n -> n
     Nothing -> 0
 ```
- 
+
 Notice that the first thing this function does is to immediately pattern match
 on a function call. Arguably, this obscures the definition of the
 `lensDownloads` function which we expect to have *two* equations defining it - one
@@ -100,3 +100,10 @@ a context switch), and the productivity gains the extension begets. What would
 be *really* nice would be similar functionality of this extension, without the
 need for new syntax. Thankfully, GHC can do just that. How, you ask? Well,
 you'll just have to wait and see...
+
+----
+
+*This post is part of
+[24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
+for more posts like this, check out the
+[calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.

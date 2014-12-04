@@ -41,3 +41,10 @@ previous years, I would love it if 24 Days can become a platform for those new
 to blogging to get their feet wet, along with a fantastic learning resource.
 
 On with the show!
+
+----
+
+*This post is part of
+[24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
+for more posts like this, check out the
+[calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.
