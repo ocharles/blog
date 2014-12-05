@@ -79,7 +79,7 @@ This function will now produce values only if `loud` evaluates to `True` or
 -> hello3 True
 "Hello."
 -> hello3 False
-"hello."
+"Hello."
 -> hello3 undefined
 *** Exception: Prelude.undefined
 -> hello3 (fix id)
