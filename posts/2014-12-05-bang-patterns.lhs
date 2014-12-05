@@ -29,13 +29,13 @@ If we apply `hello` to various arguments, the behaviour is the same - even for
 
 ```
 -> hello True
-"Hello".
+"Hello."
 -> hello False
-"Hello".
+"Hello."
 -> hello undefined
-"Hello".
+"Hello."
 -> hello (fix id)
-"Hello".
+"Hello."
 ```
 
 However, by pattern matching on the `Bool`, we force evaluation of `loud`:
