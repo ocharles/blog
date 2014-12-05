@@ -46,7 +46,7 @@ However, by pattern matching on the `Bool`, we force evaluation of `loud`:
 
 ```
 -> hello2 True
-"Hello"!
+"Hello!"
 -> hello2 False
 "hello"
 -> hello2 undefined
