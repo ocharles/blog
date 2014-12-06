@@ -25,7 +25,7 @@ table td code { white-space: normal !important; }
   <td>[View Patterns](/posts/2014-12-02-view-patterns.html)</td>
   <td>[Pattern Synonyms](/posts/2014-12-03-pattern-synonyms.html)</td>
   <td>[Record WildCards](/posts/2014-12-04-record-wildcards.html)</td>
-  <td>?</td>
+  <td>[Bang Patterns](/posts/2014-12-05-bang-patterns.html)</td>
   <td>?</td>
   <td>?</td></tr><tr>
   <td>?</td>
