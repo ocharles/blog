@@ -111,7 +111,7 @@ arithmetic = do
     return
 ```
 
-Here, the input is numeric and all functions operate on a number. What if we want to do take a list and output a string? No problem:
+Here, the input is numeric and all functions operate on a number. What if we want to take a list and output a string? No problem:
 
 ```haskell
 check = do
