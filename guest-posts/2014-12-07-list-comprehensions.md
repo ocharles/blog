@@ -29,7 +29,7 @@ regularListComp = [ x + y * z
                   ]
 ```
 
-This takes the sum of each element of `x` paired with *each* element of `y` and collects the results. Another useful way to process one ore more lists together is to *zip* them and process each tuple. This is what `ParallelListComprehensions` gives us: a list comprehension-like syntax that allows us to process lists *in parallel*, as if the lists were zipped together and then processed.
+This takes the sum of each element of `x` paired with *each* element of `y` and of `z` and collects the results. Another useful way to process one ore more lists together is to *zip* them and process each tuple. This is what `ParallelListComprehensions` gives us: a list comprehension-like syntax that allows us to process lists *in parallel*, as if the lists were zipped together and then processed.
 
 ```haskell
 parallelListComp :: Int
@@ -103,10 +103,11 @@ We can use the fields of `Character` as we would columns of a database table and
 
 ```haskell
 oldest :: Int -> [Character] -> [String]
-oldest k tbl = [ first ++ " " ++ lst
+oldest k tbl = [ firstName ++ " " ++ lastName
                | Character{..} <- tbl
                , then sortWith by birthYear
-               , then take k ]
+               , then take k
+               ]
 ```
 
 Perhaps we also want to know in which year the most `friend`s were born, and who they are:
