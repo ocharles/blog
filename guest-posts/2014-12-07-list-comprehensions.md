@@ -7,7 +7,10 @@ After doing a fantastic job explaining [rebindable syntax](/guest-posts/2014-12-
 ---
 
 ```haskell
-{-# LANGUAGE ParallelListComp, TransformListComp, MonadComprehensions, RecordWildCards #-}
+{-# LANGUAGE ParallelListComp, 
+             TransformListComp,
+             MonadComprehensions,
+             RecordWildCards #-}
 
 import GHC.Exts
 import qualified Data.Map as M
@@ -29,7 +32,7 @@ regularListComp = [ x + y * z
                   ]
 ```
 
-This takes the sum of each element of `x` paired with *each* element of `y` and collects the results. Another useful way to process one ore more lists together is to *zip* them and process each tuple. This is what `ParallelListComprehensions` gives us: a list comprehension-like syntax that allows us to process lists *in parallel*, as if the lists were zipped together and then processed.
+This takes the sum of each element of `x` paired with *each* element of `y` and of `z` and collects the results. Another useful way to process one ore more lists together is to *zip* them and process each tuple. This is what `ParallelListComprehensions` gives us: a list comprehension-like syntax that allows us to process lists *in parallel*, as if the lists were zipped together and then processed.
 
 ```haskell
 parallelListComp :: Int
@@ -103,10 +106,11 @@ We can use the fields of `Character` as we would columns of a database table and
 
 ```haskell
 oldest :: Int -> [Character] -> [String]
-oldest k tbl = [ first ++ " " ++ lst
+oldest k tbl = [ firstName ++ " " ++ lastName
                | Character{..} <- tbl
                , then sortWith by birthYear
-               , then take k ]
+               , then take k
+               ]
 ```
 
 Perhaps we also want to know in which year the most `friend`s were born, and who they are:
@@ -174,7 +178,7 @@ greet = [ name
         ]
 ```
 
-It should be noted that `MonadComprehensions` generalize the both `TransformListComp` (guards in comprehensions are translated into the `guard` function if your monad is a `MonadPlus`) and `ParallelListComp` (parallel statements are translated into `mzip` expressions). You can read about the actual transformations that take place [here](https://downloads.haskell.org/~ghc/7.8.3/docs/html/users_guide/syntax-extns.html#monad-comprehensions).
+It should be noted that `MonadComprehensions` generalize both `TransformListComp` (guards in comprehensions are translated into the `guard` function if your monad is a `MonadPlus`) and `ParallelListComp` (parallel statements are translated into `mzip` expressions). You can read about the actual transformations that take place [here](https://downloads.haskell.org/~ghc/7.8.3/docs/html/users_guide/syntax-extns.html#monad-comprehensions).
 
 ----
 
