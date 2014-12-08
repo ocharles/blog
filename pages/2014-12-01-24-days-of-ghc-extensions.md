@@ -28,7 +28,7 @@ table td code { white-space: normal !important; }
   <td>[Bang Patterns](/posts/2014-12-05-bang-patterns.html)</td>
   <td>[Rebindable Syntax](/guest-posts/2014-12-06-rebindable-syntax.html)</td>
   <td>[List Comprehensions](/guest-posts/2014-12-07-list-comprehensions.html)</td></tr><tr>
-  <td>?</td>
+  <td>[Type Operators](/posts/2014-12-08-type-operators.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td>
