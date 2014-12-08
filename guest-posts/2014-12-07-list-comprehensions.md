@@ -7,7 +7,10 @@ After doing a fantastic job explaining [rebindable syntax](/guest-posts/2014-12-
 ---
 
 ```haskell
-{-# LANGUAGE ParallelListComp, TransformListComp, MonadComprehensions, RecordWildCards #-}
+{-# LANGUAGE ParallelListComp, 
+             TransformListComp,
+             MonadComprehensions,
+             RecordWildCards #-}
 
 import GHC.Exts
 import qualified Data.Map as M
@@ -175,7 +178,7 @@ greet = [ name
         ]
 ```
 
-It should be noted that `MonadComprehensions` generalize the both `TransformListComp` (guards in comprehensions are translated into the `guard` function if your monad is a `MonadPlus`) and `ParallelListComp` (parallel statements are translated into `mzip` expressions). You can read about the actual transformations that take place [here](https://downloads.haskell.org/~ghc/7.8.3/docs/html/users_guide/syntax-extns.html#monad-comprehensions).
+It should be noted that `MonadComprehensions` generalize both `TransformListComp` (guards in comprehensions are translated into the `guard` function if your monad is a `MonadPlus`) and `ParallelListComp` (parallel statements are translated into `mzip` expressions). You can read about the actual transformations that take place [here](https://downloads.haskell.org/~ghc/7.8.3/docs/html/users_guide/syntax-extns.html#monad-comprehensions).
 
 ----
 
