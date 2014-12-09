@@ -83,20 +83,20 @@ database lookup.
 It looks like we're stuck, but what we can do is make an effectful variation of
 `pureMax`:
 
-> impureMax :: (MonadFix m, Ord b) => (a -> m b) -> RoseTree a -> m (RoseTree (a, b))
-> impureMax f tree = do
+> impureMin :: (MonadFix m, Ord b) => (a -> m b) -> RoseTree a -> m (RoseTree (a, b))
+> impureMin f tree = do
 >   rec (t, largest) <- go largest tree
 >   return t
 >  where
->   go biggest (RoseTree x []) = do
+>   go smallest (RoseTree x []) = do
 >     b <- f x
->     return (RoseTree (x, biggest) [], b)
+>     return (RoseTree (x, smallest) [], b)
 >
->   go biggest (RoseTree x xs) = do
->     sub <- mapM (go biggest) xs
+>   go smallest (RoseTree x xs) = do
+>     sub <- mapM (go smallest) xs
 >     b <- f x
->     let (xs', largests) = unzip sub
->     return (RoseTree (x, biggest) xs', min b (minimum largests))
+>     let (xs', bs) = unzip sub
+>     return (RoseTree (x, smallest) xs', min b (minimum bs))
 
 If you compare this to `pureMax` you should notice that the programs are very
 similar. Infact, all we've had to do is replace the pure `let x = y` bindings
@@ -123,7 +123,7 @@ To wrap up this example, let's work with some test data and see how it all plays
 Now we can ask our system what budget we should use
 
 ```
-.> impureMax budget inviteTree
+.> impureMin budget inviteTree
 RoseTree ("Ada",5) [RoseTree ("Dijkstra",5) [],RoseTree ("Curry",5) [RoseTree ("Howard",5) []]]
 ```
 
