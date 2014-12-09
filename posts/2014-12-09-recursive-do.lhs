@@ -137,9 +137,16 @@ you really want a headache!) is the [`Tardis`
 monad](http://hackage.haskell.org/package/tardis-0.3.0.0/docs/Control-Monad-Tardis.html)
 - a monad where data can travel forwards and backwards in time!
 
+Edits:
+
+* [Dan Fornika](https://twitter.com/dfornika) [points out](https://twitter.com/dfornika/status/542422590313091073) that
+  another cool use case of this extension is in implementing [jump labels for assembly code](http://wall.org/~lewis/2013/10/15/asm-monad.html).
+
 ----
 
 *This post is part of
 [24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
 for more posts like this, check out the
 [calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.
+
+ 
