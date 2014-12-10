@@ -30,7 +30,7 @@ table td code { white-space: normal !important; }
   <td>[List Comprehensions](/guest-posts/2014-12-07-list-comprehensions.html)</td></tr><tr>
   <td>[Type Operators](/posts/2014-12-08-type-operators.html)</td>
   <td>[Recursive Do](/posts/2014-12-09-recursive-do.html)</td>
-  <td>?</td>
+  <td>[Nullary Type Classes](/posts/2014-12-10-nullary-type-classes.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td>
