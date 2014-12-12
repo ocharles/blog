@@ -14,7 +14,7 @@ implementation up to the library author.
 However, using a nullary type class for this has some drawbacks - the biggest is
 that we are now tied to a single choice of logging function. This can be
 problematic if we ever need to vary what it means to log throughout the life
-time of a program. This may crop up if we decide that we need to transform of
+time of a program. This may crop up if we decide that we need to transform or
 discard log entries at smaller parts of our program.
 
 To solve this, lets rewrite our library to take logging as a parameter to a
