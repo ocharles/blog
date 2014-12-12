@@ -32,7 +32,7 @@ table td code { white-space: normal !important; }
   <td>[Recursive Do](/posts/2014-12-09-recursive-do.html)</td>
   <td>[Nullary Type Classes](/posts/2014-12-10-nullary-type-classes.html)</td>
   <td>[Implicit Parameters](/posts/2014-12-11-implicit-params.html)</td>
-  <td>?</td>
+  <td>[Type Families](/posts/2014-12-12-type-families.html)</td>
   <td>?</td>
   <td>?</td></tr><tr>
   <td>?</td>
