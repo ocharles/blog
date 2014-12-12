@@ -1,3 +1,7 @@
+---
+title: 24 Days of GHC Extensions: Type Families
+---
+ 
 Today, we're going to look at an extension that radically alters the behavior of
 GHC Haskell by extending what we can do with types. The extension that we're
 looking at is known as [type
