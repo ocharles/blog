@@ -33,7 +33,7 @@ table td code { white-space: normal !important; }
   <td>[Nullary Type Classes](/posts/2014-12-10-nullary-type-classes.html)</td>
   <td>[Implicit Parameters](/posts/2014-12-11-implicit-params.html)</td>
   <td>[Type Families](/posts/2014-12-12-type-families.html)</td>
-  <td>?</td>
+  <td>[Multi Param Type Classes](/posts/2014-12-13-multi-param-type-classes.html)</td>
   <td>?</td></tr><tr>
   <td>?</td>
   <td>?</td>
