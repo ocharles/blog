@@ -79,3 +79,10 @@ any information to the type inference engine - because knowing one type doesn't
 let you know anything about the other types. However, we needn't abandon hope
 here - this problem can be solved, it just needs another extension (oh, of
 course!).
+
+----
+
+*This post is part of
+[24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
+for more posts like this, check out the
+[calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.
