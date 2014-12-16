@@ -36,7 +36,7 @@ table td code { white-space: normal !important; }
   <td>[Multi Param Type Classes](/posts/2014-12-13-multi-param-type-classes.html)</td>
   <td>[Functional Dependencies](/posts/2014-12-14-functional-dependencies.html)</td></tr><tr>
   <td>[Deriving](/guest-posts/2014-12-15-deriving.html)</td>
-  <td>?</td>
+  <td>[Derive Generic](/posts/2014-12-16-derive-generic.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td>
