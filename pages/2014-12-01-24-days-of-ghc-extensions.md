@@ -37,7 +37,7 @@ table td code { white-space: normal !important; }
   <td>[Functional Dependencies](/posts/2014-12-14-functional-dependencies.html)</td></tr><tr>
   <td>[Deriving](/guest-posts/2014-12-15-deriving.html)</td>
   <td>[Derive Generic](/posts/2014-12-16-derive-generic.html)</td>
-  <td>?</td>
+  <td>[Overloaded Strings](/posts/2014-12-17-overloaded-strings.html)</td>
   <td>?</td>
   <td>?</td>
   <td>?</td>

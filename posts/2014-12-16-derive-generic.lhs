@@ -105,3 +105,10 @@ to get used to it if you're new to it. [Andres Löh](http://www.kosmikus.org/), 
 programming, has a lovely [Skills Matter
 talk](https://skillsmatter.com/skillscasts/3932-a-haskell-lecture-with-leading-expert-andres-loh)
 that goes into more detail about this very extension.
+ 
+----
+
+*This post is part of
+[24 Days of GHC Extensions](/pages/2014-12-01-24-days-of-ghc-extensions.html) -
+for more posts like this, check out the
+[calendar](/pages/2014-12-01-24-days-of-ghc-extensions.html)*.
