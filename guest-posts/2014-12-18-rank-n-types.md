@@ -19,16 +19,20 @@ So what is polymorphism in the first place?  To understand it we should
 understand concrete (*monomorphic*) values first.  Okay, so what is a
 *concrete* value?  Here is an example:
 
-    intId :: Integer -> Integer
-    intId x = x
+```haskell
+intId :: Integer -> Integer
+intId x = x
+```
 
 This is a concrete value, a function.  When we refer to `intId` we refer
 to a certain fully defined value (which is a function) of a certain
 fully defined type (`Integer -> Integer`).  Note that the function
 itself is the concrete value we refer to.  Here is a second example:
 
-    doubleId :: Double -> Double
-    doubleId x = x
+```haskell
+doubleId :: Double -> Double
+doubleId x = x
+```
 
 Now these two values are of different types, but their definitions are
 exactly the same.  Can we save some typing and perhaps even get
@@ -36,8 +40,10 @@ additional safety along the way?  Indeed, we can.  Like many languages
 Haskell allows us to provide a single definition to cover the above two
 cases and also infinitely many more:
 
-    id :: a -> a
-    id x = x
+```haskell
+id :: a -> a
+id x = x
+```
 
 You have probably seen this before.  As you can see, the definition is
 still the same.  This kind of polymorphism is called *parametric
@@ -67,10 +73,12 @@ identity function called `id`, which is of type `T -> T`.  This is the
 type-checker's view anyway, and by turning on the `RankNTypes` extension
 we can be explicit about that in our code:
 
-    {-# LANGUAGE RankNTypes #-}
+```haskell
+{-# LANGUAGE RankNTypes #-}
 
-    id :: forall a. a -> a
-    id x = x
+id :: forall a. a -> a
+id x = x
+```
 
 Now it is much clearer that `id` is really a family of infinitely many
 functions.  It is fair to say that it is an abstract function (as
@@ -81,14 +89,18 @@ type is *universally quantified* (or often just *quantified*) over `a`.
 When we apply the identity function to a value of a concrete type, then
 we *instantiate* the type variable `a` to that concrete type:
 
-    id (3 :: Integer)
+```haskell
+id (3 :: Integer)
+```
 
 At that application site the type variable `a` becomes a concrete type,
 namely `Integer`.  It is valid to apply `id` with different
 instantiations of its type variable:
 
-    print (id (3 :: Integer),
-           id "blah")
+```haskell
+print (id (3 :: Integer),
+       id "blah")
+```
 
 Another way to look at this is in terms of promise and demand.  You
 could say that the type signature of the `id` function *promises* that
@@ -105,27 +117,35 @@ explicit about the "for all" part.  This alone is just a syntactic
 change and adds no new expressivity.  However, we can use this new
 syntax within a type alias:
 
-    type IdFunc = forall a. a -> a
+```haskell
+type IdFunc = forall a. a -> a
+```
 
 Remember that the type fully determines the corresponding function?  So
 any value of type `IdFunc` must be the identity function.  But `IdFunc`
 is just a plain old regular type alias, isn't it?  That means of course
 we can use it in type signatures.  For example we could have written:
 
-    id :: IdFunc
-    id x = x
+```haskell
+id :: IdFunc
+id x = x
+```
 
 Notice that the type variable is gone entirely.  A much more interesting
 way to use `IdFunc` is as the domain of a function:
 
-    someInt :: IdFunc -> Integer
+```haskell
+someInt :: IdFunc -> Integer
+```
 
 Isn't this curious?  Since any value of type `IdFunc` must be the
 identity function the `someInt` function is a function that expects the
 identity function as its argument and returns an integer.  Let's give it
 some (arbitrary) definition:
 
-    someInt id' = id' 3
+```haskell
+someInt id' = id' 3
+```
 
 This is something new that we didn't have before:  `someInt` has
 received a function `id'` about which it knows that it is the fully
@@ -136,7 +156,9 @@ The `someInt` function isn't even polymorphic!  Rather it expects a
 polymorphic function as its argument.  This becomes clear when we expand
 the type alias:
 
-    someInt :: (forall a. a -> a) -> Integer
+```haskell
+someInt :: (forall a. a -> a) -> Integer
+```
 
 This function is completely monomorphic.  Its type is not quantified.
 When we apply a polymorphic function like `id` we get to choose which
@@ -156,16 +178,20 @@ This is called rank-2 polymorphism.  You can have arbitrary-rank
 polymorphism by burying the quantifier in more levels of necessary
 parentheses.  Example:
 
-    type SomeInt = IdFunc -> Integer
+```haskell
+type SomeInt = IdFunc -> Integer
 
-    someOtherInt :: SomeInt -> Integer
-    someOtherInt someInt' =
-        someInt' id + someInt' id
+someOtherInt :: SomeInt -> Integer
+someOtherInt someInt' =
+    someInt' id + someInt' id
+```
 
 This function is rank-3-polymorphic, because the quantifier is in the
 third level of necessary parentheses:
 
-    someOtherInt :: ((forall a. a -> a) -> Integer) -> Integer
+```haskell
+someOtherInt :: ((forall a. a -> a) -> Integer) -> Integer
+```
 
 
 Example: random numbers
@@ -175,20 +201,24 @@ Suppose that you want to initialise a potentially large and recursive
 data structure with random values of different types.  We will use a
 very simple one, which is sufficient for demonstration:
 
-    import System.Random
+```haskell
+import System.Random
 
-    data Player =
-        Player {
-          playerName :: String,
-          playerPos  :: (Double, Double)
-        }
-        deriving (Eq, Ord, Show)
+data Player =
+    Player {
+      playerName :: String,
+      playerPos  :: (Double, Double)
+    }
+    deriving (Eq, Ord, Show)
+```
 
 We want to construct a random player.  They should get a randomly
 generated name of a random length and also a random position.  One way
 to do this is to pass around a random number generator explicitly:
 
-    randomPlayer :: (RandomGen g) => g -> (Player, g)
+```haskell
+randomPlayer :: (RandomGen g) => g -> (Player, g)
+```
 
 But we want to do more.  Since the data structure is so huge, we want to
 print some progress information while we're generating it.  This
@@ -196,11 +226,13 @@ requires `IO` of course.  Rather than enforcing a certain transformer
 stack we would just request a sufficiently featureful monad by using
 effect classes:
 
-    import Control.Monad.State
+```haskell
+import Control.Monad.State
 
-    randomPlayer
-        :: (MonadIO m, MonadState g m, RandomGen g)
-        => m Player
+randomPlayer
+    :: (MonadIO m, MonadState g m, RandomGen g)
+    => m Player
+```
 
 However, the user of `randomPlayer` may already be using a state monad
 for something else, or the random number generator may actually live in
@@ -216,9 +248,11 @@ generating a random number (or really anything else with a `Random`
 instance) is a matter of performing a certain `m`-action.  We can write
 type aliases for these `m`-actions:
 
-    type GenAction m = forall a. (Random a) => m a
+```haskell
+type GenAction m = forall a. (Random a) => m a
 
-    type GenActionR m = forall a. (Random a) => (a, a) -> m a
+type GenActionR m = forall a. (Random a) => (a, a) -> m a
+```
 
 A value of type `GenAction m` is an `m`-action that supposedly produces
 a random element of whatever type we request, as long as there is a
@@ -228,31 +262,37 @@ variants.
 One simple example is the action that generates a
 random number in a state monad, when the state is a generator:
 
-    genRandom :: (RandomGen g) => GenAction (State g)
-    genRandom = state random
+```haskell
+genRandom :: (RandomGen g) => GenAction (State g)
+genRandom = state random
 
-    genRandomR :: (RandomGen g) => GenActionR (State g)
-    genRandomR range = state (randomR range)
+genRandomR :: (RandomGen g) => GenActionR (State g)
+genRandomR range = state (randomR range)
+```
 
 If we expand the `GenAction` alias and simplify (we will learn how to do
 that later), then the type of `genRandom` becomes:
 
-    genRandom :: (Random a, RandomGen g) => State g a
+```haskell
+genRandom :: (Random a, RandomGen g) => State g a
+```
 
 Now we can write a function that requests such a random number generator
 as its argument:
 
-    randomPlayer :: (MonadIO m) => GenActionR m -> m Player
-    randomPlayer genR = do
-        liftIO (putStrLn "Generating random player...")
+```haskell
+randomPlayer :: (MonadIO m) => GenActionR m -> m Player
+randomPlayer genR = do
+    liftIO (putStrLn "Generating random player...")
 
-        len <- genR (8, 12)
-        name <- replicateM len (genR ('a', 'z'))
-        x <- genR (-100, 100)
-        y <- genR (-100, 100)
+    len <- genR (8, 12)
+    name <- replicateM len (genR ('a', 'z'))
+    x <- genR (-100, 100)
+    y <- genR (-100, 100)
 
-        liftIO (putStrLn "Done.")
-        return (Player name (x, y))
+    liftIO (putStrLn "Done.")
+    return (Player name (x, y))
+```
 
 Notice how the function uses the fact that it *receives* a polymorphic
 function as its argument.  It instantiates its type variable as various
@@ -261,16 +301,22 @@ If you have some global-state random number generator, then this
 function is actually surprisingly easy to use.  The `randomRIO` function
 from `System.Random` is such a function:
 
-    randomRIO :: (Random a) => (a, a) -> IO a
+```haskell
+randomRIO :: (Random a) => (a, a) -> IO a
+```
 
 This type signature fits the `GenActionR` type,
 
-    randomRIO :: GenActionR IO
+```haskell
+randomRIO :: GenActionR IO
+```
 
 so we can pass it to `randomPlayer`:
 
-    main :: IO ()
-    main = randomPlayer randomRIO >>= print
+```haskell
+main :: IO ()
+main = randomPlayer randomRIO >>= print
+```
 
 
 Scott encoding
@@ -279,9 +325,11 @@ Scott encoding
 The regular list data type is defined as a sum type.  We will write a
 custom version of it:
 
-    data List a
-        = Cons a (List a)
-        | Nil
+```haskell
+data List a
+    = Cons a (List a)
+    | Nil
+```
 
 There are two ways to deconstruct this type in a principled fashion.
 The first one is called pattern-matching, which means removing one layer
@@ -289,16 +337,20 @@ of constructors.  You could use the usual `case` construct to do this,
 but it is syntactically heavy and does not compose well.  That's why we
 like to write a function to do it:
 
-    uncons :: (a -> List a -> r) -> r -> List a -> r
-    uncons co ni (Cons x xs) = co x xs
-    uncons co ni Nil         = ni
+```haskell
+uncons :: (a -> List a -> r) -> r -> List a -> r
+uncons co ni (Cons x xs) = co x xs
+uncons co ni Nil         = ni
+```
 
 This function takes two *continuations* and a list.  The continuations
 determine what we reduce the list into depending on which constructor is
 found.  Here is a simple example:
 
-    listNull :: List a -> Bool
-    listNull = uncons (\_ _ -> False) True
+```haskell
+listNull :: List a -> Bool
+listNull = uncons (\_ _ -> False) True
+```
 
 When we find that the list is a cons, then we know that the list is not
 empty, so we reduce it to `False`.  When we find that it is the nil, we
@@ -306,10 +358,12 @@ reduce it to `True`.  The following is a slightly more interesting
 example, but you will find that it's really just pattern-matching in a
 functional style:
 
-    listMap :: (a -> b) -> List a -> List b
-    listMap f =
-        uncons (\x xs -> Cons (f x) (listMap f xs))
-               Nil
+```haskell
+listMap :: (a -> b) -> List a -> List b
+listMap f =
+    uncons (\x xs -> Cons (f x) (listMap f xs))
+           Nil
+```
 
 So we have a way to construct lists by using the `List` constructors,
 and we have a way to deconstruct lists by *unconsing*, by using the
@@ -319,20 +373,26 @@ happens when you uncons it.  That means we can represent a list in terms
 of its uncons operator, which is called *Scott encoding* and requires a
 rank-2 type:
 
-    newtype ListS a =
-        ListS {
-          unconsS :: forall r. (a -> ListS a -> r) -> r -> r
-        }
+```haskell
+newtype ListS a =
+    ListS {
+      unconsS :: forall r. (a -> ListS a -> r) -> r -> r
+    }
+```
 
 You may have noticed that the list argument is missing from `unconsS`,
 but actually it is not.  It is implicit, because it is an accessor
 function,
 
-    unconsS :: ListS a -> (forall r. (a -> ListS a -> r) -> r -> r)
+```haskell
+unconsS :: ListS a -> (forall r. (a -> ListS a -> r) -> r -> r)
+```
 
 which is equivalent to:
 
-    unconsS :: ListS a -> (a -> ListS a -> r) -> r -> r
+```haskell
+unconsS :: ListS a -> (a -> ListS a -> r) -> r -> r
+```
 
 The only difference is that the list argument has jumped to the front.
 This type is sufficient to represent lists.  There is no reference to
@@ -341,8 +401,10 @@ type?  We just need to consider what happens when we pattern-match on
 such a list.  For example unconsing the empty list would cause the nil
 continuation to be used.  This is how we construct the empty list:
 
-    nilS :: ListS a
-    nilS = ListS (\co ni -> ni)
+```haskell
+nilS :: ListS a
+nilS = ListS (\co ni -> ni)
+```
 
 Now when we uncons this list, we give it two continuations.  It ignores
 our cons continuation and just uses the nil continuation.  That's how
@@ -350,24 +412,30 @@ our cons continuation and just uses the nil continuation.  That's how
 different.  This time we ignore the nil continuation and apply the cons
 continuation:
 
-    consS :: a -> ListS a -> ListS a
-    consS x xs = ListS (\co ni -> co x xs)
+```haskell
+consS :: a -> ListS a -> ListS a
+consS x xs = ListS (\co ni -> co x xs)
+```
 
 Let's write the mapping function for `ListS` to see it in action.  First
 it is usually much more convenient to have the list argument be the last
 argument to the uncons function, so let's write a custom combinator:
 
-    unconsS' :: (a -> ListS a -> r) -> r -> ListS a -> r
-    unconsS' co ni (ListS f) = f co ni
+```haskell
+unconsS' :: (a -> ListS a -> r) -> r -> ListS a -> r
+unconsS' co ni (ListS f) = f co ni
+```
 
 Okay, let's write the mapping function.  In fact this time let's do it
 properly.  We will write a `Functor` instance instead of a standalone
 function:
 
-    instance Functor ListS where
-        fmap f =
-            unconsS' (\x xs -> consS (f x) (fmap f xs))
-                     nilS
+```haskell
+instance Functor ListS where
+    fmap f =
+        unconsS' (\x xs -> consS (f x) (fmap f xs))
+                 nilS
+```
 
 Compare this definition to `listMap` above.
 
@@ -376,7 +444,9 @@ polymorphism.  Looking at the operators we have defined so far
 everything seems to be rank-1.  However, we haven't had a closer look at
 the `ListS` constructor itself:
 
-    ListS :: (forall r. (a -> ListS a -> r) -> r -> r) -> ListS a
+```haskell
+ListS :: (forall r. (a -> ListS a -> r) -> r -> r) -> ListS a
+```
 
 That's where the rank-2 type is hidden.
 
@@ -389,16 +459,20 @@ Alternatively we can define lists in terms of what happens when we fold
 them completely.  This is the second principled way to deconstruct
 lists.  The fold combinator for lists is called the *right fold*:
 
-    foldr :: (a -> r -> r) -> r -> [a] -> r
+```haskell
+foldr :: (a -> r -> r) -> r -> [a] -> r
+```
 
 We know how to construct lists, and we know how to fold them.  But again
 a list is fully determined by its fold, so we can *identify* it with its
 fold.  This is called *Church encoding*.
 
-    newtype ListC a =
-        ListC {
-          foldC :: forall r. (a -> r -> r) -> r -> r
-        }
+```haskell
+newtype ListC a =
+    ListC {
+      foldC :: forall r. (a -> r -> r) -> r -> r
+    }
+```
 
 Notice the difference?  One interesting fact about Church encoding is
 that the type recursion is gone, so we could use a plain old type alias
@@ -406,8 +480,13 @@ here.  We will prefer the safety of a separate type though, and also we
 want our `Functor` instance.  Since this is a fold, it is actually easy
 to write a mapping function:
 
-    instance Functor ListC where
-        fmap f = foldC' (\x xs -> consC (f x) xs) nilC
+```haskell
+foldC' :: (a -> r -> r) -> r -> ListC a -> r
+foldC' co ni (ListC f) = f co ni
+
+instance Functor ListC where
+    fmap f = foldC' (\x xs -> consC (f x) xs) nilC
+```
 
 Notice again how the recursion is gone, not only on the type level, but
 also on the value level, because the recursion is implicitly encoded in
@@ -431,13 +510,17 @@ cannot run an IO action from within a pure program.  It takes one type
 argument, the result type.  However, the `ST` type takes *two*
 arguments.  An `ST` action might look like this:
 
-    writeSTRef :: STRef s a -> a -> ST s ()
+```haskell
+writeSTRef :: STRef s a -> a -> ST s ()
+```
 
 What is this extra argument `s`?  To find that out we have to have a
 look at the big glue between the imperative `ST` world and the pure
 Haskell world:
 
-    runST :: (forall s. ST s a) -> a
+```haskell
+runST :: (forall s. ST s a) -> a
+```
 
 This enforces that the `ST` action we would like to run satisfies two
 requirements.  The first requirement is that `s` is fully polymorphic,
@@ -448,8 +531,8 @@ leak out of its scope.  Only the result of type `a` is communicated out
 of the action, but `s` is not communicated.  This allows the
 type-checker to enforce that you cannot leak stateful resources out of
 the `ST` action.  Everything the action does is fully deterministic and
-repeatable.  This will make a lot more sense when we talk about the type
-algebra later.
+repeatable.  This will make a lot more sense when we talk about the
+quantifier law later.
 
 
 GADTs and continuation passing style
@@ -463,20 +546,26 @@ you how deep the rabbit hole goes.
 GHC supports type equality constraints, which are enabled when you turn
 on the `TypeFamilies` extension:
 
-    {-# LANGUAGE TypeFamilies #-}
+```haskell
+{-# LANGUAGE TypeFamilies #-}
+```
 
 We are not interested in type families in this article.  All we want is
 those equality constraints, which enable you to write
 
-    X ~ Y
+```haskell
+X ~ Y
+```
 
 in the context of a type.  This expresses that we require `X` and `Y` to
 be the same type.  Example:
 
-    15 :: Int                   -- Okay.
-    15 :: (Char ~ Char) => Int  -- Okay.
-    15 :: (Int ~ Int) => Int    -- Okay.
-    15 :: (Char ~ Int) => Int   -- Type error!
+```haskell
+15 :: Int                   -- Okay.
+15 :: (Char ~ Char) => Int  -- Okay.
+15 :: (Int ~ Int) => Int    -- Okay.
+15 :: (Char ~ Int) => Int   -- Type error!
+```
 
 The first expression is obviously well-typed.  The second expression is
 well-typed, because `Char` is indeed equal to `Char`, so the constraint
@@ -490,23 +579,27 @@ normally define with algebraic data types.  They give us generalised
 algebraic data types (GADTs) in continuation passing style.  Simple
 example:
 
-    {-# LANGUAGE GADTs #-}
-    {-# LANGUAGE KindSignatures #-}
+```haskell
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE KindSignatures #-}
 
-    data Some :: * -> * where
-        SomeInt  :: Int -> Some Int
-        SomeChar :: Char -> Some Char
-        Anything :: a -> Some a
+data Some :: * -> * where
+    SomeInt  :: Int -> Some Int
+    SomeChar :: Char -> Some Char
+    Anything :: a -> Some a
+```
 
 Nothing special here.  The magic happens when we pattern-match on values
 of this type:
 
-    import Data.Char
+```haskell
+import Data.Char
 
-    unSome :: Some a -> a
-    unSome (SomeInt x) = x + 3
-    unSome (SomeChar c) = toLower c
-    unSome (Anything x) = x
+unSome :: Some a -> a
+unSome (SomeInt x) = x + 3
+unSome (SomeChar c) = toLower c
+unSome (Anything x) = x
+```
 
 See what's going on in the `SomeInt` and `SomeChar` cases?  The function
 is fully polymorphic in its type variable, yet somehow we managed to
@@ -518,15 +611,17 @@ use Scott or Church encoding or some other form of continuation passing
 style, but how can we actually do that?  Enter type equality
 constraints:
 
-    newtype SomeC a =
-        SomeC {
-          runSomeC ::
-              forall r.
-              ((a ~ Int) => Int -> r) ->
-              ((a ~ Char) => Char -> r) ->
-              (a -> r) ->
-              r
-        }
+```haskell
+newtype SomeC a =
+    SomeC {
+      runSomeC ::
+          forall r.
+          ((a ~ Int) => Int -> r) ->
+          ((a ~ Char) => Char -> r) ->
+          (a -> r) ->
+          r
+    }
+```
 
 This may look a bit scary, but be brave!  Again we started with a sum
 type, this time with three constructors, so again we have three
@@ -534,7 +629,9 @@ continuations corresponding to each of those constructors.  The first
 continuation corresponds to the `SomeInt` constructor.  Let's look at it
 more closely:
 
-    (a ~ Int) => Int -> r
+```haskell
+(a ~ Int) => Int -> r
+```
 
 This continuation takes an `Int`.  Sure, that's the argument of the
 constructor.  But it requests a second piece of information.  It demands
@@ -568,8 +665,10 @@ language.
 So which part does higher-rank polymorphism give us?  Let's see how we
 would express polymorphism in a dependently typed language like Agda:
 
-    id : {A : Set} → A → A
-    id x = x
+```haskell
+id : {A : Set} → A → A
+id x = x
+```
 
 This syntax says that `id` is a function of two arguments.  The first
 argument is a *type* (the type of types is called `Set` in Agda -- it
@@ -585,16 +684,20 @@ The first argument is passed implicitly (that's the curly braces).  It
 is inferred from the other arguments, if not explicitly given.  Agda
 optionally allows us to write a quantification sign there:
 
-    id : ∀ {A : Set} → A → A
-    id x = x
+```haskell
+id : ∀ {A : Set} → A → A
+id x = x
+```
 
 Haskell on the other hand allows us to write explicit *kind* signatures
 when we enable the `KindSignatures` extension:
 
-    {-# LANGUAGE KindSignatures #-}
+```haskell
+{-# LANGUAGE KindSignatures #-}
 
-    id :: forall (a :: *). a -> a
-    id x = x
+id :: forall (a :: *). a -> a
+id x = x
+```
 
 Now these two definitions, the Agda and the Haskell one, look almost the
 same, don't they?  That's because in fact they *are* the same.  Indeed,
@@ -609,17 +712,23 @@ functions indexed by the type argument.
 As a nice bonus Agda allows us to omit the type when it can be inferred
 from context:
 
-    id : ∀ {A} → A → A
+```haskell
+id : ∀ {A} → A → A
+```
 
 And this looks very close to the Haskell version without the kind
 signature:
 
-    id :: forall a. a -> a
+```haskell
+id :: forall a. a -> a
+```
 
 With this new insight we can explain more formally why `runST` is
 defined the way it is.  Here is the equivalent definition in Agda:
 
-    runST : ∀ {A} → (∀ {S} → ST S A) → A
+```haskell
+runST : ∀ {A} → (∀ {S} → ST S A) → A
+```
 
 The second (the first explicit) argument is actually a function that
 receives the type `S` from `runST`.  However, it has no way to *return*
@@ -639,7 +748,9 @@ from logic, and that is indeed the case.  Considering the Curry-Howard
 correspondence the identity function is not just a handy function.  It
 is also a proof:
 
-    id :: forall a. a -> a
+```haskell
+id :: forall a. a -> a
+```
 
 The type of `id` is a proposition, namely:  "a proof for $a$ implies a
 proof for $a$, for all propositions $a$".  This sounds true, and it is.
@@ -648,20 +759,26 @@ of the proposition.  Since there is a one-to-one correspondence between
 types and propositions, we can transfer some of the laws as well.  The
 most important one is the following, which is true for all `X` and `Y`:
 
-    X -> forall a. Y a = forall a. X -> Y a
+```haskell
+X -> forall a. Y a = forall a. X -> Y a
+```
 
 If this seems a bit cryptic, don't worry.  It really just means that as
 long as a quantifier is on the right hand side of a function arrow, we
 can pull it out and wrap the whole function type with the quantifier.
 In fact we have already done this:
 
-    type GenAction m = forall a. (Random a) => m a
+```haskell
+type GenAction m = forall a. (Random a) => m a
 
-    genRandom :: (RandomGen g) => GenAction (State g)
+genRandom :: (RandomGen g) => GenAction (State g)
+```
 
 Let's expand the type alias, which gives us the following scary type:
 
-    genRandom :: (RandomGen g) => (forall a. (Random a) => State g a)
+```haskell
+genRandom :: (RandomGen g) => (forall a. (Random a) => State g a)
+```
 
 Firstly the context arrow `(=>)` is really just another way to pass
 implicit arguments via type classes.  So for the purpose of applying our
@@ -670,23 +787,31 @@ transformations we can simply read it like the regular function arrow
 quantified type, so we can apply our rule from above and pull it out of
 the arrow:
 
-    genRandom :: forall a. ((RandomGen g) => ((Random a) => State g a))
+```haskell
+genRandom :: forall a. ((RandomGen g) => ((Random a) => State g a))
+```
 
 I have added some parentheses for the sake of clarity, but they aren't
 technically necessary, so we simply remove them now:
 
-    genRandom :: forall a. (RandomGen g) => (Random a) => State g a
+```haskell
+genRandom :: forall a. (RandomGen g) => (Random a) => State g a
+```
 
 While Haskell allows it, it is uncommon in everyday code to have two
 contexts passed separately.  Haskell simply merges them, so we can do
 that as well:
 
-    genRandom :: forall a. (Random a, RandomGen g) => State g a
+```haskell
+genRandom :: forall a. (Random a, RandomGen g) => State g a
+```
 
 Finally since this is a regular rank-1-polymorphic value, we can omit
 the quantifier altogether:
 
-    genRandom :: (Random a, RandomGen g) => State g a
+```haskell
+genRandom :: (Random a, RandomGen g) => State g a
+```
 
 
 Conclusion
