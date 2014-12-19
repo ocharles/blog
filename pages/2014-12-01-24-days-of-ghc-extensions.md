@@ -39,7 +39,7 @@ table td code { white-space: normal !important; }
   <td>[Derive Generic](/posts/2014-12-16-derive-generic.html)</td>
   <td>[Overloaded Strings](/posts/2014-12-17-overloaded-strings.html)</td>
   <td>[Rank N Types](/guest-posts/2014-12-18-rank-n-types.html)</td>
-  <td>?</td>
+  <td>[Existential Quantification](/guest-posts/2014-12-19-existential-quantification.html)</td>
   <td>?</td>
   <td>?</td></tr><tr>
   <td>?</td>
