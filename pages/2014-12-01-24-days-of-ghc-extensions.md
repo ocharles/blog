@@ -40,7 +40,7 @@ table td code { white-space: normal !important; }
   <td>[Overloaded Strings](/posts/2014-12-17-overloaded-strings.html)</td>
   <td>[Rank N Types](/guest-posts/2014-12-18-rank-n-types.html)</td>
   <td>[Existential Quantification](/guest-posts/2014-12-19-existential-quantification.html)</td>
-  <td>?</td>
+  <td>[Scoped Type Variables](/guest-posts-2014-12-20-scoped-type-variables.html)</td>
   <td>?</td></tr><tr>
   <td>?</td>
   <td>?</td>
