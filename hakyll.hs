@@ -42,6 +42,14 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
+  match "guest-posts/***.lhs" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+      >>= saveSnapshot "content"
+      >>= loadAndApplyTemplate "templates/guest-post.html" defaultContext
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
+
   match "pages/***.md" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
