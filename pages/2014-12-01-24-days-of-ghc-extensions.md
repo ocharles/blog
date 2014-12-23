@@ -43,6 +43,6 @@ table td code { white-space: normal !important; }
   <td>[Scoped Type Variables](/guest-posts/2014-12-20-scoped-type-variables.html)</td>
   <td>[Arrows](/guest-posts/2014-12-21-arrows.html)</td></tr><tr>
   <td>[Template Haskell](/guest-posts/2014-12-22-template-haskell.html)</td>
-  <td>?</td>
+  <td>[Static Pointers](/guest-posts/2014-12-23-static-pointers.html)</td>
   <td>?</td></tr><tr>
 </table>
