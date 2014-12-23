@@ -36,7 +36,7 @@ Prelude Language.Haskell.TH> runQ [| 1 + 2 |]
 InfixE (Just (LitE (IntegerL 1))) (VarE GHC.Num.+) (Just (LitE (IntegerL 2)))
 ```
 If you parse through the parentheses you'll see the return expression forms a tree -- an abstract syntax tree!
-![abstract syntax tree](https://github.com/seanwestfall/templatehaskell/blob/master/syntax_tree.png)
+![abstract syntax tree](https://raw.githubusercontent.com/seanwestfall/templatehaskell/master/syntax_tree.png)
 
 Checkout the lift class [source](http://hackage.haskell.org/package/template-haskell-2.7.0.0/docs/src/Language-Haskell-TH-Syntax.html#Lift), which is what's being invoked by the oxford brackets. The Language.Haskell.TH.Syntax contains the definitions of all the types used in the AST. Using these types, it's possible to construct any fragment of the Haskell language. Have a look at the [Lit](http://hackage.haskell.org/package/template-haskell-2.9.0.0/docs/Language-Haskell-TH-Syntax.html#t:Lit) data type as an example. Lit stands for literal,
 ```haskell
@@ -187,7 +187,7 @@ Prelude Language.Haskell.TH> $(stringE . show =<< reify ''Bool)
 "TyConI (DataD [] GHC.Types.Bool [] [NormalC GHC.Types.False [],NormalC GHC.Types.True []] [])"
 ```
 Reifying a type returns the AST as represented by TH, here's the AST in a diagram of the boolean type from above:
-![abstract syntax tree boolean](https://github.com/seanwestfall/templatehaskell/blob/master/syntax_tree_bool.png)
+![abstract syntax tree boolean](https://raw.githubusercontent.com/seanwestfall/templatehaskell/master/syntax_tree_bool.png)
 
 The AST of a simple primitive type like Bool produces a small tree, but when used on types deeper down the module chain, relatively large ASTs will be generated. Try reify on `''Lit` or `''Exp` to know what I mean, though reify can work on any Haskell type.
 
