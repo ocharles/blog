@@ -2,9 +2,10 @@
 title: 24 Days of GHC Extensions: Scoped Type Variables
 ---
 
-Today I'm happy to announce that we have another guest blog post. Today, Tim
-Docker is going to give us a slighty different perspective (different for me, at
-least!) on the *scoped type variables* extension. Over to you, Tim!
+Today I'm happy to announce that we have another guest blog post. Today,
+[Tim Docker](http://twdkz.wordpress.com/) is going to give us a slighty
+different perspective (different for me, at least!) on the *scoped type
+variables* extension. Over to you, Tim!
 
 ---
 
