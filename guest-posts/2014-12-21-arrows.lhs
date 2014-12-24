@@ -148,7 +148,7 @@ then the expression `action2` cannot depend on `x` or indeed anything
 bound on the left hand side of an arrow notation row.
 
 This restriction has important practical consequences.  For example,
-our Haskell IO system might be based on the following primatives
+our Haskell IO system might be based on the following primitives
 
 > getLineM :: String -> IO String
 > getLineM prompt = do
