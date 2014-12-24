@@ -44,5 +44,5 @@ table td code { white-space: normal !important; }
   <td>[Arrows](/guest-posts/2014-12-21-arrows.html)</td></tr><tr>
   <td>[Template Haskell](/guest-posts/2014-12-22-template-haskell.html)</td>
   <td>[Static Pointers](/guest-posts/2014-12-23-static-pointers.html)</td>
-  <td>?</td></tr><tr>
+  <td>[Thanks](/posts/2014-12-24-conclusion.html)</td></tr><tr>
 </table>
