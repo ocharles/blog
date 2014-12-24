@@ -3,7 +3,8 @@ title: 24 Days of Hackage: Static Pointers
 ---
 
 Today we start to wrap up 24 Days of GHC Extensions with the final guest post,
-this time from Mathieu Boespflug of [Tweag I/O](http://www.tweag.io/). Mathieu
+this time from Mathieu Boespflug of [Tweag I/O](http://www.tweag.io/).
+Mathieu, along with his colleagues Facundo Domínguez and Alexander Vershilov,
 has been working with the GHC team on a new extension - in fact, so new, you
 won't even find this in a stable release of GHC! In today's post, we'll have a
 look at a new type of pointer that can be useful for distributed programming.
