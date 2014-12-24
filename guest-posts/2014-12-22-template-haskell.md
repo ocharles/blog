@@ -5,7 +5,7 @@ title: 24 Days of GHC Extensions: Template Haskell
 Today I'm happy to announce another guest post; this time
 [Sean Westfall](http://fieldsofgoldfish.posthaven.com/) is going to give us an
 extensive run down on Template Haskell. Template Haskell is a somewhat
-contenious extension, but still remains an important tool in the Haskellers
+contentious extension, but still remains an important tool in the Haskellers
 toolbox, allowing us to solve problems concisely. Sean's gone in to a great
 amount of detail in this post, and you'll be sure to take something away with
 you.
