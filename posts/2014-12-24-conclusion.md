@@ -27,6 +27,8 @@ year's series:
 * Mathieu Boespflug showed us the brand new
   [static pointers](/guest-posts/2014-12-23-static-pointers.html)
   extension. forthcoming in future GHC versions.
+* Everyone else who submitted pull requests or otherwise informed me of minor
+  typos.
 
 I feel the guest posts have added a lot of variety to the series, and this year
 each post has consistently gone above and beyond my expectations, delivering
