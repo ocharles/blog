@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: Static Pointers
+title: 24 Days of GHC Extensions: Static Pointers
 ---
 
 Today we start to wrap up 24 Days of GHC Extensions with the final guest post,
