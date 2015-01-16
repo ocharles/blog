@@ -2,7 +2,7 @@
 title: 24 Days of GHC Extensions: Arrows
 ---
  
-Today's guest post comes from [Tom Ellis](http://web.jaguarpaw.co.uk/~tom/blog/). If you haven't heard, Tom released a novel library for interacting with relational databases this year - [Opaleye](http://hackage.haskell.org/package/opaleye). While similar to HaskellDB in some respects, Opaleye is distinct in its extensive use of arrows in order to guarantee saftey of queries. In this post, Tom's going to guide us through GHC's special syntax support for the `Arrow` type class.
+Today's guest post comes from [Tom Ellis](http://web.jaguarpaw.co.uk/~tom/blog/). If you haven't heard, Tom released a novel library for interacting with relational databases this year - [Opaleye](http://hackage.haskell.org/package/opaleye). While similar to HaskellDB in some respects, Opaleye is distinct in its extensive use of arrows in order to guarantee safety of queries. In this post, Tom's going to guide us through GHC's special syntax support for the `Arrow` type class.
 
 > {-# LANGUAGE Arrows #-}
 >
