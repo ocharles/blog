@@ -90,7 +90,9 @@ main = hakyll $ do
   create ["posts.rss"] $ do
     route idRoute
     compile $ do
-      posts <- take 10 <$> (loadAllSnapshots "posts/*" "content" >>= recentFirst >>= mapM relativizeUrls)
+      posts <- take 10 <$>
+                ((mappend <$> loadAllSnapshots "posts/*" "content"
+                          <*>  loadAllSnapshots "guest-posts/*" "content") >>= recentFirst >>= mapM relativizeUrls)
       renderRss feedConfiguration
         (bodyField "description" <> defaultContext)
         posts
@@ -99,7 +101,7 @@ main = hakyll $ do
 
 feedConfiguration = FeedConfiguration
     { feedTitle = "Inside ocharles"
-    , feedDescription = "MusicBrainz hacker. Haskell geek. Wannabe mathematician. Electronic music fanatic."
+    , feedDescription = "Haskell geek. Wannabe mathematician. Electronic music fanatic."
     , feedAuthorName = "Oliver Charles"
     , feedRoot = "http://ocharles.org.uk/blog"
     , feedAuthorEmail = "ollie@ocharles.org.uk"
