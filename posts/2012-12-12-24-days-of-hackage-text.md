@@ -21,7 +21,7 @@ about `text`. The real win of `text` for me is in the type. `Text` very clearly
 indicates that you are working with text, rather than arbitrary binary
 data. There are only a few ways to introduce `Text` values too - you either need
 a `String`, or you have to specifically decode to `Text`, for example with
-`dedodeUtf8`. This sounds so simple, and it is, but in my previous experience
+`decodeUtf8`. This sounds so simple, and it is, but in my previous experience
 with Perl, forgetting to perform this vital step meant it was far too easy to
 treat over-the-wire data as text before it was decode. More often than not, this
 would lead to small explosions in other places much later.
