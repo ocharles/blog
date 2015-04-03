@@ -49,9 +49,11 @@ import Text.Pandoc
 Then lets define some Markdown text that we can work with.
 
 ```haskell
-textToConvert = unlines [ "Hello World.\n"
-                        , "    this is a Markdown code block\n"
-                        , "[This is a link](http://www.latermuse.com/)\n" ]
+textToConvert = unlines [ "Hello World."
+                        , ""
+                        , "    this is a Markdown code block"
+                        , ""
+                        , "[This is a link](http://www.latermuse.com/)" ]
 ```
 
 Next, we need to convert this Markdown into Pandoc's internal format. We can do

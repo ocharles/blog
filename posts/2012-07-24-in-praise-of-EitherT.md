@@ -67,7 +67,7 @@ validation failed, or in some cases of the OAuth specification we should change
 the storage depending on failed requests (such as invalidating keys).
 
 Here's the twist - we can make our error value an *executable action*. If we
-change our error value to be `Handler b v ()`, we can run abritrary code on
+change our error value to be `Handler b v ()`, we can run arbitrary code on
 error conditions. Taking the example of expiration time:
 
 ```haskell

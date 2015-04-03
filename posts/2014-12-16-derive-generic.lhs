@@ -44,7 +44,7 @@ As you can imagine, there are lots of different data types that are isomorphic, 
 1. Each data-type has two constructors
 2. Each constructor has one field
  
-[`GHC.Generics`](http://hackage.haskell.org/package/base-4.7.0.1/docs/GHC-Generics.html) is the library behind the `DeriveGenerics` extension, and it gives us the following pieces to build data types:
+[`GHC.Generics`](http://hackage.haskell.org/package/base-4.7.0.1/docs/GHC-Generics.html) is the library behind the `DeriveGeneric` extension, and it gives us the following pieces to build data types:
 
 * Fields
 * Type parameterized fields
