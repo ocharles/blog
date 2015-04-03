@@ -70,20 +70,19 @@ are polymorphic. This means that you have to specify the type you're working
 with somewhere. In these examples, I add a type annotation to a lambda:
 
         \ (x::SInteger) y -> ...
-    
+
     To do this, you have to turn on `ScopedTypeVariables`. In GHCi, you can do this with:
 
         > :set -XScopedTypeVariables
-        
+
     Chances are that you will have to do this more often in GHCi than in normal code because GHCi leaves less scope for types to be inferred.
 
 To work with `sbv`, you need to install an external SMT solver. The library
 currently supports four different backends, with Microsoft's
 [Z3](http://z3.codeplex.com/) having the most features, making it the default
 choice. Currently, Z3 is the fastest overall solver based on the SMT
-competition. It is available for free for non-commercial uses --- you can even
-download the source --- but it is not "open source" in the full sense of the word
-(i.e., OSI compatible) and is *not* free to use for business purposes.
+competition. It is available under an MIT license, suitable for any purpose
+including commercial use.
 
 Once you've installed Z3 and have it in your path, you can start playing around
 in GHCi by importing `Data.SBV`.
