@@ -20,7 +20,7 @@ greet :: UserName -> Html
 greet userName = H.docTypeHtml $ do
   H.head $
     H.title "Hello!"
-  H.body $
+  H.body $ do
     H.h1 "Tervetuloa!"
     H.p ("Hello " >> toHtml userName >> "!")
 ```
