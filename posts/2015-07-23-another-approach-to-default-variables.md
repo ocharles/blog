@@ -20,7 +20,7 @@ FRP-web-framework design space -
 [Francium](https://github.com/ocharles/Francium). I made some big refactorings
 on an application using Francium, mostly extending so called "component" data
 types (buttons, checkboxes, etc), and was frustrated with how much code broke
-just from introducing new record fields. The [Commercial Haskell]() group
+just from introducing new record fields. The [Commercial Haskell](http://commercialhaskell.com) group
 published an article on [how to design for
 extensibility](https://github.com/commercialhaskell/haskelldocumentation/blob/master/content/designing-apis-for-extensibility.md)
 back in March, so I decided to revisit that.
