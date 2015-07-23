@@ -46,8 +46,8 @@ be reduced to just one, which I believe reduces the time to learn a new library.
 They also compose very nicely, in that they can be embedded into other
 computations with ease.
 
-With point 3 ammended to use some form of lens, we end up with the following
-type of presentation. Take a HTTP library for example. Our hypothetical libray
+With point 3 amended to use some form of lens, we end up with the following
+type of presentation. Take a HTTP library for example. Our hypothetical library
 would have the following exports:
 
 ```haskell
