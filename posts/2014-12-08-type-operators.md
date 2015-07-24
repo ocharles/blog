@@ -8,7 +8,7 @@ expressive at the type level. Today, we'll look at the
 [type operators](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/data-type-extensions.html#type-operators),
 which allows us to use more natural syntax when we write our types.
 
-The extension itself is straight forward. As the documentation mentions,
+The extension itself is straightforward. As the documentation mentions,
 ordinarily an operator doesn't mean anything special when used in types - GHC
 would interpret operators as type variables, not particularly useful! However,
 now that we've got some support for type level literals, it's desirable to
