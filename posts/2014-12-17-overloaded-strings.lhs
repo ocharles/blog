@@ -19,7 +19,7 @@ However, this is in constrast to some of the other literals that we can write in
 then we write a literal that is polymorphic over *all* `Num` instances. Likewise, a literal floating point number
 
 ```
-.> :t 3.412
+.> :t 3.142
 3.142 :: Fractional a => a
 ```
 
@@ -27,7 +27,7 @@ is polymorphic over all `Fractional` instances.
 
 This polymorphism is extremely powerful, and it allows us to write embedded domain specific languages in Haskell source code, without having to introduce new constructs for otherwise normal values. So why should string literals be any different?
 
-The good news is - they don't have to be! If we enable the [oveloaded strings](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/type-class-extensions.html#overloaded-strings), then string literals get a different type:
+The good news is - they don't have to be! If we enable the [overloaded strings](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/type-class-extensions.html#overloaded-strings), then string literals get a different type:
 
 ```
 .> :set -XOverloadedStrings
