@@ -80,7 +80,7 @@ Here, we pattern match on a `CInt`, but we use a pattern synonym to give the
 constant a much more readable name. Astute readers might be a little concerned
 at this point - we still have to pattern match against values that don't
 semantically make sense, because we are still pattern matching against a
-`CInt`. However, pattern synoyms play well with the rest of Haskell, so we can
+`CInt`. However, pattern synonyms play well with the rest of Haskell, so we can
 use a `newtype` to introduce more safety:
 
 ```haskell
@@ -96,7 +96,7 @@ runtime overhead! Very cool.
 
 ## Bidirectional Patterns
 
-So far, we've looked at how pattern synoyms can be used to help pattern
+So far, we've looked at how pattern synonyms can be used to help pattern
 matching. However, we can do more than this - bidirectional pattern synonyms
 also allow us to *create* data. For example, using the previous example, we
 already have the ability to send the correct integers to the SDL c library:

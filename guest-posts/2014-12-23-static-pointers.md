@@ -434,7 +434,7 @@ serializable closures across the wire.
 
 Distributed programming in Haskell is a reality today: there are
 [several][hdph] [frameworks][courier], most prominently [Cloud
-Haskell], with several industrial applications. But the
+Haskell][cloud-haskell], with several industrial applications. But the
 `StaticPointers` extension is brand new, and in fact no compiler
 release including it has shipped yet! Framework and application
 support for it is still lagging behind, but you can help. In

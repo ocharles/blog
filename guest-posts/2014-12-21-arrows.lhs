@@ -183,7 +183,7 @@ based on that input.
 > -- (Writes to /tmp/output)
 
 However, there is no way to express this in arrow notation using only
-the same primatives.
+the same primitives.
 
 > -- procedureA :: K IO String ()
 > -- procedureA = proc prompt -> do
