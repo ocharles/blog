@@ -20,6 +20,6 @@ executable ocharles-blog
   main-is:             hakyll.hs
   -- other-modules:
   -- other-extensions:
-  build-depends:       base >=4.7 && <4.8, hakyll, pandoc
+  build-depends:       base >=4.7, hakyll, pandoc
   -- hs-source-dirs:
   default-language:    Haskell2010
