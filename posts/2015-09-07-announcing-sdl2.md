@@ -2,14 +2,19 @@
 title: Announcing a new set of high-level SDL2 bindings
 ---
 
-It's with great pleasure that on behalf of the haskell-game group, I'd like to announce the release of a new set of high-level bindings to the [SDL](http://libsdl.org) library. SDL is a C library providing a set of cross-platform functions for handling graphics, window management, audio, joystick/gamepad interaction, and more.
+It's with great pleasure that on behalf of the haskell-game group, I'd like to announce the release of [a new set of high-level bindings](http://hackage.haskell.org/package/sdl2) to the [SDL](http://libsdl.org) library. SDL is a C library providing a set of cross-platform functions for handling graphics, window management, audio, joystick/gamepad interaction, and more.
 
 For a while, we've had bindings to SDL 2 on Hackage, but these bindings are as close to 1:1 as you can get in Haskell. This results in a library that certainly *can* be used in Haskell, but does not feel particularly like writing ordinary Haskell! A real concern here is that this raises the barrier to entry for those new to either game programming or writing games in Haskell (or both!) - a barrier that I would certainly like to see lowered. To address this, myself and many others have spent the last year working on high-level bindings to abstract away the C-like feel of the existing library, and to present a more Haskell interface.
 
 To give you an idea of how things look, here's a basic application that opens a window, clears the screen, and quits when the user presses 'q':
 
 ```haskell
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
+
 import SDL
+import Linear (V4(..))
+import Control.Monad (unless)
 
 main :: IO ()
 main = do
@@ -24,11 +29,11 @@ appLoop renderer = do
   let eventIsQPress event =
         case eventPayload event of
           KeyboardEvent keyboardEvent ->
-            keyboardEventKeyMotion keyboardEvent == KeyDown &&
+            keyboardEventKeyMotion keyboardEvent == Pressed &&
             keysymKeycode (keyboardEventKeysym keyboardEvent) == KeycodeQ
           _ -> False
       qPressed = not (null (filter eventIsQPress events))
-  rendererDrawColor renderer $= V4 0 0 1 1
+  rendererDrawColor renderer $= V4 0 0 255 255
   clear renderer
   present renderer
   unless qPressed (appLoop renderer)
