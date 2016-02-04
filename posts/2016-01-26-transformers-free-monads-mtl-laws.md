@@ -449,7 +449,7 @@ we would like to preserve, so we can write this alternative form of
 ```haskell
 -- liftAsk . return = return
 -- liftAsk (f >>= g) = liftAsk f >>= liftAsk . g
-class Monad m => MonadReader r m | m -> m where
+class Monad m => MonadReader r m | m -> r where
   liftAsk :: Ask r a -> m a
 
 ask :: MonadReader r m => m r
@@ -594,7 +594,7 @@ suggests that we could just as well write:
 ```haskell
 -- liftAsk . return = return
 -- liftAsk (f >>= g) = liftAsk f >>= liftAsk . g
-class MonadReader r m | m -> m where
+class MonadReader r m | m -> r where
   liftAsk :: (r -> a) -> m a
 ```
 
