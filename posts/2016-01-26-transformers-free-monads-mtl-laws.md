@@ -256,7 +256,7 @@ echo = do
   printLine l
 
 getLine :: Free TeletypeF String
-getLine = liftF (GetLine return)
+getLine = liftF (GetLine id)
 
 printLine :: String -> Free TeletypeF ()
 printLine l = liftF (PrintLine l ())
@@ -628,7 +628,7 @@ because `ask >> ask = ask` by definition.
 
 By the homomorphism laws, we must also have
 
-> `liftAsk (ask >> ask) = liftAsk ask >> liftAsk`
+> `liftAsk (ask >> ask) = liftAsk ask >> liftAsk ask`
 
 Combining these, we expect
 
