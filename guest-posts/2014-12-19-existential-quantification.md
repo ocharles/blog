@@ -168,7 +168,7 @@ Still no luck:
 ~~~
 
 The compiler is too clever to be tricked by our choice of names; it'll always
-create a *fresh* type each type in unpacks `HashMapE`. So the elf has no choice but
+create a *fresh* type each time it unpacks `HashMapE`. So the elf has no choice but
 to write code the right way, which is of course to take a module as an
 argument:
 
