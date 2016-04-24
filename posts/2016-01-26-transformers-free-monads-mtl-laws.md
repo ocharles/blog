@@ -301,7 +301,7 @@ means we can use them to build monads with `Free`.
 The most interesting of these constructions (for our purposes) is `Sum`, which
 lets us choose between two different `Functor`s. Taking a more concrete example,
 I'll repeat part of
-[John A. De Goes "Modern FP"](http://degoes.net/articles/modern-fp/) article. In
+[John A. De Goes "Modern FP"](http://degoes.net/articles/modern-fp) article. In
 this, he defines two independent functors for programs that can access files in
 the cloud, and another for programs that can perform basic logging.
 
