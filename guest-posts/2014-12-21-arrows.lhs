@@ -200,7 +200,8 @@ into details would take a whole other blog post of its own, but I will
 mention briefly a few places where the full generality of monads is
 too much.
 
-Firstly arrows often yield a performance benefit. For example parsers
+Firstly, an arrow-only interface can often allow you to take advantage
+of opmizations that a monadic interface could not. For example parsers
 written using parser combinators can be made more memory efficient if
 we know statically the parsing action they are going to perform.
 Similarly it can help to reduce the chance of memory leaks in
