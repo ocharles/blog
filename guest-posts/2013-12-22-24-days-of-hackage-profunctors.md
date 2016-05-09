@@ -60,7 +60,7 @@ prove that this instance does indeed satisfy the laws:
 
 ```haskell
 dimap id id = \g -> id . g . id = \g -> g = id
-dimap (h' . h) (f . f') = \h -> (f . f') . g . (h' . h)
+dimap (h' . h) (f . f') = \g -> (f . f') . g . (h' . h)
                         = \g -> f . (f' . g . h') . h
                         = \g -> f . dimap h' f' g . h
                         = \g -> dimap h f (dimap h' f' g)
