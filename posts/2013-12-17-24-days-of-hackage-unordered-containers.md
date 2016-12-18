@@ -71,8 +71,8 @@ olliesWishList :: HashMap Child [Request]
 olliesWishList =
   let ollie = Child { childName = "ocharles"
                     , childLocation = "London"
-                    } fromList
-  in [(ollie, [ Request "Artisan Coffee" Please
+                    }
+  in fromList [(ollie, [ Request "Artisan Coffee" Please
               , Request "Dependent Types in Haskell" PleasePleasePlease
               , Request "Lambda Fridge Magnets" PrettyPlease
               ])]
