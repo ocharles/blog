@@ -64,7 +64,7 @@ What is... Lisp?! Instead, we can define an infix operator, and the type becomes
 a little more readable:
 
 ```haskell
-email :: [(Var UserVar + Var ChristmasVar + I) String]
+email :: [(Var UserVar + Var ChristmasVar + I) Text]
 email = [ "Dear "
         , var UserName
         , ", thank you for your recent email to Santa & Santa Inc."
