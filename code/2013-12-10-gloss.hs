@@ -20,7 +20,7 @@ main = do
   aiMove <- newEmptyMVar
 
   playIO
-    (InWindow "Tic-tac-toe" (1, 1) (500, 500))
+    (InWindow "Tic-tac-toe" (500, 500) (1, 1))
     azure
     10
     (initialBoard, X)
