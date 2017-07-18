@@ -5,7 +5,7 @@ title: 24 Days of GHC Extensions: Type Operators
 As GHC gradually adopts more and more extensions that allow us to do
 dependently typed programming in Haskell, it's natural that we'd like be more
 expressive at the type level. Today, we'll look at the
-[type operators](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/data-type-extensions.html#type-operators),
+[type operators](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#type-operators),
 which allows us to use more natural syntax when we write our types.
 
 The extension itself is straightforward. As the documentation mentions,
