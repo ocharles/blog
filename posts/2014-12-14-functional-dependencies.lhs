@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Functional Dependencies
+title: "24 Days of GHC Extensions: Functional Dependencies"
 ---
 
 > {-# LANGUAGE FlexibleInstances #-}

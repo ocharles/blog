@@ -1,5 +1,5 @@
 ---
-title: A Journey of Optimizing Perl
+title: "A Journey of Optimizing Perl"
 ---
 
 Perl has a lot of ill-informed preconceptions in the programming community, and

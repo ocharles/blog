@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: snap
+title: "24 Days of Hackage: snap"
 ---
 
 The [Snap framework](http://snapframework.com) is one of a handful of web

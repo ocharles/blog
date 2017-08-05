@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Rebindable Syntax
+title: "24 Days of GHC Extensions: Rebindable Syntax"
 ---
 
 As the first week of 24 Days of GHC Extensions (or as I like to call it, 24

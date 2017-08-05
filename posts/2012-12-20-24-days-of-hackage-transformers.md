@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: transformers
+title: "24 Days of Hackage: transformers"
 ---
 
 Monads monads monads monads monads monads. There, now this blog is *officially*

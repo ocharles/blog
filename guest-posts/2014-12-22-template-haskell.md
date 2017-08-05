@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Template Haskell
+title: "24 Days of GHC Extensions: Template Haskell"
 ---
 
 Today I'm happy to announce another guest post; this time

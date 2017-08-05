@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Overloaded Strings
+title: "24 Days of GHC Extensions: Overloaded Strings"
 ---
 
 Today we'll take a look at a handy extension that allows us to *redefine* the meaning of literals in Haskell source code. Ordinarily, the string literal has a specific type:

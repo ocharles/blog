@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: EKG
+title: "24 Days of Hackage: EKG"
 ---
 
 If you have a long running application, there is a high chance that sooner or later,

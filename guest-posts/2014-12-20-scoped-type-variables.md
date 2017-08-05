@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Scoped Type Variables
+title: "24 Days of GHC Extensions: Scoped Type Variables"
 ---
 
 Today I'm happy to announce that we have another guest blog post. Today,

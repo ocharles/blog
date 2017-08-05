@@ -1,5 +1,5 @@
 ---
-title: A Category for Correct-By-Construction Serializers and Deserializers
+title: "A Category for Correct-By-Construction Serializers and Deserializers"
 ---
 
 Frequently in computer programming we need to work with data in different

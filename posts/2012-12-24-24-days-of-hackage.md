@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage
+title: "24 Days of Hackage"
 ---
 
 Today we won't look at any new libraries but instead would just like to express

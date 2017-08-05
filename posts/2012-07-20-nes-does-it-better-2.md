@@ -1,5 +1,5 @@
 ---
-title: NES Does it Better: Building NES
+title: "NES Does it Better: Building NES"
 ---
 
 In the

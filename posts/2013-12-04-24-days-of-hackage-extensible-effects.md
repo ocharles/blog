@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: extensible-effects
+title: "24 Days of Hackage: extensible-effects"
 ---
 
 To a lot of programmers, the idea of programming with monads is almost

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Type Families
+title: "24 Days of GHC Extensions: Type Families"
 ---
  
 Today, we're going to look at an extension that radically alters the behavior of

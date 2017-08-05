@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Thanks!
+title: "24 Days of GHC Extensions: Thanks!"
 ---
 
 Wow, another year out! After 24 days of frantic blogging, Christmas is finally

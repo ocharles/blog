@@ -1,5 +1,5 @@
 ---
-title: Monad transformers, free monads, mtl, laws and a new approach
+title: "Monad transformers, free monads, mtl, laws and a new approach"
 ---
 
 If you've been following the hot topics of Haskell over the last few years,

@@ -1,5 +1,5 @@
 ----
-title: Well Typed's "The Haskell Type System" Course
+title: "Well Typed's \"The Haskell Type System\" Course"
 ----
 
 Last Friday, I attended [Well Typed](http://well-typed.com)'s training course on

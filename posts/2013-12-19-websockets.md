@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: websockets
+title: "24 Days of Hackage: websockets"
 ---
 
 Traditionally, the web has been modelled around a request/response

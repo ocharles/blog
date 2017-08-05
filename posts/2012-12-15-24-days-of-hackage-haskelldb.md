@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: haskelldb
+title: "24 Days of Hackage: haskelldb"
 ---
 
 I conjecture that the majority of bugs that programmers encounter occur at the

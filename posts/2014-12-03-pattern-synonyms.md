@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Pattern Synonyms
+title: "24 Days of GHC Extensions: Pattern Synonyms"
 ---
 
 Continuing yesterday's theme of *binding* extensions, as I like to call them,

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: HLint
+title: "24 Days of Hackage: HLint"
 ---
 
 In my [first post](/posts/2012-12-01-24-days-of-hackage.html) I mentioned

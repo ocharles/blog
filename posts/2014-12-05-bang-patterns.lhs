@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Bang Patterns
+title: "24 Days of GHC Extensions: Bang Patterns"
 ---
 
 Over the last few days, we've been looking at various GHC extensions that centre

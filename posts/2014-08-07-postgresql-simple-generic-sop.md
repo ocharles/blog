@@ -1,5 +1,5 @@
 -----
-title: Working with postgresql-simple with generics-sop
+title: "Working with postgresql-simple with generics-sop"
 -----
 
 The least interesting part of my job as a programmer is the act of pressing keys

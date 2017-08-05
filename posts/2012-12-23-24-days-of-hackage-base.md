@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: base
+title: "24 Days of Hackage: base"
 ---
 
 As 24 Days of Hackage comes to a close, I see no better library to review than

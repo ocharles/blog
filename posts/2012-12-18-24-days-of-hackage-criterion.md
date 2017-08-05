@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: criterion
+title: "24 Days of Hackage: criterion"
 ---
 
 We all know Haskell is a fast language, but is that all there is to it? Somewhat

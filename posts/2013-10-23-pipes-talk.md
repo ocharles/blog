@@ -1,5 +1,5 @@
 ---
-title: September pipes talk
+title: "September pipes talk"
 ---
 
 Back in September I presented a talk at the London Haskell User Group on the 4th

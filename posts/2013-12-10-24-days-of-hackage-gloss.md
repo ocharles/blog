@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: gloss
+title: "24 Days of Hackage: gloss"
 ---
 
 Today marks the

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: QuickCheck
+title: "24 Days of Hackage: QuickCheck"
 ---
 As I mentioned in the article on [errors](/posts/2012-12-04-errors.html), the
 Haskell programmer takes error handling and edge cases very seriously. While we

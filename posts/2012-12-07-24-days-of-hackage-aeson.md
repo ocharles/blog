@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: aeson
+title: "24 Days of Hackage: aeson"
 ---
 
 Many of today's programmers would likely consider the ability to parse JSON

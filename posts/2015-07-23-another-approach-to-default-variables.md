@@ -1,5 +1,5 @@
 ---
-title: Another Approach to Default Function Parameters
+title: "Another Approach to Default Function Parameters"
 ---
 
 Recently, there has been some new discussion around the issue of providing

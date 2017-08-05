@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Record Wildcards
+title: "24 Days of GHC Extensions: Record Wildcards"
 ---
  
 Occasionally, you come across a little trick or method for doing something that

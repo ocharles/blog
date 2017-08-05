@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions
+title: "24 Days of GHC Extensions"
 ---
 <style>
 table {

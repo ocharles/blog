@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: acid-state
+title: "24 Days of Hackage: acid-state"
 ---
 
 [Earlier this month](/posts/2013-12-06-24-days-of-hackage-persistent-esqueleto.html)

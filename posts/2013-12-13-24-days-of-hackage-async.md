@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: async
+title: "24 Days of Hackage: async"
 ---
 
 Over the last decade, it's likely that you've noticed a shift in how we use

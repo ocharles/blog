@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Existential Quantification
+title: "24 Days of GHC Extensions: Existential Quantification"
 ---
 
 I'm happy to announce that today [Roman Cheplyaka](http://ro-che.info/) is going

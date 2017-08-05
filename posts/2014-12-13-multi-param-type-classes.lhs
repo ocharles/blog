@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Multi-parameter Type Classes
+title: "24 Days of GHC Extensions: Multi-parameter Type Classes"
 ---
 
 Over the last few days, we've looked at a few extensions that can extend the notion of type classes in Haskell. First, we saw that [nullary type classes](/posts/2014-12-10-nullary-type-classes.html) remove the requirement that a type class varies over a single type by allowing it mention no types at all, and yesterday we saw how [type families](/posts/2014-12-12-type-families.html) can be used to associate more types against a single type. Today, we're going to revisit yesterdays example and use the [multi-parameter type classes](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/type-class-extensions.html) extension.

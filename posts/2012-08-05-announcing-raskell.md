@@ -1,5 +1,5 @@
 ---
-title: Announcing Raskell
+title: "Announcing Raskell"
 ---
 
 In July, I was inspired to follow in the footsteps of Chris Done's

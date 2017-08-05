@@ -1,5 +1,5 @@
 ---
-title: Using indexed free monads to QuickCheck JSON
+title: "Using indexed free monads to QuickCheck JSON"
 ---
 
 One of the most satisfying parts of my job is the moment when, after months of devout

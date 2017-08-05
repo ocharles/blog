@@ -1,5 +1,5 @@
 ---
-title: Queries in Loops Without a Care in the World
+title: "Queries in Loops Without a Care in the World"
 ---
 
 If you've interacted with databases when programming, chances are you've heard

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: Charts and Conclusion
+title: "24 Days of Hackage: Charts and Conclusion"
 ---
 
 Well, would you look at that - after 24 days of bashing away at a keyboard (from

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Rank N Types
+title: "24 Days of GHC Extensions: Rank N Types"
 ---
 
 It's been a while since 24 Days of GHC Extensions looked at an extension that radically altered the landscape of programs we can write. Today, [ertes](https://twitter.com/ertesx) is going to walk us through (extensively!) GHC's *rank n types* feature.

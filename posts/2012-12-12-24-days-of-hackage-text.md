@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: text
+title: "24 Days of Hackage: text"
 ---
 
 Text processing is one of the many tasks in computer programming that seems like

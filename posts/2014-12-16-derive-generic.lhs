@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: DeriveGeneric
+title: "24 Days of GHC Extensions: DeriveGeneric"
 ---
 
 [Yesterday](/guest-posts/2014-12-15-deriving.html), Andraz showed us a variety of extensions that came with GHC to help us avoid writing boilerplate code. We saw that GHC can automatically derive instances for `Functor`, `Traversable`, `Foldable`, along with the usual class of `Eq`, `Ord`, `Show`, etc. However, as exciting as this is, you might have been left a little worried that this is where it stops.

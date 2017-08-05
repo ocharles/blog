@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: scotty
+title: "24 Days of Hackage: scotty"
 ---
 
 A fairly new movement in the web programming scene is to build web sites using

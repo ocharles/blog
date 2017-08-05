@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: data-memocombinators
+title: "24 Days of Hackage: data-memocombinators"
 ---
 
 Today we look at a tiny little library that packs an awfully strong punch for

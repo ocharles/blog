@@ -1,5 +1,5 @@
 ---
-title: A Batch Querying Applicative Functor Without IORefs
+title: "A Batch Querying Applicative Functor Without IORefs"
 ---
 
 Regular readers of my blog will remember that I recently blogged about a

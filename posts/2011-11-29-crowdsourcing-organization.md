@@ -1,5 +1,5 @@
 ---
-title: Crowdsourcing Organization
+title: "Crowdsourcing Organization"
 ---
 
 There’s recently been a lot of work in [MusicBrainz](http://musicbrainz.org)

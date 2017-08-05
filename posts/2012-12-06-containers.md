@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: containers
+title: "24 Days of Hackage: containers"
 ---
 The basic linked list is a data structure that every aspiring computer
 programmer comes to know and love at some point early in their career. Haskell

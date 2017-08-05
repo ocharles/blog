@@ -1,5 +1,5 @@
 ---
-title: Composing Traversals: A Worked Example of Deriving a Non-Trivial Traversal
+title: "Composing Traversals: A Worked Example of Deriving a Non-Trivial Traversal"
 ---
 
 If you’ve seen me comment on [reddit](http://reddit.com/r/haskell), then you’ve

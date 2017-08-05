@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: pandoc
+title: "24 Days of Hackage: pandoc"
 ---
 
 Today I have the pleasure of sitting back and allowing

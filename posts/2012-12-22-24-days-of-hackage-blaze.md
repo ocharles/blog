@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: blaze-html
+title: "24 Days of Hackage: blaze-html"
 ---
 
 We [recently looked at](/posts/2012-12-19-24-days-of-hackage-snap.html) the Snap

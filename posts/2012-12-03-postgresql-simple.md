@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: postgresql-simple
+title: "24 Days of Hackage: postgresql-simple"
 ---
 
 [Yesterday](/posts/2012-12-02-digestive-functors.html) we saw

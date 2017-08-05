@@ -1,5 +1,5 @@
 ---
-title: Datatype Generic Programming
+title: "Datatype Generic Programming"
 ---
 
 Today I had the pleasure of attending a talk by [Andres

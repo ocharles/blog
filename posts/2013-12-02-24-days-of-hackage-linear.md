@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: linear
+title: "24 Days of Hackage: linear"
 ---
 
 Anyone who wants to do game programming at some point ends up writing (parts of)

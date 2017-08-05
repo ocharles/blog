@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: repa
+title: "24 Days of Hackage: repa"
 ---
 
 Today we're going to step into the high performance realm of Hackage, and take a

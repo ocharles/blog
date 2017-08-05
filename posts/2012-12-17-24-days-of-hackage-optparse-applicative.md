@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: optparse-applicative
+title: "24 Days of Hackage: optparse-applicative"
 ---
 
 We've already seen the `Applicative` type class pop up in various places through

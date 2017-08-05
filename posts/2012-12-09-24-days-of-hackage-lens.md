@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: lens
+title: "24 Days of Hackage: lens"
 ---
 
 One of my favourite aspects of functional programming is the emphasis on

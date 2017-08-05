@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: configurator
+title: "24 Days of Hackage: configurator"
 ---
 
 These days, most users expect the ability to configure applications, and to

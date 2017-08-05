@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: unordered-containers
+title: "24 Days of Hackage: unordered-containers"
 ---
 
 [Last year](/posts/2012-12-06-containers.html) we looked at the

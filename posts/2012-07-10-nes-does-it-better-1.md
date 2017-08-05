@@ -1,5 +1,5 @@
 ---
-title: NES Does It Better: Introducing the New Edit System
+title: "NES Does It Better: Introducing the New Edit System"
 ---
 
 This article is the first in a series of articles discussing NES, the New Edit

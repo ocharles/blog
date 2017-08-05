@@ -1,5 +1,5 @@
 ----
-title: Getting Started with Netwire and SDL
+title: "Getting Started with Netwire and SDL"
 ----
 
 Game programming is often seen as a challenging problem in Haskell, and it

@@ -1,5 +1,5 @@
 ---
-title: Interpreting Haskell Inside PostgreSQL With Singleton Types
+title: "Interpreting Haskell Inside PostgreSQL With Singleton Types"
 ---
 
 I am currently in the early stages of a new project,

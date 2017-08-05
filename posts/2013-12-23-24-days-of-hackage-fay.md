@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: fay
+title: "24 Days of Hackage: fay"
 ---
 
 A few days ago, we

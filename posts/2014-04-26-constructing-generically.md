@@ -1,5 +1,5 @@
 ---
-title: Building data constructors with GHC Generics
+title: "Building data constructors with GHC Generics"
 ---
 
 Let's imagine for a moment that we are in the presence of the following data

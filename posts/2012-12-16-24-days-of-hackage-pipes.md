@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: pipes
+title: "24 Days of Hackage: pipes"
 ---
 
 Today's article is going to be an interesting one... not just because the

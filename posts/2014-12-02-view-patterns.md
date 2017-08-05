@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: View Patterns
+title: "24 Days of GHC Extensions: View Patterns"
 ---
 
 I'd like to start this series by focussing on what I call *binding

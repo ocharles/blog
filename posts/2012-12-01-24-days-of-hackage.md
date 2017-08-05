@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: Cabal
+title: "24 Days of Hackage: Cabal"
 ---
 
 Over the next 24 days I'm going to be posting a series of reviews on some of my

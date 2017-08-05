@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: parsec
+title: "24 Days of Hackage: parsec"
 ---
 
 There comes a time in every programmer's life when a plain old string just won't

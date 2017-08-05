@@ -1,5 +1,5 @@
 ---
-title: Quick and Easy DSLs with Writer Endo
+title: "Quick and Easy DSLs with Writer Endo"
 ---
 
 In the last week, I’ve had to briefly take off my beloved programmer hat and

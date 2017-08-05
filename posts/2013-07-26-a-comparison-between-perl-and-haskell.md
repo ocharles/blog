@@ -1,5 +1,5 @@
 -----
-title: A Comparison Between Perl and Haskell
+title: "A Comparison Between Perl and Haskell"
 -----
 
 Yesterday I finished porting a [MusicBrainz](http://musicbrainz.org/) production

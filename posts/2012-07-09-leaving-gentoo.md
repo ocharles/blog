@@ -1,5 +1,5 @@
 ---
-title: Leaving Gentoo
+title: "Leaving Gentoo"
 ---
 
 ## Picture the Following

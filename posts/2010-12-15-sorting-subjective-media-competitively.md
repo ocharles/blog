@@ -1,5 +1,5 @@
 ---
-title: Sorting Subjective Media Competitively
+title: "Sorting Subjective Media Competitively"
 ---
 
 I own a lot of music, but I find it difficult to find what I want to play. Being

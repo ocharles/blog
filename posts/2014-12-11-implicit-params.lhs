@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Implicit Parameters
+title: "24 Days of GHC Extensions: Implicit Parameters"
 ---
 
 > {-# LANGUAGE ImplicitParams #-}

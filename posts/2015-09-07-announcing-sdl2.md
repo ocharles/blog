@@ -1,5 +1,5 @@
 ---
-title: Announcing a new set of high-level SDL2 bindings
+title: "Announcing a new set of high-level SDL2 bindings"
 ---
 
 It's with great pleasure that on behalf of the haskell-game group, I'd like to announce the release of [a new set of high-level bindings](http://hackage.haskell.org/package/sdl2) to the [SDL](http://libsdl.org) library. SDL is a C library providing a set of cross-platform functions for handling graphics, window management, audio, joystick/gamepad interaction, and more.

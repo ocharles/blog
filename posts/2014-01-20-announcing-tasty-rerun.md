@@ -1,5 +1,5 @@
 ---
-title: Announcing tasty-rerun
+title: "Announcing tasty-rerun"
 ---
 
 If you're a firm believer of writing tests for your work, it shouldn't take much

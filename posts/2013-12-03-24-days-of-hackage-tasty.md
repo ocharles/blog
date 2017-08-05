@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: tasty
+title: "24 Days of Hackage: tasty"
 ---
 
 Last year, when discussing

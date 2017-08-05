@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Nullary Type Classes
+title: "24 Days of GHC Extensions: Nullary Type Classes"
 ---
 
 While I wait for a few more guest posts to soldify, I thought it might be fun to

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: time
+title: "24 Days of Hackage: time"
 ---
 
 If there's one task I don't have time for these days, it's dealing with

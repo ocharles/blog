@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: threepenny-gui
+title: "24 Days of Hackage: threepenny-gui"
 ---
 
 While a lot of the work I tend to do in Haskell is building libraries, there

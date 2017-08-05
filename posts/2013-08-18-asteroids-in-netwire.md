@@ -1,5 +1,5 @@
 -----
-title: Asteroids & Netwire
+title: "Asteroids & Netwire"
 -----
 
 Since my initial foray into functional reactive programming using Netwire, I

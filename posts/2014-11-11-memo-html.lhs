@@ -1,5 +1,5 @@
 -----
-title: Self-Memoizing HTML Rendering via Mutually Recursive Data Types
+title: "Self-Memoizing HTML Rendering via Mutually Recursive Data Types"
 -----
  
 > {-# LANGUAGE TypeFamilies #-}

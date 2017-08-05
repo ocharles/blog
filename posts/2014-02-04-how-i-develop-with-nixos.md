@@ -1,5 +1,5 @@
 ---
-title: How I Develop with Nix
+title: "How I Develop with Nix"
 ---
 
 [Recently](http://www.reddit.com/r/haskell/comments/1vghgw/nixos_a_gnulinux_distribution_based_on_purely)

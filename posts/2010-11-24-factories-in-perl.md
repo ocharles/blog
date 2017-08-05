@@ -1,5 +1,5 @@
 ---
-title: Implementing Factories in Perl
+title: "Implementing Factories in Perl"
 ---
 
 Factories are a useful construct, and even though their usage is common in Java

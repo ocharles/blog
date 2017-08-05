@@ -1,5 +1,5 @@
 ---
-title: Announcing engine-io and socket-io for Haskell
+title: "Announcing engine-io and socket-io for Haskell"
 ---
 
 I've just released three new libraries to Hackage:

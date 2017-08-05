@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage 2013
+title: "24 Days of Hackage 2013"
 ---
 <style>
 table {

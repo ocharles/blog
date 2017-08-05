@@ -1,5 +1,5 @@
 ---
-title: SQL: It's Data, Not a String
+title: "SQL: It's Data, Not a String"
 ---
 
 Recently I’ve been becoming more and more frustrated with how we handle database

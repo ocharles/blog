@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: List Comprehensions
+title: "24 Days of GHC Extensions: List Comprehensions"
 ---
 
 After doing a fantastic job explaining [rebindable syntax](/guest-posts/2014-12-06-rebindable-syntax.html) to us yesterday, [Benjamin Kovach](http://kovach.me) has a second post for us today. This time, we're again going to look at an extension to re-purpose existing Haskell syntax. Ben, it's over to you!

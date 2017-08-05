@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: 2013 in Review
+title: "24 Days of Hackage: 2013 in Review"
 ---
 
 Welcome, one and all, to the 2013 installment of 24 Days of Hackage! After a

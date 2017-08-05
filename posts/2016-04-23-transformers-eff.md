@@ -1,5 +1,5 @@
 ---
-title: Announcing transformers-eff
+title: "Announcing transformers-eff"
 ---
 
 In my [last post](/posts/2016-01-26-transformers-free-monads-mtl-laws.html), I

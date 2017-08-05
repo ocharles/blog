@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: persistent & esqueleto
+title: "24 Days of Hackage: persistent & esqueleto"
 ---
 
 Many of the applications we write these days tend to be long running processes

@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Recursive Do
+title: "24 Days of GHC Extensions: Recursive Do"
 ---
 
 Ordinarily, when we're programming computations under a monad, we're limited to

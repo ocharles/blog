@@ -1,5 +1,5 @@
 ---
-title: A New Database Abstraction Layer
+title: "A New Database Abstraction Layer"
 ---
 
 The New Edit System, NES, requires a fairly hefty new schema due to increase of

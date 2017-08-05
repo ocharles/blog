@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Type Operators
+title: "24 Days of GHC Extensions: Type Operators"
 ---
 
 As GHC gradually adopts more and more extensions that allow us to do

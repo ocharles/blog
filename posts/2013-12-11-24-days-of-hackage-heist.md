@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: heist
+title: "24 Days of Hackage: heist"
 ---
 
 [Last year](/posts/2012-12-19-24-days-of-hackage-snap.html) we looked at the

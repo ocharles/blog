@@ -1,5 +1,5 @@
 ---
-title: 24 Days of GHC Extensions: Welcome!
+title: "24 Days of GHC Extensions: Welcome!"
 ---
 
 Hello everyone, I'm pleased to announce it's that time of the year again!

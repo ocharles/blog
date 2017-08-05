@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: contravariant
+title: "24 Days of Hackage: contravariant"
 ---
 
 Today and tomorrow we take a brief excursion to the boundary of

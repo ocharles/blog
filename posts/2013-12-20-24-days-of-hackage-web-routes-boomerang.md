@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: web-routes-boomerang
+title: "24 Days of Hackage: web-routes-boomerang"
 ---
 
 As you start building larger web applications, it quickly becomes important how

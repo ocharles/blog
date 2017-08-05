@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: digestive-functors
+title: "24 Days of Hackage: digestive-functors"
 ---
 
 Form processing is a task I used to dread doing in other programming languages,

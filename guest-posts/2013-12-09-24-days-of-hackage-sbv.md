@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: sbv
+title: "24 Days of Hackage: sbv"
 author: Tikhon Jelvis <tikhon@jelv.is>
 ---
 

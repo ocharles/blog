@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: dlist
+title: "24 Days of Hackage: dlist"
 ---
 
 Today we look at a single module that clocks in at a mere 200 lines of code,

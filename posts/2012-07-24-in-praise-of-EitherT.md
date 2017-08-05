@@ -1,5 +1,5 @@
 ---
-title: In Praise of EitherT
+title: "In Praise of EitherT"
 ---
 
 At the start of the month, [Gabriel Gonzalez](http://www.haskellforall.com/)

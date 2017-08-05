@@ -1,5 +1,5 @@
 ---
-title: 24 Days of Hackage: profunctors
+title: "24 Days of Hackage: profunctors"
 ---
 
 [Yesterday](/guest-posts/2013-12-21-24-days-of-hackage-contravariant.html), Tom
