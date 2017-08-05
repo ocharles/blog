@@ -130,9 +130,8 @@ testLengther = runFold lengther ["24", "days", "of", "hackage", "!"]
 
 There are not many `Profunctor` definitions on hackage, although they are used
 in the internals of [`lens`](http://hackage.haskell.org/package/lens).
-Personally I have used them heavily in a Haskell relation database EDSL that I
-have developed (currently private, but which I hope will be open-sourced at some
-point in the future).  In that library there are profunctors which act exactly
+Personally I have used them heavily in [Opaleye](http://hackage.haskell.org/package/opaleye),
+a relation database EDSL.  In Opaleye there are profunctors which act exactly
 as the intuition about them suggests: they can be seen as consuming values of
 one type and producing values of another.  For example there is a `Profunctor`
 instance for "consuming" the rows returned by a query running on PostgreSQL and
