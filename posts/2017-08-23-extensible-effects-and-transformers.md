@@ -16,7 +16,7 @@ are three major options:
 
     Under this option, our API would have types such as
     
-    ```
+    ```haskell
     submitListens :: ... -> M ()
     getListens :: ... -> M Listens
     ```
@@ -29,7 +29,7 @@ are three major options:
     to work in, my API can be polymorphic over monads that support accessing the
     ListenBrainz API. This means my API is more like:
 
-    ```
+    ```haskell
     submitListens :: MonadListenBrainz m => ... -> m ()
     getListens :: MonadListenBrainz m => ... -> m Listens
     ```
@@ -42,7 +42,7 @@ are three major options:
     seamlessly compose with other effects. Using `freer-effects`, our API would
     be:
     
-    ```
+    ```haskell
     submitListens :: Member ListenBrainzAPICall effects => ... -> Eff effects ()
     getListens :: Member ListenBrainzAPICall effects => ... -> Eff effects Listens
     ```
@@ -84,7 +84,7 @@ approach](/posts/2016-01-26-transformers-free-monads-mtl-laws.html), I
 think the best pattern for an `mtl` class is to be a monad homomorphism from a
 program description, and often a free monad is a fine choice to lift:
 
-```
+```haskell
 class Monad m => MonadListenBrainz m where
   liftListenBrainz :: Free f a -> m a
 ```
@@ -93,7 +93,7 @@ But what about `f`? As observed earlier, extensible effects are basically free
 monads, so we can actually share the same implementation. For `freer-effects`,
 we might describe the ListenBrainz API with a GADT such as:
 
-```
+```haskell
 data ListenBrainzAPICall returns where
   GetListens :: ... -> ListenBrainzAPICall Listens
   SubmitListens :: ... -> ListenBrainzAPICall ()
@@ -106,14 +106,14 @@ functor for free - and that's exactly [what `Coyoneda` will
 do](https://www.reddit.com/r/haskelltil/comments/4ea7er/coyoneda_is_just_the_free_functor/).
 Thus our `mtl` type class becomes:
 
-```
+```haskell
 class Monad m => MonadListenBrainz m where
   liftListenBrainz :: Free (Coyoneda ListenBrainzAPICall) a -> m a 
 ```
 
 We can now provide an implementation in terms of a monad transformer:
 
-```
+```haskell
 instance Monad m => MonadListenBrainz (ListenBrainzT m)
   liftListenBrainz f =
     iterM (join . lowerCoyoneda . hoistCoyoneda go)
@@ -124,7 +124,7 @@ instance Monad m => MonadListenBrainz (ListenBrainzT m)
 
 or extensible effects:
 
-```haskell 
+```haskell
 instance Member ListenBrainzAPICall effs => MonadListenBrainz (Eff effs) where
   liftListenBrainz f = iterM (join . lowerCoyoneda . hoistCoyoneda send) f 
 ```
@@ -139,7 +139,7 @@ instance MonadListenBrainz (Free (Coyoneda ListenBrainzAPICall)) where
 For the actual implementation of performing the API call, I work with a concrete
 monad transformer stack:
 
-```
+```haskell
 performAPICall :: Manager -> ListenBrainzAPICall a -> IO (Either ServantError a)
 ```
 
