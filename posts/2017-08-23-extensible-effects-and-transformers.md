@@ -80,7 +80,7 @@ So, what do we do? Well, as Old El Paso has taught us: why don't we have both?
 It's trivial to actually support both a monad transformer stack *and* extensible
 effects by using an `mtl` type class. As I argue in [Monad transformers, free
 monads, mtl, laws and a new
-approach](/blog/posts/2016-01-26-transformers-free-monads-mtl-laws.html), I
+approach](/posts/2016-01-26-transformers-free-monads-mtl-laws.html), I
 think the best pattern for an `mtl` class is to be a monad homomorphism from a
 program description, and often a free monad is a fine choice to lift:
 
