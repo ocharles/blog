@@ -50,9 +50,9 @@ are three major options:
 So, which do we choose? Evaluating the options, I have some concerns. 
 
 For option one, we impose pain on all our users who want to use a different
-monad stack. It's unlikely that you're application is going to be written soley
+monad stack. It's unlikely that your application is going to be written solely
 to query ListenBrainz, which means client code becomes littered with `lift`. You
-may write that off as syntatic, but there is another problem - we have committed
+may write that off as syntactic, but there is another problem - we have committed
 to an interpretation strategy. Rather than describing API calls, my library now
 skips directly to prescribing how to run API calls. However, it's entirely
 possible that you want to intercept these calls - maybe introducing a caching
@@ -155,7 +155,7 @@ In conclusion, I'm able to offer my users a choice of either:
 All without extra syntatic burden, a complicated type class, or duplicating the
 implementation.
 
-You can see the final implemantion of [`listenbrainz-client`
+You can see the final implementation of [`listenbrainz-client`
 here](https://hackage.haskell.org/package/listenbrainz-client-1.0.1/docs/src/Web-ListenBrainz.html).
 
 
