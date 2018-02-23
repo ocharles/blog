@@ -16,7 +16,7 @@ All of the classes that mentioned so far exist in the `base` library, and that a
 > {-# LANGUAGE ViewPatterns #-}
 > import GHC.Generics
 
-The (relatively) new [`DeriveGeneric`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/generic-programming.html) extension allows us to use a paradigm of programming called *data-type generic programming*. In this style of programming, we are able to write our functions over arbitrary data types - provided they have the right "shape". To get an idea of what it means for things to have the same shape, let's start by looking at the humble `Either` data type:
+The (relatively) new [`DeriveGeneric`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#generic-programming) extension allows us to use a paradigm of programming called *data-type generic programming*. In this style of programming, we are able to write our functions over arbitrary data types - provided they have the right "shape". To get an idea of what it means for things to have the same shape, let's start by looking at the humble `Either` data type:
 
 ```haskell
 data Either a b = Left a | Right b
