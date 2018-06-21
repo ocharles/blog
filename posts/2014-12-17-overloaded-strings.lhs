@@ -27,7 +27,7 @@ is polymorphic over all `Fractional` instances.
 
 This polymorphism is extremely powerful, and it allows us to write embedded domain specific languages in Haskell source code, without having to introduce new constructs for otherwise normal values. So why should string literals be any different?
 
-The good news is - they don't have to be! If we enable the [overloaded strings](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/type-class-extensions.html#overloaded-strings), then string literals get a different type:
+The good news is - they don't have to be! If we enable the [overloaded strings](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#overloaded-strings), then string literals get a different type:
 
 ```
 .> :set -XOverloadedStrings

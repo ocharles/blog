@@ -19,7 +19,7 @@ import Data.Map as M
 ```
 
 Today we'll be talking about
-[`RebindableSyntax`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/syntax-extns.html#rebindable-syntax). `RebindableSyntax`
+[`RebindableSyntax`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#rebindable-syntax). `RebindableSyntax`
 allows you to rewrite your own versions of operators in the Prelude (with
 different types, even!). At first glance, this doesn't seem incredibly useful:
 Why would we want to rebind operators when we can just define new functions or

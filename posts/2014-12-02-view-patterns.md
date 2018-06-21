@@ -8,7 +8,7 @@ bindings - such as top-level function definitions, `where` clauses, and `let`
 bindings. Today, we'll begin by looking at a simple yet powerful extension -
 *view patterns*.
 
-[View patterns](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/syntax-extns.html#view-patterns)
+[View patterns](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#view-patterns)
 extend our ability to pattern match on variables by also allowing us to pattern
 match on the result of function application. To take a simple example, lets work
 with a `Map` from Haskell packages on Hackage, to the amount of downloads. To

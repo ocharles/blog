@@ -4,7 +4,7 @@ title: "24 Days of GHC Extensions: Nullary Type Classes"
 
 While I wait for a few more guest posts to soldify, I thought it might be fun to
 look at another new extension to GHC -
-[`NullaryTypeClasses`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/type-class-extensions.html#nullary-type-classes).
+[`NullaryTypeClasses`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#nullary-type-classes).
  
 > {-# LANGUAGE NullaryTypeClasses #-}
 
