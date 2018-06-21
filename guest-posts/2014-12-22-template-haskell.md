@@ -204,7 +204,7 @@ quotations, called quasi-quotations.
   spaces. Though, all GHC is doing is determining which parser to use based on
   the context within the oxford brackets.[^7]
 
-    Quasi-quotations is a big second part to meta-programming. They're essentially what makes it possible to write DSLs. I'm not going to cover it here since this guide is pretty long as it is, but if you're interested, there are many guides to using quasi-quotations, find them [here](https://www.cs.drexel.edu/~mainland/publications/mainland07quasiquoting.pdf), [here](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/template-haskell.html#th-quasiquotation), and [here](https://www.fpcomplete.com/user/marcin/quasiquotation-101) (this one assumes you're familiar with Parsec parsing).
+    Quasi-quotations is a big second part to meta-programming. They're essentially what makes it possible to write DSLs. I'm not going to cover it here since this guide is pretty long as it is, but if you're interested, there are many guides to using quasi-quotations, find them [here](https://www.cs.drexel.edu/~mainland/publications/mainland07quasiquoting.pdf), [here](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#th-quasiquotation), and [here](https://www.fpcomplete.com/user/marcin/quasiquotation-101) (this one assumes you're familiar with Parsec parsing).
 
 
 An important restriction on Template Haskell to remember is _when inside a

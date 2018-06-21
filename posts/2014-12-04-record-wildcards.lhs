@@ -5,7 +5,7 @@ title: "24 Days of GHC Extensions: Record Wildcards"
 Occasionally, you come across a little trick or method for doing something that
 seems somewhat inconsequential - but rapidly becomes an indispensable item in
 your programming toolbox. For me, the
-[`RecordWildcards`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/syntax-extns.html#record-wildcards)
+[`RecordWildcards`](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#record-wildcards)
 extension is a prime example of this scenario.
 
 > {-# LANGUAGE OverloadedStrings #-}

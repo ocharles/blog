@@ -103,7 +103,7 @@ similar. Infact, all we've had to do is replace the pure `let x = y` bindings
 with effectful `x <- y` bindings, and call out to our effectful
 function. Finally, the magic sauce at the top is to use a new piece of syntax
 `rec`. `rec` comes from the
-[RecursiveDo](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/syntax-extns.html#recursive-do-notation)
+[RecursiveDo](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#recursive-do-notation)
 extension, and while the details are beyond the scope of this post (there's a
 whole thesis on it!), we can see here that it serves the same purpose as forming
 recursive bindings, as we did with `let`.
