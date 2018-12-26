@@ -5,7 +5,7 @@ title: Solving Planning Problems with Fast Downward and Haskell
 In this post I'll demonstrate my new
 [`fast-downward`](https://hackage.haskell.org/package/fast-downward) library and
 show how it can be used to solve planning problems. The name comes from the use
-of the backend solver - [Fast Downward](https://fast-downward.org). But what's a
+of the backend solver - [Fast Downward](http://fast-downward.org). But what's a
 planning problem?
 
 Roughly speaking, planning problems are a subclass of AI problems where we need
