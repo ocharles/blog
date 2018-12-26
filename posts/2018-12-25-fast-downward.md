@@ -31,7 +31,7 @@ space search to work out how to converge a database from one state to another
 (automatic migrations) by adding/removing columns.
 
 State space search is an intuitive approach - simply build a graph where nodes
-are states and edges are state transitions (effects), and a find a path
+are states and edges are state transitions (effects), and find a path
 (possibly shortest) that gets you from the starting state to a state that
 satisfies some predicates. However, naive enumeration of all states rapidly
 grinds to a halt. Forming optimal plans (least cost, least steps, etc) is an
@@ -348,7 +348,7 @@ them to find a fixed point.
 
 A small example can be seen in the `moveRobotToAdjacentRoom` `Effect`. This will
 actually produce two operators - one to move from room A to room B, and one to
-move from room A to room B. The body of this `Effect` is (once we inline the
+move from room B to room A. The body of this `Effect` is (once we inline the
 definition of `modifyVar`)
 
 ```haskell
