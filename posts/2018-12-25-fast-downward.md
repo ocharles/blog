@@ -165,8 +165,8 @@ The first effect takes a ball and a gripper, and attempts to pick up that ball
 with that gripper.
 
 ```haskell
-    pickUpBallWithGrippper :: Ball -> Gripper -> Effect Action
-    pickUpBallWithGrippper b gripper = do
+    pickUpBallWithGripper :: Ball -> Gripper -> Effect Action
+    pickUpBallWithGripper b gripper = do
       Empty <- readVar gripper                  -- (1)
 
       robotRoom <- readVar robotLocation        -- (2)
@@ -189,7 +189,7 @@ the same room.
 
 3. Here we couldn't choose a particular pattern match to use, because picking up
 a ball should be possible in either room. Instead, we simply observe the
-location of both the ball and the robot, and use an equality test with `gurad`
+location of both the ball and the robot, and use an equality test with `guard`
 to make sure they match.
 
 4. If we got this far then we can pick up the ball. The act of picking up the
@@ -264,7 +264,7 @@ heuristics). We give the solver two bits of information:
 ```haskell
   solve
     cfg
-    ( [ pickUpBallWithGrippper b g | b <- balls, g <- grippers ]
+    ( [ pickUpBallWithGripper b g | b <- balls, g <- grippers ]
         ++ [ dropBall b g | b <- balls, g <- grippers ]
         ++ [ moveRobotToAdjacentRoom ]
     )
@@ -337,7 +337,7 @@ side and careful manage mapping indices back and forward.
 
 Next, Fast Downward needs a list of operators which are ground instantiations of
 our effects above. Ground instantiations of operators mention exact values of
-variables. Recounting our gripper example, `pickUpBallWithGrippper b gripper`
+variables. Recounting our gripper example, `pickUpBallWithGripper b gripper`
 actually produces 2 operators - one for each room. However, we didn't have to be
 this specific in the Haskell code, so how are we going to recover this
 information?
@@ -384,7 +384,7 @@ produce an infinite number of variable assignments.
 
 CircuitHub are using this in production (and I mean real, physical production!)
 to coordinate activities in its factories. By using AI, we have a declarative
-interface to the production process - rather than saying what steps are to be
+interface to the production process -- rather than saying what steps are to be
 performed, we can instead say what state we want to end up in and we can trust
 the planner to find a suitable way to make it so.
 
@@ -396,10 +396,10 @@ we:
 * Can easily feed the results of the planner into a scheduler to execute the
   plan, with no messy marshalling. 
 * Use well known means of abstraction to organise the problem. For example, in
-  the above we use Haskell as a type of macro language - using do notation to
+  the above we use Haskell as a type of macro language -- using do notation to
   help us succinctly formulate the problem.
 * Abstract out the details of planning problems so the rest of the team can
-  focus on the domain specific details - i.e., what options are available to the
+  focus on the domain specific details -- i.e., what options are available to the
   solver, and the domain specific constraints they are subject to.
 
 [`fast-downward`](https://hackage.haskell.org/package/fast-downward) is
@@ -456,8 +456,8 @@ problem = do
   grippers <- replicateM 2 (newVar Empty)
 
   let
-    pickUpBallWithGrippper :: Ball -> Gripper -> Effect Action
-    pickUpBallWithGrippper b gripper = do
+    pickUpBallWithGripper :: Ball -> Gripper -> Effect Action
+    pickUpBallWithGripper b gripper = do
       Empty <- readVar gripper
   
       robotRoom <- readVar robotLocation
@@ -491,7 +491,7 @@ problem = do
   
   solve
     cfg
-    ( [ pickUpBallWithGrippper b g | b <- balls, g <- grippers ]
+    ( [ pickUpBallWithGripper b g | b <- balls, g <- grippers ]
         ++ [ dropBall b g | b <- balls, g <- grippers ]
         ++ [ moveRobotToAdjacentRoom ]
     )
