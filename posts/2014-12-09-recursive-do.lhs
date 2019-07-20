@@ -85,7 +85,7 @@ It looks like we're stuck, but what we can do is make an effectful variation of
 
 > impureMin :: (MonadFix m, Ord b) => (a -> m b) -> RoseTree a -> m (RoseTree (a, b))
 > impureMin f tree = do
->   rec (t, largest) <- go largest tree
+>   rec (t, smallest) <- go smallest tree
 >   return t
 >  where
 >   go smallest (RoseTree x []) = do
