@@ -203,7 +203,7 @@ canViewProject = do
 
   if ...
     then return ( Just TrustMe ) 
-    else Nothing
+    else return Nothing
 ```
 
 This is a good start! Our `price` function can only be called with a
