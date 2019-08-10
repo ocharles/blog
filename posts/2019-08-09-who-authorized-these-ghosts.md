@@ -56,21 +56,21 @@ Our first approach was to try and represent this in Servant's API type. We start
 with the "vanilla" route, with no authentication or authorization:
 
 ```haskell
-type API = 
-  "projects" 
-    :> Capture "id" ProjectId 
-    :> "price" 
+type API =
+  "projects"
+    :> Capture "id" ProjectId
+    :> "price"
     :> Get '[ JSON ] Pricing
 ```
 
 Next, we add authorization:
 
 ```haskell
-type API = 
+type API =
   AuthProtect CircuitHub
     :> "projects"
-    :> Capture "id" ProjectId 
-    :> "price" 
+    :> Capture "id" ProjectId
+    :> "price"
     :> Get '[ JSON ] Pricing
 ```
 
@@ -82,11 +82,11 @@ topic).
 My first attempt to add authorization to this was:
 
 ```haskell
-type API = 
+type API =
   AuthorizeWith ( AuthProtect CircuitHub )
     :> "projects"
     :> CanView ( Capture "id" ProjectId )
-    :> "price" 
+    :> "price"
     :> Get '[ JSON ] Pricing
 ```
 
@@ -176,10 +176,10 @@ arguments, and then introduce a proof that the user in question can view the
 project:
 
 ```haskell
-price 
-  :: Named projectId ProjectId 
-  -> Named userId UserId 
-  -> userId `CanViewProject` projectId 
+price
+  :: Named projectId ProjectId
+  -> Named userId UserId
+  -> userId `CanViewProject` projectId
   -> m Price
 ```
 
@@ -191,18 +191,18 @@ blessed function can postulate this proof with no further evidence:
 ```haskell
 module CanViewProject ( CanViewProject, canViewProject ) where
 
-data CanViewProject userId projectId = 
+data CanViewProject userId projectId =
   TrustMe
 
-canViewProject 
-  :: Named projectId ProjectId 
-  -> Named userId UserId 
+canViewProject
+  :: Named projectId ProjectId
+  -> Named userId UserId
   -> m ( Maybe ( CanViewProject userId projectId ) )
 canViewProject = do
   -- ... lots of database access/IO
 
   if ...
-    then return ( Just TrustMe ) 
+    then return ( Just TrustMe )
     else return Nothing
 ```
 
@@ -223,8 +223,8 @@ module ProjectIsPublic ( ProjectIsPublic, projectIsPublic ) where
 
 data ProjectIsPublic project = TrustMe
 
-projectIsPublic 
-  :: Named projectId ProjectId 
+projectIsPublic
+  :: Named projectId ProjectId
   -> m ( Maybe ( ProjectIsPublic projectId ) )
 ```
 
@@ -254,9 +254,9 @@ module UserOwnsProject ( UserOwnsProject, userOwnsProject ) where
 
 data UserOwnsProject user project = TrustMe
 
-userOwnsProject 
-  :: Named userId UserId 
-  -> Named projectId ProjectId 
+userOwnsProject
+  :: Named userId UserId
+  -> Named projectId ProjectId
   -> m ( Maybe ( UserOwnsProject userId projectId ) )
 ```
 
@@ -270,7 +270,7 @@ data CanViewProject userId projectId
   = ProjectIsPublic (ProjectIsPublic projectId)
   | UserOwnsProject (UserOwnsProject userId projectId)
   | UserIsSuperUser (UserIsSuperUser userId)
-  | UserBelongsToProjectOrganization 
+  | UserBelongsToProjectOrganization
       (UserBelongsToProjectOrganization userId projectId)
 
 canViewProject
@@ -323,15 +323,53 @@ the organization owns the project, so we can easily construct a new
 `CanViewProject` proof - proofs generate more proofs!
 
 ```haskell
-price 
-  :: Named projectId ProjectId 
-  -> Named userId UserId 
-  -> userId `CanViewProject` projectId 
+price
+  :: Named projectId ProjectId
+  -> Named userId UserId
+  -> userId `CanViewProject` projectId
   -> m Price
 price projectId userId = \case
   UserBelongsToProjectOrganization proof ->
     withUserBelongsToProjectOrganizationEvidence proof \orgId ownership ->
       price projectId orgId (UserOwnsProject ownership)
+```
+
+## Relationship to Servant
+
+At the start of this post, I mentioned that the goal was to integrate this with
+Servant. So far, we've looked at adding authorization to a single function, so
+how does this interact with Servant? Fortunately, it requires very little to
+change. The Servant API type is authorization free, but does mention
+authentication.
+
+```haskell
+type API =
+  AuthProtect CircuitHub
+    :> "projects"
+    :> Capture "id" ProjectId
+    :> "price"
+    :> Get '[ JSON ] Pricing
+```
+
+It's only when we need to call our `price` function do we need to have performed
+some authorization, and this happens in the server-side handler. We do this by
+naming the respective arguments, witnessing the authorization proof, and then
+calling `price`:
+
+```haskell
+priceProject :: User -> ProjectId -> Handler Pricing
+priceProject user projectId = do
+  name (userId user) \namedUserId ->
+  name projectId \namedProjectId ->
+    canViewProjectProof <-
+      canViewProject namedUserId namedProjectId
+
+    case mcanViewProjectProof of
+      Nothing ->
+        fail "Authorization failed"
+
+      Just granted ->
+        price namedProjectId namedUserId granted
 ```
 
 ## Conclusion
