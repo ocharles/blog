@@ -132,7 +132,7 @@ module Named ( Named, forgetName, name ) where
 
 newtype Named n a = Named { forgetName :: a }
 
-name :: a -> ( forall name. Named n a -> r ) -> r
+name :: a -> ( forall name. Named name a -> r ) -> r
 name x f = f ( Named x )
 ```
 
