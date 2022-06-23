@@ -14,7 +14,7 @@ I recently [proposed an instance of this pattern to `lucid`](https://github.com/
 div_ :: [Attribute] -> Html a -> Html
 ```
 
-(Note that `lucid` has an overly mechanism, this is one possible type of `div_`).
+(Note that `lucid` has an overloading mechanism, and this is one possible type of `div_`).
 
 The problem with this API is that it makes it difficult to abstract groups of attributes and reuse them.
 
@@ -219,9 +219,16 @@ flag
   True
   False
    ( long "no-extensions"
-  <> short 'E'
-  <> help "Don't show the possible extensions for physical files" )
+   <> short 'E'
+   <> help "Don't show the possible extensions for physical files" 
+   )
 ```
+
+Here we're using a `<>` like a list. Unfortunately, this has two problems:
+
+* Automatic code formatters already have a way to format lists, but they aren't generally aware that we're using `<>` as if it were constructing a list. This leads to either unexpected formatting, or special-casing within the formatter.
+
+* It's less discoverable to new Haskell users that they can supply multiple values. Even an experienced Haskell user will likely have to look up the type and spot the `Monoid` instance.
 
 If `optparse-applicative` instead used a list of monoids, the API would be a little more succinct for users, while not losing any functionality:
 
