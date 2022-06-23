@@ -218,10 +218,9 @@ When we use `optparse-applicative`, we often end up with code like:
 flag
   True
   False
-  [ long "no-extensions"
-  , short 'E'
-  , help "Don't show the possible extensions for physical files"
-  ]
+   ( long "no-extensions"
+  <> short 'E'
+  <> help "Don't show the possible extensions for physical files" )
 ```
 
 If `optparse-applicative` instead used a list of monoids, the API would be a little more succinct for users, while not losing any functionality:
