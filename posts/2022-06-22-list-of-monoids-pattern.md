@@ -206,7 +206,7 @@ div_
   ]
 ```
 
-Elm falls short of the pattern advocated in this blog post, as both attributes and html elements lack an identity element, so while Elm uses lists, they are lists of monoidal values.
+Elm falls short of the pattern advocated in this blog post, as both attributes and html elements lack an identity element, so while Elm uses lists, they aren't lists of monoidal values.
 
 ## `optparse-applicative`
 
